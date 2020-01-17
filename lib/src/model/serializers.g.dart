@@ -7,31 +7,74 @@ part of 'serializers.dart';
 // **************************************************************************
 
 Serializers _$serializers = (new Serializers().toBuilder()
+      ..add(AgeStructure.serializer)
+      ..add(AgeStructureValue.serializer)
+      ..add(BirthRate.serializer)
       ..add(BorderLength.serializer)
       ..add(Coastline.serializer)
       ..add(CommunicationUsers.serializer)
       ..add(Communications.serializer)
       ..add(Country.serializer)
       ..add(CountryData.serializer)
+      ..add(DeathRate.serializer)
+      ..add(DependencyRatio.serializer)
+      ..add(DependencyRatios.serializer)
+      ..add(DrinkingWaterClassification.serializer)
+      ..add(DrinkingWaterSource.serializer)
+      ..add(DrinkingWaterValue.serializer)
       ..add(Environment.serializer)
+      ..add(FlagDescription.serializer)
       ..add(GeographicCoordinate.serializer)
       ..add(GeographicCoordinates.serializer)
       ..add(Geography.serializer)
       ..add(GeographyArea.serializer)
       ..add(GeographyAreaValue.serializer)
+      ..add(Government.serializer)
+      ..add(InfantMortalityRate.serializer)
+      ..add(InfantMortalityRateValue.serializer)
       ..add(Introduction.serializer)
       ..add(IrrigatedLand.serializer)
       ..add(LandBoundaries.serializer)
       ..add(LandBoundary.serializer)
+      ..add(Language.serializer)
+      ..add(Languages.serializer)
+      ..add(LifeExpectancyAtBirth.serializer)
+      ..add(LifeExpectencyValue.serializer)
+      ..add(MajorUrbanArea.serializer)
+      ..add(MajorUrbanAreas.serializer)
+      ..add(MaternalMortalityRate.serializer)
+      ..add(MedianAge.serializer)
+      ..add(MedianAgeValue.serializer)
       ..add(NaturalHazard.serializer)
       ..add(NaturalResources.serializer)
+      ..add(People.serializer)
+      ..add(Population.serializer)
+      ..add(PopulationGrowthRate.serializer)
+      ..add(Religion.serializer)
+      ..add(Religions.serializer)
+      ..add(SexRatio.serializer)
+      ..add(SexRatioByAge.serializer)
+      ..add(SexRatioValue.serializer)
+      ..add(TotalFertilityRate.serializer)
       ..add(WorldFactbook.serializer)
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(LandBoundary)]),
           () => new ListBuilder<LandBoundary>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Language)]),
+          () => new ListBuilder<Language>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(MajorUrbanArea)]),
+          () => new ListBuilder<MajorUrbanArea>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(NaturalHazard)]),
           () => new ListBuilder<NaturalHazard>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(Religion)]),
+          () => new ListBuilder<Religion>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())

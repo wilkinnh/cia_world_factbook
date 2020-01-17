@@ -119,6 +119,12 @@ class _$CountryDataSerializer implements StructuredSerializer<CountryData> {
       'communications',
       serializers.serialize(object.communications,
           specifiedType: const FullType(Communications)),
+      'people',
+      serializers.serialize(object.people,
+          specifiedType: const FullType(People)),
+      'government',
+      serializers.serialize(object.government,
+          specifiedType: const FullType(Government)),
     ];
 
     return result;
@@ -150,6 +156,14 @@ class _$CountryDataSerializer implements StructuredSerializer<CountryData> {
         case 'communications':
           result.communications.replace(serializers.deserialize(value,
               specifiedType: const FullType(Communications)) as Communications);
+          break;
+        case 'people':
+          result.people.replace(serializers.deserialize(value,
+              specifiedType: const FullType(People)) as People);
+          break;
+        case 'government':
+          result.government.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Government)) as Government);
           break;
       }
     }
@@ -389,12 +403,21 @@ class _$CountryData extends CountryData {
   final Geography geography;
   @override
   final Communications communications;
+  @override
+  final People people;
+  @override
+  final Government government;
 
   factory _$CountryData([void Function(CountryDataBuilder) updates]) =>
       (new CountryDataBuilder()..update(updates)).build();
 
   _$CountryData._(
-      {this.name, this.introduction, this.geography, this.communications})
+      {this.name,
+      this.introduction,
+      this.geography,
+      this.communications,
+      this.people,
+      this.government})
       : super._() {
     if (name == null) {
       throw new BuiltValueNullFieldError('CountryData', 'name');
@@ -407,6 +430,12 @@ class _$CountryData extends CountryData {
     }
     if (communications == null) {
       throw new BuiltValueNullFieldError('CountryData', 'communications');
+    }
+    if (people == null) {
+      throw new BuiltValueNullFieldError('CountryData', 'people');
+    }
+    if (government == null) {
+      throw new BuiltValueNullFieldError('CountryData', 'government');
     }
   }
 
@@ -424,15 +453,21 @@ class _$CountryData extends CountryData {
         name == other.name &&
         introduction == other.introduction &&
         geography == other.geography &&
-        communications == other.communications;
+        communications == other.communications &&
+        people == other.people &&
+        government == other.government;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, name.hashCode), introduction.hashCode),
-            geography.hashCode),
-        communications.hashCode));
+        $jc(
+            $jc(
+                $jc($jc($jc(0, name.hashCode), introduction.hashCode),
+                    geography.hashCode),
+                communications.hashCode),
+            people.hashCode),
+        government.hashCode));
   }
 
   @override
@@ -441,7 +476,9 @@ class _$CountryData extends CountryData {
           ..add('name', name)
           ..add('introduction', introduction)
           ..add('geography', geography)
-          ..add('communications', communications))
+          ..add('communications', communications)
+          ..add('people', people)
+          ..add('government', government))
         .toString();
   }
 }
@@ -470,6 +507,16 @@ class CountryDataBuilder implements Builder<CountryData, CountryDataBuilder> {
   set communications(CommunicationsBuilder communications) =>
       _$this._communications = communications;
 
+  PeopleBuilder _people;
+  PeopleBuilder get people => _$this._people ??= new PeopleBuilder();
+  set people(PeopleBuilder people) => _$this._people = people;
+
+  GovernmentBuilder _government;
+  GovernmentBuilder get government =>
+      _$this._government ??= new GovernmentBuilder();
+  set government(GovernmentBuilder government) =>
+      _$this._government = government;
+
   CountryDataBuilder();
 
   CountryDataBuilder get _$this {
@@ -478,6 +525,8 @@ class CountryDataBuilder implements Builder<CountryData, CountryDataBuilder> {
       _introduction = _$v.introduction?.toBuilder();
       _geography = _$v.geography?.toBuilder();
       _communications = _$v.communications?.toBuilder();
+      _people = _$v.people?.toBuilder();
+      _government = _$v.government?.toBuilder();
       _$v = null;
     }
     return this;
@@ -505,7 +554,9 @@ class CountryDataBuilder implements Builder<CountryData, CountryDataBuilder> {
               name: name,
               introduction: introduction.build(),
               geography: geography.build(),
-              communications: communications.build());
+              communications: communications.build(),
+              people: people.build(),
+              government: government.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -515,6 +566,10 @@ class CountryDataBuilder implements Builder<CountryData, CountryDataBuilder> {
         geography.build();
         _$failedField = 'communications';
         communications.build();
+        _$failedField = 'people';
+        people.build();
+        _$failedField = 'government';
+        government.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'CountryData', _$failedField, e.toString());
