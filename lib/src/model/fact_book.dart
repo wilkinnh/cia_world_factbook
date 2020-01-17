@@ -4,6 +4,7 @@ import 'package:built_value/serializer.dart';
 
 import 'communications.dart';
 import 'geography.dart';
+import 'people.dart';
 
 part 'fact_book.g.dart';
 
@@ -37,6 +38,8 @@ abstract class CountryData implements Built<CountryData, CountryDataBuilder> {
   Geography get geography;
 
   Communications get communications;
+
+  People get people;
 
   CountryData._();
   factory CountryData([void Function(CountryDataBuilder) updates]) =
