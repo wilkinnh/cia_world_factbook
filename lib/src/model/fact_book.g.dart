@@ -113,21 +113,6 @@ class _$CountryDataSerializer implements StructuredSerializer<CountryData> {
       'introduction',
       serializers.serialize(object.introduction,
           specifiedType: const FullType(Introduction)),
-      'geography',
-      serializers.serialize(object.geography,
-          specifiedType: const FullType(Geography)),
-      'communications',
-      serializers.serialize(object.communications,
-          specifiedType: const FullType(Communications)),
-      'people',
-      serializers.serialize(object.people,
-          specifiedType: const FullType(People)),
-      'government',
-      serializers.serialize(object.government,
-          specifiedType: const FullType(Government)),
-      'economy',
-      serializers.serialize(object.economy,
-          specifiedType: const FullType(Economy)),
     ];
 
     return result;
@@ -151,26 +136,6 @@ class _$CountryDataSerializer implements StructuredSerializer<CountryData> {
         case 'introduction':
           result.introduction.replace(serializers.deserialize(value,
               specifiedType: const FullType(Introduction)) as Introduction);
-          break;
-        case 'geography':
-          result.geography.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Geography)) as Geography);
-          break;
-        case 'communications':
-          result.communications.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Communications)) as Communications);
-          break;
-        case 'people':
-          result.people.replace(serializers.deserialize(value,
-              specifiedType: const FullType(People)) as People);
-          break;
-        case 'government':
-          result.government.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Government)) as Government);
-          break;
-        case 'economy':
-          result.economy.replace(serializers.deserialize(value,
-              specifiedType: const FullType(Economy)) as Economy);
           break;
       }
     }
@@ -406,49 +371,16 @@ class _$CountryData extends CountryData {
   final String name;
   @override
   final Introduction introduction;
-  @override
-  final Geography geography;
-  @override
-  final Communications communications;
-  @override
-  final People people;
-  @override
-  final Government government;
-  @override
-  final Economy economy;
 
   factory _$CountryData([void Function(CountryDataBuilder) updates]) =>
       (new CountryDataBuilder()..update(updates)).build();
 
-  _$CountryData._(
-      {this.name,
-      this.introduction,
-      this.geography,
-      this.communications,
-      this.people,
-      this.government,
-      this.economy})
-      : super._() {
+  _$CountryData._({this.name, this.introduction}) : super._() {
     if (name == null) {
       throw new BuiltValueNullFieldError('CountryData', 'name');
     }
     if (introduction == null) {
       throw new BuiltValueNullFieldError('CountryData', 'introduction');
-    }
-    if (geography == null) {
-      throw new BuiltValueNullFieldError('CountryData', 'geography');
-    }
-    if (communications == null) {
-      throw new BuiltValueNullFieldError('CountryData', 'communications');
-    }
-    if (people == null) {
-      throw new BuiltValueNullFieldError('CountryData', 'people');
-    }
-    if (government == null) {
-      throw new BuiltValueNullFieldError('CountryData', 'government');
-    }
-    if (economy == null) {
-      throw new BuiltValueNullFieldError('CountryData', 'economy');
     }
   }
 
@@ -464,38 +396,19 @@ class _$CountryData extends CountryData {
     if (identical(other, this)) return true;
     return other is CountryData &&
         name == other.name &&
-        introduction == other.introduction &&
-        geography == other.geography &&
-        communications == other.communications &&
-        people == other.people &&
-        government == other.government &&
-        economy == other.economy;
+        introduction == other.introduction;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc(
-                $jc(
-                    $jc($jc($jc(0, name.hashCode), introduction.hashCode),
-                        geography.hashCode),
-                    communications.hashCode),
-                people.hashCode),
-            government.hashCode),
-        economy.hashCode));
+    return $jf($jc($jc(0, name.hashCode), introduction.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('CountryData')
           ..add('name', name)
-          ..add('introduction', introduction)
-          ..add('geography', geography)
-          ..add('communications', communications)
-          ..add('people', people)
-          ..add('government', government)
-          ..add('economy', economy))
+          ..add('introduction', introduction))
         .toString();
   }
 }
@@ -513,42 +426,12 @@ class CountryDataBuilder implements Builder<CountryData, CountryDataBuilder> {
   set introduction(IntroductionBuilder introduction) =>
       _$this._introduction = introduction;
 
-  GeographyBuilder _geography;
-  GeographyBuilder get geography =>
-      _$this._geography ??= new GeographyBuilder();
-  set geography(GeographyBuilder geography) => _$this._geography = geography;
-
-  CommunicationsBuilder _communications;
-  CommunicationsBuilder get communications =>
-      _$this._communications ??= new CommunicationsBuilder();
-  set communications(CommunicationsBuilder communications) =>
-      _$this._communications = communications;
-
-  PeopleBuilder _people;
-  PeopleBuilder get people => _$this._people ??= new PeopleBuilder();
-  set people(PeopleBuilder people) => _$this._people = people;
-
-  GovernmentBuilder _government;
-  GovernmentBuilder get government =>
-      _$this._government ??= new GovernmentBuilder();
-  set government(GovernmentBuilder government) =>
-      _$this._government = government;
-
-  EconomyBuilder _economy;
-  EconomyBuilder get economy => _$this._economy ??= new EconomyBuilder();
-  set economy(EconomyBuilder economy) => _$this._economy = economy;
-
   CountryDataBuilder();
 
   CountryDataBuilder get _$this {
     if (_$v != null) {
       _name = _$v.name;
       _introduction = _$v.introduction?.toBuilder();
-      _geography = _$v.geography?.toBuilder();
-      _communications = _$v.communications?.toBuilder();
-      _people = _$v.people?.toBuilder();
-      _government = _$v.government?.toBuilder();
-      _economy = _$v.economy?.toBuilder();
       _$v = null;
     }
     return this;
@@ -572,29 +455,12 @@ class CountryDataBuilder implements Builder<CountryData, CountryDataBuilder> {
     _$CountryData _$result;
     try {
       _$result = _$v ??
-          new _$CountryData._(
-              name: name,
-              introduction: introduction.build(),
-              geography: geography.build(),
-              communications: communications.build(),
-              people: people.build(),
-              government: government.build(),
-              economy: economy.build());
+          new _$CountryData._(name: name, introduction: introduction.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'introduction';
         introduction.build();
-        _$failedField = 'geography';
-        geography.build();
-        _$failedField = 'communications';
-        communications.build();
-        _$failedField = 'people';
-        people.build();
-        _$failedField = 'government';
-        government.build();
-        _$failedField = 'economy';
-        economy.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'CountryData', _$failedField, e.toString());
