@@ -1,8 +1,9 @@
-import 'package:example/details.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:cia_world_factbook/cia_world_factbook.dart';
 import 'package:flutter/widgets.dart';
+
+import 'details.dart';
 
 void main() => runApp(MyApp());
 

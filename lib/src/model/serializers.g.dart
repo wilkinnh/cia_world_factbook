@@ -9,10 +9,16 @@ part of 'serializers.dart';
 Serializers _$serializers = (new Serializers().toBuilder()
       ..add(AgeStructure.serializer)
       ..add(AgeStructureValue.serializer)
+      ..add(AgricultureProducts.serializer)
+      ..add(AnnualValue.serializer)
+      ..add(AnnualValues.serializer)
       ..add(BirthRate.serializer)
       ..add(BorderLength.serializer)
+      ..add(Budget.serializer)
+      ..add(BudgetSurplusOrDeficit.serializer)
       ..add(Citizenship.serializer)
       ..add(Coastline.serializer)
+      ..add(Commodities.serializer)
       ..add(CommunicationUsers.serializer)
       ..add(Communications.serializer)
       ..add(Constitution.serializer)
@@ -28,22 +34,34 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(DrinkingWaterClassification.serializer)
       ..add(DrinkingWaterSource.serializer)
       ..add(DrinkingWaterValue.serializer)
+      ..add(Economy.serializer)
       ..add(Environment.serializer)
       ..add(ExecutiveBranch.serializer)
+      ..add(Exports.serializer)
+      ..add(FiscalYear.serializer)
       ..add(FlagDescription.serializer)
+      ..add(GDP.serializer)
       ..add(GeographicCoordinate.serializer)
       ..add(GeographicCoordinates.serializer)
       ..add(Geography.serializer)
       ..add(GeographyArea.serializer)
       ..add(GeographyAreaValue.serializer)
       ..add(Government.serializer)
+      ..add(HouseholdIncomeByPercentageShare.serializer)
+      ..add(Imports.serializer)
       ..add(Independence.serializer)
+      ..add(IndustrialProductionGrowthRate.serializer)
+      ..add(Industries.serializer)
       ..add(InfantMortalityRate.serializer)
       ..add(InfantMortalityRateValue.serializer)
       ..add(InternationalOrganizationParticipation.serializer)
       ..add(Introduction.serializer)
       ..add(IrrigatedLand.serializer)
       ..add(JudicialBranch.serializer)
+      ..add(LaborForce.serializer)
+      ..add(LaborForceByOccupation.serializer)
+      ..add(LaborForceOccupation.serializer)
+      ..add(LaborForceTotalSize.serializer)
       ..add(LandBoundaries.serializer)
       ..add(LandBoundary.serializer)
       ..add(Language.serializer)
@@ -62,18 +80,30 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(NationalSymbols.serializer)
       ..add(NaturalHazard.serializer)
       ..add(NaturalResources.serializer)
+      ..add(Notable.serializer)
+      ..add(PartnerByCountry.serializer)
+      ..add(Partners.serializer)
       ..add(People.serializer)
       ..add(PoliticalPartiesAndLeaders.serializer)
       ..add(Population.serializer)
       ..add(PopulationGrowthRate.serializer)
+      ..add(PurchasingPowerParity.serializer)
       ..add(Religion.serializer)
       ..add(Religions.serializer)
       ..add(SexRatio.serializer)
       ..add(SexRatioByAge.serializer)
       ..add(SexRatioValue.serializer)
       ..add(Suffrage.serializer)
+      ..add(TaxesAndOtherRevenues.serializer)
       ..add(TotalFertilityRate.serializer)
+      ..add(ValueUnits.serializer)
       ..add(WorldFactbook.serializer)
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(AnnualValue)]),
+          () => new ListBuilder<AnnualValue>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(AnnualValue)]),
+          () => new ListBuilder<AnnualValue>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(LandBoundary)]),
           () => new ListBuilder<LandBoundary>())
@@ -103,8 +133,20 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(NaturalHazard)]),
           () => new ListBuilder<NaturalHazard>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(PartnerByCountry)]),
+          () => new ListBuilder<PartnerByCountry>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Religion)]),
           () => new ListBuilder<Religion>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())

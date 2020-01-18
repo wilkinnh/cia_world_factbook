@@ -1,6 +1,7 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
 import 'package:built_value/serializer.dart';
+import 'package:cia_world_factbook/cia_world_factbook.dart';
 
 import 'communications.dart';
 import 'geography.dart';
@@ -43,6 +44,8 @@ abstract class CountryData implements Built<CountryData, CountryDataBuilder> {
   People get people;
 
   Government get government;
+
+  Economy get economy;
 
   CountryData._();
   factory CountryData([void Function(CountryDataBuilder) updates]) =
