@@ -8,3 +8,4 @@ export 'energy.dart';
 export 'transportation.dart';
 export 'military.dart';
 export 'terrorism.dart';
+export 'transnational_issues.dart';

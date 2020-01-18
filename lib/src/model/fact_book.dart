@@ -50,6 +50,9 @@ abstract class CountryData implements Built<CountryData, CountryDataBuilder> {
 //  Military get military;
 //
 //  Terrorism get terrorism;
+//
+//  @BuiltValueField(wireName: 'transnational_issues')
+//  TransnationalIssues get transnationalIssues;
 
   CountryData._();
   factory CountryData([void Function(CountryDataBuilder) updates]) =
