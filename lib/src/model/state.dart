@@ -6,3 +6,4 @@ export 'government.dart';
 export 'economy.dart';
 export 'energy.dart';
 export 'transportation.dart';
+export 'military.dart';
