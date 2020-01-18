@@ -7,3 +7,4 @@ export 'economy.dart';
 export 'energy.dart';
 export 'transportation.dart';
 export 'military.dart';
+export 'terrorism.dart';

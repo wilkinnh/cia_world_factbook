@@ -48,6 +48,8 @@ abstract class CountryData implements Built<CountryData, CountryDataBuilder> {
 //  Transportation get transportation;
 //
 //  Military get military;
+//
+//  Terrorism get terrorism;
 
   CountryData._();
   factory CountryData([void Function(CountryDataBuilder) updates]) =
