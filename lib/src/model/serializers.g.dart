@@ -11,18 +11,25 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(AgeStructureValue.serializer)
       ..add(BirthRate.serializer)
       ..add(BorderLength.serializer)
+      ..add(Citizenship.serializer)
       ..add(Coastline.serializer)
       ..add(CommunicationUsers.serializer)
       ..add(Communications.serializer)
+      ..add(Constitution.serializer)
       ..add(Country.serializer)
       ..add(CountryData.serializer)
+      ..add(CountryName.serializer)
       ..add(DeathRate.serializer)
       ..add(DependencyRatio.serializer)
       ..add(DependencyRatios.serializer)
+      ..add(DiplomaticRepresentation.serializer)
+      ..add(DiplomaticRepresentationFromUnitedStates.serializer)
+      ..add(DiplomaticRepresentationInUnitedStates.serializer)
       ..add(DrinkingWaterClassification.serializer)
       ..add(DrinkingWaterSource.serializer)
       ..add(DrinkingWaterValue.serializer)
       ..add(Environment.serializer)
+      ..add(ExecutiveBranch.serializer)
       ..add(FlagDescription.serializer)
       ..add(GeographicCoordinate.serializer)
       ..add(GeographicCoordinates.serializer)
@@ -30,14 +37,18 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(GeographyArea.serializer)
       ..add(GeographyAreaValue.serializer)
       ..add(Government.serializer)
+      ..add(Independence.serializer)
       ..add(InfantMortalityRate.serializer)
       ..add(InfantMortalityRateValue.serializer)
+      ..add(InternationalOrganizationParticipation.serializer)
       ..add(Introduction.serializer)
       ..add(IrrigatedLand.serializer)
+      ..add(JudicialBranch.serializer)
       ..add(LandBoundaries.serializer)
       ..add(LandBoundary.serializer)
       ..add(Language.serializer)
       ..add(Languages.serializer)
+      ..add(LegislativeBranch.serializer)
       ..add(LifeExpectancyAtBirth.serializer)
       ..add(LifeExpectencyValue.serializer)
       ..add(MajorUrbanArea.serializer)
@@ -45,9 +56,14 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(MaternalMortalityRate.serializer)
       ..add(MedianAge.serializer)
       ..add(MedianAgeValue.serializer)
+      ..add(NationalColor.serializer)
+      ..add(NationalHoliday.serializer)
+      ..add(NationalSymbol.serializer)
+      ..add(NationalSymbols.serializer)
       ..add(NaturalHazard.serializer)
       ..add(NaturalResources.serializer)
       ..add(People.serializer)
+      ..add(PoliticalPartiesAndLeaders.serializer)
       ..add(Population.serializer)
       ..add(PopulationGrowthRate.serializer)
       ..add(Religion.serializer)
@@ -55,6 +71,7 @@ Serializers _$serializers = (new Serializers().toBuilder()
       ..add(SexRatio.serializer)
       ..add(SexRatioByAge.serializer)
       ..add(SexRatioValue.serializer)
+      ..add(Suffrage.serializer)
       ..add(TotalFertilityRate.serializer)
       ..add(WorldFactbook.serializer)
       ..addBuilderFactory(
@@ -67,14 +84,27 @@ Serializers _$serializers = (new Serializers().toBuilder()
           const FullType(BuiltList, const [const FullType(MajorUrbanArea)]),
           () => new ListBuilder<MajorUrbanArea>())
       ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NationalHoliday)]),
+          () => new ListBuilder<NationalHoliday>())
+      ..addBuilderFactory(
+          const FullType(BuiltList,
+              const [const FullType(InternationalOrganizationParticipation)]),
+          () => new ListBuilder<InternationalOrganizationParticipation>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NationalSymbol)]),
+          () => new ListBuilder<NationalSymbol>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NationalColor)]),
+          () => new ListBuilder<NationalColor>())
+      ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(NaturalHazard)]),
           () => new ListBuilder<NaturalHazard>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(Religion)]),
           () => new ListBuilder<Religion>())
-      ..addBuilderFactory(
-          const FullType(BuiltList, const [const FullType(String)]),
-          () => new ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltList, const [const FullType(String)]),
           () => new ListBuilder<String>())
