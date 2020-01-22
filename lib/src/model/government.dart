@@ -4,50 +4,67 @@ import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
 import 'package:cia_world_factbook/cia_world_factbook.dart';
 
+import 'serializers.dart';
+
 part 'government.g.dart';
 
 abstract class Government implements Built<Government, GovernmentBuilder> {
   static Serializer<Government> get serializer => _$governmentSerializer;
 
   @BuiltValueField(wireName: 'country_name')
+  @nullable
   CountryName get countryName;
 
   @BuiltValueField(wireName: 'government_type')
+  @nullable
   String get governmentType;
 
-  JsonObject get capital;
+  @nullable
+  Capital get capital;
 
+  @nullable
   Independence get independence;
 
   @BuiltValueField(wireName: 'national_holidays')
+  @nullable
   BuiltList<NationalHoliday> get nationalHolidays;
 
+  @nullable
   Constitution get constitution;
 
   @BuiltValueField(wireName: 'legal_system')
+  @nullable
   String get legalSystem;
 
+  @nullable
   Citizenship get citizenship;
 
+  @nullable
   Suffrage get suffrage;
 
   @BuiltValueField(wireName: 'executive_branch')
+  @nullable
   ExecutiveBranch get executiveBranch;
 
   @BuiltValueField(wireName: 'legislative_branch')
+  @nullable
   LegislativeBranch get legislativeBranch;
 
   @BuiltValueField(wireName: 'judicial_branch')
+  @nullable
   JudicialBranch get judicialBranch;
 
   @BuiltValueField(wireName: 'political_parties_and_leaders')
+  @nullable
   PoliticalPartiesAndLeaders get politicalPartiesAndLeaders;
 
   @BuiltValueField(wireName: 'international_organization_participation')
+  @nullable
   BuiltList<InternationalOrganizationParticipation>
       get internationalOrganizationParticipation;
 
   @BuiltValueField(wireName: 'diplomatic_representation')
+  @nullable
   DiplomaticRepresentation get diplomaticRepresentation;
 
   @BuiltValueField(wireName: 'international_law_organization_participation')
@@ -55,9 +72,11 @@ abstract class Government implements Built<Government, GovernmentBuilder> {
   BuiltList<String> get internationalLawOrganizationParticipation;
 
   @BuiltValueField(wireName: 'flag_description')
+  @nullable
   FlagDescription get flagDescription;
 
   @BuiltValueField(wireName: 'national_symbol')
+  @nullable
   NationalSymbols get nationalSymbols;
 
   Government._();
@@ -68,19 +87,25 @@ abstract class CountryName implements Built<CountryName, CountryNameBuilder> {
   static Serializer<CountryName> get serializer => _$countryNameSerializer;
 
   @BuiltValueField(wireName: 'conventional_long_form')
+  @nullable
   String get conventionalLongForm;
 
   @BuiltValueField(wireName: 'conventional_short_form')
+  @nullable
   String get conventionalShortForm;
 
   @BuiltValueField(wireName: 'local_long_form')
+  @nullable
   String get localLongForm;
 
   @BuiltValueField(wireName: 'local_short_form')
+  @nullable
   String get localShortForm;
 
+  @nullable
   String get former;
 
+  @nullable
   String get etymology;
 
   CountryName._();
@@ -91,18 +116,43 @@ abstract class CountryName implements Built<CountryName, CountryNameBuilder> {
 abstract class Capital implements Built<Capital, CapitalBuilder> {
   static Serializer<Capital> get serializer => _$capitalSerializer;
 
+  @nullable
   String get name;
 
   @BuiltValueField(wireName: 'geographic_coordinates')
-  GeographicCoordinates get geographicCoordinates;
+  @nullable
+  JsonObject get geographicCoordinatesValue;
+
+  GeographicCoordinates get geographicCoordinates {
+    if (geographicCoordinatesValue != null &&
+        geographicCoordinatesValue.isMap) {
+      return standardSerializers.deserializeWith(
+          GeographicCoordinates.serializer, geographicCoordinatesValue.asMap);
+    }
+    return null;
+  }
 
   @BuiltValueField(wireName: 'time_difference')
-  TimeDifference get timeDifference;
+  @nullable
+  JsonObject get timeDifferenceValue;
+
+  TimeDifference get timeDifference {
+    if (timeDifferenceValue != null && timeDifferenceValue.isMap) {
+      return standardSerializers.deserializeWith(
+          TimeDifference.serializer, timeDifferenceValue.asMap);
+    }
+    return null;
+  }
 
   @BuiltValueField(wireName: 'daylight_saving_time')
+  @nullable
   String get daylightSavingTime;
 
+  @nullable
   String get etymology;
+
+  @nullable
+  String get note;
 
   Capital._();
   factory Capital([void Function(CapitalBuilder) updates]) = _$Capital;
@@ -126,8 +176,10 @@ abstract class Independence
     implements Built<Independence, IndependenceBuilder> {
   static Serializer<Independence> get serializer => _$independenceSerializer;
 
+  @nullable
   String get date;
 
+  @nullable
   String get note;
 
   Independence._();
@@ -145,7 +197,11 @@ abstract class NationalHoliday
   String get day;
 
   @BuiltValueField(wireName: 'original_year')
+  @nullable
   String get originalYear;
+
+  @nullable
+  String get note;
 
   NationalHoliday._();
   factory NationalHoliday([void Function(NationalHolidayBuilder) updates]) =
@@ -158,6 +214,7 @@ abstract class Constitution
 
   String get history;
 
+  @nullable
   String get amendments;
 
   Constitution._();
@@ -188,11 +245,17 @@ abstract class Citizenship implements Built<Citizenship, CitizenshipBuilder> {
 abstract class Suffrage implements Built<Suffrage, SuffrageBuilder> {
   static Serializer<Suffrage> get serializer => _$suffrageSerializer;
 
+  @nullable
   int get age;
 
+  @nullable
   bool get universal;
 
+  @nullable
   bool get compulsory;
+
+  @nullable
+  String get note;
 
   Suffrage._();
   factory Suffrage([void Function(SuffrageBuilder) updates]) = _$Suffrage;
@@ -204,18 +267,26 @@ abstract class ExecutiveBranch
       _$executiveBranchSerializer;
 
   @BuiltValueField(wireName: 'chief_of_state')
+  @nullable
   String get chiefOfState;
 
   @BuiltValueField(wireName: 'head_of_government')
+  @nullable
   String get headOfGovernment;
 
+  @nullable
   String get cabinet;
 
   @BuiltValueField(wireName: 'elections_appointments')
+  @nullable
   String get electionsAppointments;
 
   @BuiltValueField(wireName: 'election_results')
+  @nullable
   String get electionResults;
+
+  @nullable
+  String get note;
 
   ExecutiveBranch._();
   factory ExecutiveBranch([void Function(ExecutiveBranchBuilder) updates]) =
@@ -229,11 +300,14 @@ abstract class LegislativeBranch
 
   String get description;
 
+  @nullable
   String get elections;
 
   @BuiltValueField(wireName: 'election_results')
+  @nullable
   String get electionResults;
 
+  @nullable
   String get note;
 
   LegislativeBranch._();
@@ -250,9 +324,11 @@ abstract class JudicialBranch
   String get highestCourts;
 
   @BuiltValueField(wireName: 'judge_selection_and_term_of_office')
+  @nullable
   String get judgeSelectionAndTermOfOffice;
 
   @BuiltValueField(wireName: 'subordinate_courts')
+  @nullable
   String get subordinateCourts;
 
   JudicialBranch._();
@@ -266,6 +342,7 @@ abstract class PoliticalPartiesAndLeaders
   static Serializer<PoliticalPartiesAndLeaders> get serializer =>
       _$politicalPartiesAndLeadersSerializer;
 
+  @nullable
   String get note;
 
   PoliticalPartiesAndLeaders._();
@@ -299,9 +376,11 @@ abstract class DiplomaticRepresentation
       _$diplomaticRepresentationSerializer;
 
   @BuiltValueField(wireName: 'in_united_states')
+  @nullable
   DiplomaticRepresentationInUnitedStates get inUnitedStates;
 
   @BuiltValueField(wireName: 'from_united_states')
+  @nullable
   DiplomaticRepresentationFromUnitedStates get fromUnitedStates;
 
   DiplomaticRepresentation._();
@@ -317,14 +396,21 @@ abstract class DiplomaticRepresentationInUnitedStates
   static Serializer<DiplomaticRepresentationInUnitedStates> get serializer =>
       _$diplomaticRepresentationInUnitedStatesSerializer;
 
+  @nullable
   String get chancery;
 
+  @nullable
   String get telephone;
 
+  @nullable
   String get fax;
 
-  @BuiltValueField(wireName: 'consulate_general')
+  @BuiltValueField(wireName: 'consulates_general')
+  @nullable
   String get consulatesGeneral;
+
+  @nullable
+  String get note;
 
   DiplomaticRepresentationInUnitedStates._();
   factory DiplomaticRepresentationInUnitedStates(
@@ -339,17 +425,26 @@ abstract class DiplomaticRepresentationFromUnitedStates
   static Serializer<DiplomaticRepresentationFromUnitedStates> get serializer =>
       _$diplomaticRepresentationFromUnitedStatesSerializer;
 
-  @BuiltValueField(wireName: 'cheif_of_mission')
+  @BuiltValueField(wireName: 'chief_of_mission')
+  @nullable
   String get chiefOfMission;
 
+  @nullable
   String get telephone;
 
+  @nullable
   String get embassy;
 
   @BuiltValueField(wireName: 'mailing_address')
+  @nullable
   String get mailingAddress;
 
+  @nullable
   String get fax;
+
+  @BuiltValueField(wireName: 'consulates_general')
+  @nullable
+  String get consulatesGeneral;
 
   DiplomaticRepresentationFromUnitedStates._();
   factory DiplomaticRepresentationFromUnitedStates(
@@ -364,9 +459,11 @@ abstract class FlagDescription
 
   String get description;
 
+  @nullable
   String get note;
 
   @BuiltValueField(wireName: 'united_nations_flag')
+  @nullable
   String get unitedNationsFlag;
 
   FlagDescription._();

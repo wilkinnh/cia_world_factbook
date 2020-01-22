@@ -38,12 +38,12 @@ abstract class CountryData implements Built<CountryData, CountryDataBuilder> {
 //  Communications get communications;
 //
 //  People get people;
-//
-//  Government get government;
-//
+
+  Government get government;
+
 //  Economy get economy;
 //
-//  Energy get energy
+//  Energy get energy;
 //
 //  Transportation get transportation;
 //

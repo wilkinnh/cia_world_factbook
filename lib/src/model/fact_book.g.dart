@@ -116,6 +116,9 @@ class _$CountryDataSerializer implements StructuredSerializer<CountryData> {
       'geography',
       serializers.serialize(object.geography,
           specifiedType: const FullType(Geography)),
+      'government',
+      serializers.serialize(object.government,
+          specifiedType: const FullType(Government)),
     ];
 
     return result;
@@ -143,6 +146,10 @@ class _$CountryDataSerializer implements StructuredSerializer<CountryData> {
         case 'geography':
           result.geography.replace(serializers.deserialize(value,
               specifiedType: const FullType(Geography)) as Geography);
+          break;
+        case 'government':
+          result.government.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Government)) as Government);
           break;
       }
     }
@@ -380,11 +387,15 @@ class _$CountryData extends CountryData {
   final Introduction introduction;
   @override
   final Geography geography;
+  @override
+  final Government government;
 
   factory _$CountryData([void Function(CountryDataBuilder) updates]) =>
       (new CountryDataBuilder()..update(updates)).build();
 
-  _$CountryData._({this.name, this.introduction, this.geography}) : super._() {
+  _$CountryData._(
+      {this.name, this.introduction, this.geography, this.government})
+      : super._() {
     if (name == null) {
       throw new BuiltValueNullFieldError('CountryData', 'name');
     }
@@ -393,6 +404,9 @@ class _$CountryData extends CountryData {
     }
     if (geography == null) {
       throw new BuiltValueNullFieldError('CountryData', 'geography');
+    }
+    if (government == null) {
+      throw new BuiltValueNullFieldError('CountryData', 'government');
     }
   }
 
@@ -409,13 +423,16 @@ class _$CountryData extends CountryData {
     return other is CountryData &&
         name == other.name &&
         introduction == other.introduction &&
-        geography == other.geography;
+        geography == other.geography &&
+        government == other.government;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc(0, name.hashCode), introduction.hashCode), geography.hashCode));
+        $jc($jc($jc(0, name.hashCode), introduction.hashCode),
+            geography.hashCode),
+        government.hashCode));
   }
 
   @override
@@ -423,7 +440,8 @@ class _$CountryData extends CountryData {
     return (newBuiltValueToStringHelper('CountryData')
           ..add('name', name)
           ..add('introduction', introduction)
-          ..add('geography', geography))
+          ..add('geography', geography)
+          ..add('government', government))
         .toString();
   }
 }
@@ -446,6 +464,12 @@ class CountryDataBuilder implements Builder<CountryData, CountryDataBuilder> {
       _$this._geography ??= new GeographyBuilder();
   set geography(GeographyBuilder geography) => _$this._geography = geography;
 
+  GovernmentBuilder _government;
+  GovernmentBuilder get government =>
+      _$this._government ??= new GovernmentBuilder();
+  set government(GovernmentBuilder government) =>
+      _$this._government = government;
+
   CountryDataBuilder();
 
   CountryDataBuilder get _$this {
@@ -453,6 +477,7 @@ class CountryDataBuilder implements Builder<CountryData, CountryDataBuilder> {
       _name = _$v.name;
       _introduction = _$v.introduction?.toBuilder();
       _geography = _$v.geography?.toBuilder();
+      _government = _$v.government?.toBuilder();
       _$v = null;
     }
     return this;
@@ -479,7 +504,8 @@ class CountryDataBuilder implements Builder<CountryData, CountryDataBuilder> {
           new _$CountryData._(
               name: name,
               introduction: introduction.build(),
-              geography: geography.build());
+              geography: geography.build(),
+              government: government.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -487,6 +513,8 @@ class CountryDataBuilder implements Builder<CountryData, CountryDataBuilder> {
         introduction.build();
         _$failedField = 'geography';
         geography.build();
+        _$failedField = 'government';
+        government.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'CountryData', _$failedField, e.toString());

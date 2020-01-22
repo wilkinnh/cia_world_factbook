@@ -58,61 +58,101 @@ class _$GovernmentSerializer implements StructuredSerializer<Government> {
   @override
   Iterable<Object> serialize(Serializers serializers, Government object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'country_name',
-      serializers.serialize(object.countryName,
-          specifiedType: const FullType(CountryName)),
-      'government_type',
-      serializers.serialize(object.governmentType,
-          specifiedType: const FullType(String)),
-      'capital',
-      serializers.serialize(object.capital,
-          specifiedType: const FullType(JsonObject)),
-      'independence',
-      serializers.serialize(object.independence,
-          specifiedType: const FullType(Independence)),
-      'national_holidays',
-      serializers.serialize(object.nationalHolidays,
-          specifiedType: const FullType(
-              BuiltList, const [const FullType(NationalHoliday)])),
-      'constitution',
-      serializers.serialize(object.constitution,
-          specifiedType: const FullType(Constitution)),
-      'legal_system',
-      serializers.serialize(object.legalSystem,
-          specifiedType: const FullType(String)),
-      'citizenship',
-      serializers.serialize(object.citizenship,
-          specifiedType: const FullType(Citizenship)),
-      'suffrage',
-      serializers.serialize(object.suffrage,
-          specifiedType: const FullType(Suffrage)),
-      'executive_branch',
-      serializers.serialize(object.executiveBranch,
-          specifiedType: const FullType(ExecutiveBranch)),
-      'legislative_branch',
-      serializers.serialize(object.legislativeBranch,
-          specifiedType: const FullType(LegislativeBranch)),
-      'judicial_branch',
-      serializers.serialize(object.judicialBranch,
-          specifiedType: const FullType(JudicialBranch)),
-      'political_parties_and_leaders',
-      serializers.serialize(object.politicalPartiesAndLeaders,
-          specifiedType: const FullType(PoliticalPartiesAndLeaders)),
-      'international_organization_participation',
-      serializers.serialize(object.internationalOrganizationParticipation,
-          specifiedType: const FullType(BuiltList,
-              const [const FullType(InternationalOrganizationParticipation)])),
-      'diplomatic_representation',
-      serializers.serialize(object.diplomaticRepresentation,
-          specifiedType: const FullType(DiplomaticRepresentation)),
-      'flag_description',
-      serializers.serialize(object.flagDescription,
-          specifiedType: const FullType(FlagDescription)),
-      'national_symbol',
-      serializers.serialize(object.nationalSymbols,
-          specifiedType: const FullType(NationalSymbols)),
-    ];
+    final result = <Object>[];
+    if (object.countryName != null) {
+      result
+        ..add('country_name')
+        ..add(serializers.serialize(object.countryName,
+            specifiedType: const FullType(CountryName)));
+    }
+    if (object.governmentType != null) {
+      result
+        ..add('government_type')
+        ..add(serializers.serialize(object.governmentType,
+            specifiedType: const FullType(String)));
+    }
+    if (object.capital != null) {
+      result
+        ..add('capital')
+        ..add(serializers.serialize(object.capital,
+            specifiedType: const FullType(Capital)));
+    }
+    if (object.independence != null) {
+      result
+        ..add('independence')
+        ..add(serializers.serialize(object.independence,
+            specifiedType: const FullType(Independence)));
+    }
+    if (object.nationalHolidays != null) {
+      result
+        ..add('national_holidays')
+        ..add(serializers.serialize(object.nationalHolidays,
+            specifiedType: const FullType(
+                BuiltList, const [const FullType(NationalHoliday)])));
+    }
+    if (object.constitution != null) {
+      result
+        ..add('constitution')
+        ..add(serializers.serialize(object.constitution,
+            specifiedType: const FullType(Constitution)));
+    }
+    if (object.legalSystem != null) {
+      result
+        ..add('legal_system')
+        ..add(serializers.serialize(object.legalSystem,
+            specifiedType: const FullType(String)));
+    }
+    if (object.citizenship != null) {
+      result
+        ..add('citizenship')
+        ..add(serializers.serialize(object.citizenship,
+            specifiedType: const FullType(Citizenship)));
+    }
+    if (object.suffrage != null) {
+      result
+        ..add('suffrage')
+        ..add(serializers.serialize(object.suffrage,
+            specifiedType: const FullType(Suffrage)));
+    }
+    if (object.executiveBranch != null) {
+      result
+        ..add('executive_branch')
+        ..add(serializers.serialize(object.executiveBranch,
+            specifiedType: const FullType(ExecutiveBranch)));
+    }
+    if (object.legislativeBranch != null) {
+      result
+        ..add('legislative_branch')
+        ..add(serializers.serialize(object.legislativeBranch,
+            specifiedType: const FullType(LegislativeBranch)));
+    }
+    if (object.judicialBranch != null) {
+      result
+        ..add('judicial_branch')
+        ..add(serializers.serialize(object.judicialBranch,
+            specifiedType: const FullType(JudicialBranch)));
+    }
+    if (object.politicalPartiesAndLeaders != null) {
+      result
+        ..add('political_parties_and_leaders')
+        ..add(serializers.serialize(object.politicalPartiesAndLeaders,
+            specifiedType: const FullType(PoliticalPartiesAndLeaders)));
+    }
+    if (object.internationalOrganizationParticipation != null) {
+      result
+        ..add('international_organization_participation')
+        ..add(serializers.serialize(
+            object.internationalOrganizationParticipation,
+            specifiedType: const FullType(BuiltList, const [
+              const FullType(InternationalOrganizationParticipation)
+            ])));
+    }
+    if (object.diplomaticRepresentation != null) {
+      result
+        ..add('diplomatic_representation')
+        ..add(serializers.serialize(object.diplomaticRepresentation,
+            specifiedType: const FullType(DiplomaticRepresentation)));
+    }
     if (object.internationalLawOrganizationParticipation != null) {
       result
         ..add('international_law_organization_participation')
@@ -120,6 +160,18 @@ class _$GovernmentSerializer implements StructuredSerializer<Government> {
             object.internationalLawOrganizationParticipation,
             specifiedType:
                 const FullType(BuiltList, const [const FullType(String)])));
+    }
+    if (object.flagDescription != null) {
+      result
+        ..add('flag_description')
+        ..add(serializers.serialize(object.flagDescription,
+            specifiedType: const FullType(FlagDescription)));
+    }
+    if (object.nationalSymbols != null) {
+      result
+        ..add('national_symbol')
+        ..add(serializers.serialize(object.nationalSymbols,
+            specifiedType: const FullType(NationalSymbols)));
     }
     return result;
   }
@@ -144,8 +196,8 @@ class _$GovernmentSerializer implements StructuredSerializer<Government> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'capital':
-          result.capital = serializers.deserialize(value,
-              specifiedType: const FullType(JsonObject)) as JsonObject;
+          result.capital.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Capital)) as Capital);
           break;
         case 'independence':
           result.independence.replace(serializers.deserialize(value,
@@ -238,27 +290,43 @@ class _$CountryNameSerializer implements StructuredSerializer<CountryName> {
   @override
   Iterable<Object> serialize(Serializers serializers, CountryName object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'conventional_long_form',
-      serializers.serialize(object.conventionalLongForm,
-          specifiedType: const FullType(String)),
-      'conventional_short_form',
-      serializers.serialize(object.conventionalShortForm,
-          specifiedType: const FullType(String)),
-      'local_long_form',
-      serializers.serialize(object.localLongForm,
-          specifiedType: const FullType(String)),
-      'local_short_form',
-      serializers.serialize(object.localShortForm,
-          specifiedType: const FullType(String)),
-      'former',
-      serializers.serialize(object.former,
-          specifiedType: const FullType(String)),
-      'etymology',
-      serializers.serialize(object.etymology,
-          specifiedType: const FullType(String)),
-    ];
-
+    final result = <Object>[];
+    if (object.conventionalLongForm != null) {
+      result
+        ..add('conventional_long_form')
+        ..add(serializers.serialize(object.conventionalLongForm,
+            specifiedType: const FullType(String)));
+    }
+    if (object.conventionalShortForm != null) {
+      result
+        ..add('conventional_short_form')
+        ..add(serializers.serialize(object.conventionalShortForm,
+            specifiedType: const FullType(String)));
+    }
+    if (object.localLongForm != null) {
+      result
+        ..add('local_long_form')
+        ..add(serializers.serialize(object.localLongForm,
+            specifiedType: const FullType(String)));
+    }
+    if (object.localShortForm != null) {
+      result
+        ..add('local_short_form')
+        ..add(serializers.serialize(object.localShortForm,
+            specifiedType: const FullType(String)));
+    }
+    if (object.former != null) {
+      result
+        ..add('former')
+        ..add(serializers.serialize(object.former,
+            specifiedType: const FullType(String)));
+    }
+    if (object.etymology != null) {
+      result
+        ..add('etymology')
+        ..add(serializers.serialize(object.etymology,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -313,23 +381,43 @@ class _$CapitalSerializer implements StructuredSerializer<Capital> {
   @override
   Iterable<Object> serialize(Serializers serializers, Capital object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-      'geographic_coordinates',
-      serializers.serialize(object.geographicCoordinates,
-          specifiedType: const FullType(GeographicCoordinates)),
-      'time_difference',
-      serializers.serialize(object.timeDifference,
-          specifiedType: const FullType(TimeDifference)),
-      'daylight_saving_time',
-      serializers.serialize(object.daylightSavingTime,
-          specifiedType: const FullType(String)),
-      'etymology',
-      serializers.serialize(object.etymology,
-          specifiedType: const FullType(String)),
-    ];
-
+    final result = <Object>[];
+    if (object.name != null) {
+      result
+        ..add('name')
+        ..add(serializers.serialize(object.name,
+            specifiedType: const FullType(String)));
+    }
+    if (object.geographicCoordinatesValue != null) {
+      result
+        ..add('geographic_coordinates')
+        ..add(serializers.serialize(object.geographicCoordinatesValue,
+            specifiedType: const FullType(JsonObject)));
+    }
+    if (object.timeDifferenceValue != null) {
+      result
+        ..add('time_difference')
+        ..add(serializers.serialize(object.timeDifferenceValue,
+            specifiedType: const FullType(JsonObject)));
+    }
+    if (object.daylightSavingTime != null) {
+      result
+        ..add('daylight_saving_time')
+        ..add(serializers.serialize(object.daylightSavingTime,
+            specifiedType: const FullType(String)));
+    }
+    if (object.etymology != null) {
+      result
+        ..add('etymology')
+        ..add(serializers.serialize(object.etymology,
+            specifiedType: const FullType(String)));
+    }
+    if (object.note != null) {
+      result
+        ..add('note')
+        ..add(serializers.serialize(object.note,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -349,13 +437,12 @@ class _$CapitalSerializer implements StructuredSerializer<Capital> {
               specifiedType: const FullType(String)) as String;
           break;
         case 'geographic_coordinates':
-          result.geographicCoordinates.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GeographicCoordinates))
-              as GeographicCoordinates);
+          result.geographicCoordinatesValue = serializers.deserialize(value,
+              specifiedType: const FullType(JsonObject)) as JsonObject;
           break;
         case 'time_difference':
-          result.timeDifference.replace(serializers.deserialize(value,
-              specifiedType: const FullType(TimeDifference)) as TimeDifference);
+          result.timeDifferenceValue = serializers.deserialize(value,
+              specifiedType: const FullType(JsonObject)) as JsonObject;
           break;
         case 'daylight_saving_time':
           result.daylightSavingTime = serializers.deserialize(value,
@@ -363,6 +450,10 @@ class _$CapitalSerializer implements StructuredSerializer<Capital> {
           break;
         case 'etymology':
           result.etymology = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'note':
+          result.note = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
       }
@@ -429,13 +520,19 @@ class _$IndependenceSerializer implements StructuredSerializer<Independence> {
   @override
   Iterable<Object> serialize(Serializers serializers, Independence object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'date',
-      serializers.serialize(object.date, specifiedType: const FullType(String)),
-      'note',
-      serializers.serialize(object.note, specifiedType: const FullType(String)),
-    ];
-
+    final result = <Object>[];
+    if (object.date != null) {
+      result
+        ..add('date')
+        ..add(serializers.serialize(object.date,
+            specifiedType: const FullType(String)));
+    }
+    if (object.note != null) {
+      result
+        ..add('note')
+        ..add(serializers.serialize(object.note,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -480,11 +577,19 @@ class _$NationalHolidaySerializer
       serializers.serialize(object.name, specifiedType: const FullType(String)),
       'day',
       serializers.serialize(object.day, specifiedType: const FullType(String)),
-      'original_year',
-      serializers.serialize(object.originalYear,
-          specifiedType: const FullType(String)),
     ];
-
+    if (object.originalYear != null) {
+      result
+        ..add('original_year')
+        ..add(serializers.serialize(object.originalYear,
+            specifiedType: const FullType(String)));
+    }
+    if (object.note != null) {
+      result
+        ..add('note')
+        ..add(serializers.serialize(object.note,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -512,6 +617,10 @@ class _$NationalHolidaySerializer
           result.originalYear = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'note':
+          result.note = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
       }
     }
 
@@ -532,11 +641,13 @@ class _$ConstitutionSerializer implements StructuredSerializer<Constitution> {
       'history',
       serializers.serialize(object.history,
           specifiedType: const FullType(String)),
-      'amendments',
-      serializers.serialize(object.amendments,
-          specifiedType: const FullType(String)),
     ];
-
+    if (object.amendments != null) {
+      result
+        ..add('amendments')
+        ..add(serializers.serialize(object.amendments,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -637,17 +748,31 @@ class _$SuffrageSerializer implements StructuredSerializer<Suffrage> {
   @override
   Iterable<Object> serialize(Serializers serializers, Suffrage object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'age',
-      serializers.serialize(object.age, specifiedType: const FullType(int)),
-      'universal',
-      serializers.serialize(object.universal,
-          specifiedType: const FullType(bool)),
-      'compulsory',
-      serializers.serialize(object.compulsory,
-          specifiedType: const FullType(bool)),
-    ];
-
+    final result = <Object>[];
+    if (object.age != null) {
+      result
+        ..add('age')
+        ..add(serializers.serialize(object.age,
+            specifiedType: const FullType(int)));
+    }
+    if (object.universal != null) {
+      result
+        ..add('universal')
+        ..add(serializers.serialize(object.universal,
+            specifiedType: const FullType(bool)));
+    }
+    if (object.compulsory != null) {
+      result
+        ..add('compulsory')
+        ..add(serializers.serialize(object.compulsory,
+            specifiedType: const FullType(bool)));
+    }
+    if (object.note != null) {
+      result
+        ..add('note')
+        ..add(serializers.serialize(object.note,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -674,6 +799,10 @@ class _$SuffrageSerializer implements StructuredSerializer<Suffrage> {
           result.compulsory = serializers.deserialize(value,
               specifiedType: const FullType(bool)) as bool;
           break;
+        case 'note':
+          result.note = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
       }
     }
 
@@ -691,24 +820,43 @@ class _$ExecutiveBranchSerializer
   @override
   Iterable<Object> serialize(Serializers serializers, ExecutiveBranch object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'chief_of_state',
-      serializers.serialize(object.chiefOfState,
-          specifiedType: const FullType(String)),
-      'head_of_government',
-      serializers.serialize(object.headOfGovernment,
-          specifiedType: const FullType(String)),
-      'cabinet',
-      serializers.serialize(object.cabinet,
-          specifiedType: const FullType(String)),
-      'elections_appointments',
-      serializers.serialize(object.electionsAppointments,
-          specifiedType: const FullType(String)),
-      'election_results',
-      serializers.serialize(object.electionResults,
-          specifiedType: const FullType(String)),
-    ];
-
+    final result = <Object>[];
+    if (object.chiefOfState != null) {
+      result
+        ..add('chief_of_state')
+        ..add(serializers.serialize(object.chiefOfState,
+            specifiedType: const FullType(String)));
+    }
+    if (object.headOfGovernment != null) {
+      result
+        ..add('head_of_government')
+        ..add(serializers.serialize(object.headOfGovernment,
+            specifiedType: const FullType(String)));
+    }
+    if (object.cabinet != null) {
+      result
+        ..add('cabinet')
+        ..add(serializers.serialize(object.cabinet,
+            specifiedType: const FullType(String)));
+    }
+    if (object.electionsAppointments != null) {
+      result
+        ..add('elections_appointments')
+        ..add(serializers.serialize(object.electionsAppointments,
+            specifiedType: const FullType(String)));
+    }
+    if (object.electionResults != null) {
+      result
+        ..add('election_results')
+        ..add(serializers.serialize(object.electionResults,
+            specifiedType: const FullType(String)));
+    }
+    if (object.note != null) {
+      result
+        ..add('note')
+        ..add(serializers.serialize(object.note,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -744,6 +892,10 @@ class _$ExecutiveBranchSerializer
           result.electionResults = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
+        case 'note':
+          result.note = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
       }
     }
 
@@ -765,16 +917,25 @@ class _$LegislativeBranchSerializer
       'description',
       serializers.serialize(object.description,
           specifiedType: const FullType(String)),
-      'elections',
-      serializers.serialize(object.elections,
-          specifiedType: const FullType(String)),
-      'election_results',
-      serializers.serialize(object.electionResults,
-          specifiedType: const FullType(String)),
-      'note',
-      serializers.serialize(object.note, specifiedType: const FullType(String)),
     ];
-
+    if (object.elections != null) {
+      result
+        ..add('elections')
+        ..add(serializers.serialize(object.elections,
+            specifiedType: const FullType(String)));
+    }
+    if (object.electionResults != null) {
+      result
+        ..add('election_results')
+        ..add(serializers.serialize(object.electionResults,
+            specifiedType: const FullType(String)));
+    }
+    if (object.note != null) {
+      result
+        ..add('note')
+        ..add(serializers.serialize(object.note,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -827,14 +988,19 @@ class _$JudicialBranchSerializer
       'highest_courts',
       serializers.serialize(object.highestCourts,
           specifiedType: const FullType(String)),
-      'judge_selection_and_term_of_office',
-      serializers.serialize(object.judgeSelectionAndTermOfOffice,
-          specifiedType: const FullType(String)),
-      'subordinate_courts',
-      serializers.serialize(object.subordinateCourts,
-          specifiedType: const FullType(String)),
     ];
-
+    if (object.judgeSelectionAndTermOfOffice != null) {
+      result
+        ..add('judge_selection_and_term_of_office')
+        ..add(serializers.serialize(object.judgeSelectionAndTermOfOffice,
+            specifiedType: const FullType(String)));
+    }
+    if (object.subordinateCourts != null) {
+      result
+        ..add('subordinate_courts')
+        ..add(serializers.serialize(object.subordinateCourts,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -883,11 +1049,13 @@ class _$PoliticalPartiesAndLeadersSerializer
   Iterable<Object> serialize(
       Serializers serializers, PoliticalPartiesAndLeaders object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'note',
-      serializers.serialize(object.note, specifiedType: const FullType(String)),
-    ];
-
+    final result = <Object>[];
+    if (object.note != null) {
+      result
+        ..add('note')
+        ..add(serializers.serialize(object.note,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -983,17 +1151,21 @@ class _$DiplomaticRepresentationSerializer
   Iterable<Object> serialize(
       Serializers serializers, DiplomaticRepresentation object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'in_united_states',
-      serializers.serialize(object.inUnitedStates,
-          specifiedType:
-              const FullType(DiplomaticRepresentationInUnitedStates)),
-      'from_united_states',
-      serializers.serialize(object.fromUnitedStates,
-          specifiedType:
-              const FullType(DiplomaticRepresentationFromUnitedStates)),
-    ];
-
+    final result = <Object>[];
+    if (object.inUnitedStates != null) {
+      result
+        ..add('in_united_states')
+        ..add(serializers.serialize(object.inUnitedStates,
+            specifiedType:
+                const FullType(DiplomaticRepresentationInUnitedStates)));
+    }
+    if (object.fromUnitedStates != null) {
+      result
+        ..add('from_united_states')
+        ..add(serializers.serialize(object.fromUnitedStates,
+            specifiedType:
+                const FullType(DiplomaticRepresentationFromUnitedStates)));
+    }
     return result;
   }
 
@@ -1042,20 +1214,37 @@ class _$DiplomaticRepresentationInUnitedStatesSerializer
   Iterable<Object> serialize(
       Serializers serializers, DiplomaticRepresentationInUnitedStates object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'chancery',
-      serializers.serialize(object.chancery,
-          specifiedType: const FullType(String)),
-      'telephone',
-      serializers.serialize(object.telephone,
-          specifiedType: const FullType(String)),
-      'fax',
-      serializers.serialize(object.fax, specifiedType: const FullType(String)),
-      'consulate_general',
-      serializers.serialize(object.consulatesGeneral,
-          specifiedType: const FullType(String)),
-    ];
-
+    final result = <Object>[];
+    if (object.chancery != null) {
+      result
+        ..add('chancery')
+        ..add(serializers.serialize(object.chancery,
+            specifiedType: const FullType(String)));
+    }
+    if (object.telephone != null) {
+      result
+        ..add('telephone')
+        ..add(serializers.serialize(object.telephone,
+            specifiedType: const FullType(String)));
+    }
+    if (object.fax != null) {
+      result
+        ..add('fax')
+        ..add(serializers.serialize(object.fax,
+            specifiedType: const FullType(String)));
+    }
+    if (object.consulatesGeneral != null) {
+      result
+        ..add('consulates_general')
+        ..add(serializers.serialize(object.consulatesGeneral,
+            specifiedType: const FullType(String)));
+    }
+    if (object.note != null) {
+      result
+        ..add('note')
+        ..add(serializers.serialize(object.note,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -1083,8 +1272,12 @@ class _$DiplomaticRepresentationInUnitedStatesSerializer
           result.fax = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
-        case 'consulate_general':
+        case 'consulates_general':
           result.consulatesGeneral = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'note':
+          result.note = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
       }
@@ -1108,23 +1301,43 @@ class _$DiplomaticRepresentationFromUnitedStatesSerializer
   Iterable<Object> serialize(
       Serializers serializers, DiplomaticRepresentationFromUnitedStates object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'cheif_of_mission',
-      serializers.serialize(object.chiefOfMission,
-          specifiedType: const FullType(String)),
-      'telephone',
-      serializers.serialize(object.telephone,
-          specifiedType: const FullType(String)),
-      'embassy',
-      serializers.serialize(object.embassy,
-          specifiedType: const FullType(String)),
-      'mailing_address',
-      serializers.serialize(object.mailingAddress,
-          specifiedType: const FullType(String)),
-      'fax',
-      serializers.serialize(object.fax, specifiedType: const FullType(String)),
-    ];
-
+    final result = <Object>[];
+    if (object.chiefOfMission != null) {
+      result
+        ..add('chief_of_mission')
+        ..add(serializers.serialize(object.chiefOfMission,
+            specifiedType: const FullType(String)));
+    }
+    if (object.telephone != null) {
+      result
+        ..add('telephone')
+        ..add(serializers.serialize(object.telephone,
+            specifiedType: const FullType(String)));
+    }
+    if (object.embassy != null) {
+      result
+        ..add('embassy')
+        ..add(serializers.serialize(object.embassy,
+            specifiedType: const FullType(String)));
+    }
+    if (object.mailingAddress != null) {
+      result
+        ..add('mailing_address')
+        ..add(serializers.serialize(object.mailingAddress,
+            specifiedType: const FullType(String)));
+    }
+    if (object.fax != null) {
+      result
+        ..add('fax')
+        ..add(serializers.serialize(object.fax,
+            specifiedType: const FullType(String)));
+    }
+    if (object.consulatesGeneral != null) {
+      result
+        ..add('consulates_general')
+        ..add(serializers.serialize(object.consulatesGeneral,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -1140,7 +1353,7 @@ class _$DiplomaticRepresentationFromUnitedStatesSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'cheif_of_mission':
+        case 'chief_of_mission':
           result.chiefOfMission = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
@@ -1158,6 +1371,10 @@ class _$DiplomaticRepresentationFromUnitedStatesSerializer
           break;
         case 'fax':
           result.fax = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
+          break;
+        case 'consulates_general':
+          result.consulatesGeneral = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
       }
@@ -1181,13 +1398,19 @@ class _$FlagDescriptionSerializer
       'description',
       serializers.serialize(object.description,
           specifiedType: const FullType(String)),
-      'note',
-      serializers.serialize(object.note, specifiedType: const FullType(String)),
-      'united_nations_flag',
-      serializers.serialize(object.unitedNationsFlag,
-          specifiedType: const FullType(String)),
     ];
-
+    if (object.note != null) {
+      result
+        ..add('note')
+        ..add(serializers.serialize(object.note,
+            specifiedType: const FullType(String)));
+    }
+    if (object.unitedNationsFlag != null) {
+      result
+        ..add('united_nations_flag')
+        ..add(serializers.serialize(object.unitedNationsFlag,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -1427,7 +1650,7 @@ class _$Government extends Government {
   @override
   final String governmentType;
   @override
-  final JsonObject capital;
+  final Capital capital;
   @override
   final Independence independence;
   @override
@@ -1482,62 +1705,7 @@ class _$Government extends Government {
       this.internationalLawOrganizationParticipation,
       this.flagDescription,
       this.nationalSymbols})
-      : super._() {
-    if (countryName == null) {
-      throw new BuiltValueNullFieldError('Government', 'countryName');
-    }
-    if (governmentType == null) {
-      throw new BuiltValueNullFieldError('Government', 'governmentType');
-    }
-    if (capital == null) {
-      throw new BuiltValueNullFieldError('Government', 'capital');
-    }
-    if (independence == null) {
-      throw new BuiltValueNullFieldError('Government', 'independence');
-    }
-    if (nationalHolidays == null) {
-      throw new BuiltValueNullFieldError('Government', 'nationalHolidays');
-    }
-    if (constitution == null) {
-      throw new BuiltValueNullFieldError('Government', 'constitution');
-    }
-    if (legalSystem == null) {
-      throw new BuiltValueNullFieldError('Government', 'legalSystem');
-    }
-    if (citizenship == null) {
-      throw new BuiltValueNullFieldError('Government', 'citizenship');
-    }
-    if (suffrage == null) {
-      throw new BuiltValueNullFieldError('Government', 'suffrage');
-    }
-    if (executiveBranch == null) {
-      throw new BuiltValueNullFieldError('Government', 'executiveBranch');
-    }
-    if (legislativeBranch == null) {
-      throw new BuiltValueNullFieldError('Government', 'legislativeBranch');
-    }
-    if (judicialBranch == null) {
-      throw new BuiltValueNullFieldError('Government', 'judicialBranch');
-    }
-    if (politicalPartiesAndLeaders == null) {
-      throw new BuiltValueNullFieldError(
-          'Government', 'politicalPartiesAndLeaders');
-    }
-    if (internationalOrganizationParticipation == null) {
-      throw new BuiltValueNullFieldError(
-          'Government', 'internationalOrganizationParticipation');
-    }
-    if (diplomaticRepresentation == null) {
-      throw new BuiltValueNullFieldError(
-          'Government', 'diplomaticRepresentation');
-    }
-    if (flagDescription == null) {
-      throw new BuiltValueNullFieldError('Government', 'flagDescription');
-    }
-    if (nationalSymbols == null) {
-      throw new BuiltValueNullFieldError('Government', 'nationalSymbols');
-    }
-  }
+      : super._();
 
   @override
   Government rebuild(void Function(GovernmentBuilder) updates) =>
@@ -1659,9 +1827,9 @@ class GovernmentBuilder implements Builder<Government, GovernmentBuilder> {
   set governmentType(String governmentType) =>
       _$this._governmentType = governmentType;
 
-  JsonObject _capital;
-  JsonObject get capital => _$this._capital;
-  set capital(JsonObject capital) => _$this._capital = capital;
+  CapitalBuilder _capital;
+  CapitalBuilder get capital => _$this._capital ??= new CapitalBuilder();
+  set capital(CapitalBuilder capital) => _$this._capital = capital;
 
   IndependenceBuilder _independence;
   IndependenceBuilder get independence =>
@@ -1768,7 +1936,7 @@ class GovernmentBuilder implements Builder<Government, GovernmentBuilder> {
     if (_$v != null) {
       _countryName = _$v.countryName?.toBuilder();
       _governmentType = _$v.governmentType;
-      _capital = _$v.capital;
+      _capital = _$v.capital?.toBuilder();
       _independence = _$v.independence?.toBuilder();
       _nationalHolidays = _$v.nationalHolidays?.toBuilder();
       _constitution = _$v.constitution?.toBuilder();
@@ -1810,61 +1978,63 @@ class GovernmentBuilder implements Builder<Government, GovernmentBuilder> {
     try {
       _$result = _$v ??
           new _$Government._(
-              countryName: countryName.build(),
+              countryName: _countryName?.build(),
               governmentType: governmentType,
-              capital: capital,
-              independence: independence.build(),
-              nationalHolidays: nationalHolidays.build(),
-              constitution: constitution.build(),
+              capital: _capital?.build(),
+              independence: _independence?.build(),
+              nationalHolidays: _nationalHolidays?.build(),
+              constitution: _constitution?.build(),
               legalSystem: legalSystem,
-              citizenship: citizenship.build(),
-              suffrage: suffrage.build(),
-              executiveBranch: executiveBranch.build(),
-              legislativeBranch: legislativeBranch.build(),
-              judicialBranch: judicialBranch.build(),
-              politicalPartiesAndLeaders: politicalPartiesAndLeaders.build(),
+              citizenship: _citizenship?.build(),
+              suffrage: _suffrage?.build(),
+              executiveBranch: _executiveBranch?.build(),
+              legislativeBranch: _legislativeBranch?.build(),
+              judicialBranch: _judicialBranch?.build(),
+              politicalPartiesAndLeaders: _politicalPartiesAndLeaders?.build(),
               internationalOrganizationParticipation:
-                  internationalOrganizationParticipation.build(),
-              diplomaticRepresentation: diplomaticRepresentation.build(),
+                  _internationalOrganizationParticipation?.build(),
+              diplomaticRepresentation: _diplomaticRepresentation?.build(),
               internationalLawOrganizationParticipation:
                   _internationalLawOrganizationParticipation?.build(),
-              flagDescription: flagDescription.build(),
-              nationalSymbols: nationalSymbols.build());
+              flagDescription: _flagDescription?.build(),
+              nationalSymbols: _nationalSymbols?.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'countryName';
-        countryName.build();
+        _countryName?.build();
 
+        _$failedField = 'capital';
+        _capital?.build();
         _$failedField = 'independence';
-        independence.build();
+        _independence?.build();
         _$failedField = 'nationalHolidays';
-        nationalHolidays.build();
+        _nationalHolidays?.build();
         _$failedField = 'constitution';
-        constitution.build();
+        _constitution?.build();
 
         _$failedField = 'citizenship';
-        citizenship.build();
+        _citizenship?.build();
         _$failedField = 'suffrage';
-        suffrage.build();
+        _suffrage?.build();
         _$failedField = 'executiveBranch';
-        executiveBranch.build();
+        _executiveBranch?.build();
         _$failedField = 'legislativeBranch';
-        legislativeBranch.build();
+        _legislativeBranch?.build();
         _$failedField = 'judicialBranch';
-        judicialBranch.build();
+        _judicialBranch?.build();
         _$failedField = 'politicalPartiesAndLeaders';
-        politicalPartiesAndLeaders.build();
+        _politicalPartiesAndLeaders?.build();
         _$failedField = 'internationalOrganizationParticipation';
-        internationalOrganizationParticipation.build();
+        _internationalOrganizationParticipation?.build();
         _$failedField = 'diplomaticRepresentation';
-        diplomaticRepresentation.build();
+        _diplomaticRepresentation?.build();
         _$failedField = 'internationalLawOrganizationParticipation';
         _internationalLawOrganizationParticipation?.build();
         _$failedField = 'flagDescription';
-        flagDescription.build();
+        _flagDescription?.build();
         _$failedField = 'nationalSymbols';
-        nationalSymbols.build();
+        _nationalSymbols?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'Government', _$failedField, e.toString());
@@ -1900,27 +2070,7 @@ class _$CountryName extends CountryName {
       this.localShortForm,
       this.former,
       this.etymology})
-      : super._() {
-    if (conventionalLongForm == null) {
-      throw new BuiltValueNullFieldError('CountryName', 'conventionalLongForm');
-    }
-    if (conventionalShortForm == null) {
-      throw new BuiltValueNullFieldError(
-          'CountryName', 'conventionalShortForm');
-    }
-    if (localLongForm == null) {
-      throw new BuiltValueNullFieldError('CountryName', 'localLongForm');
-    }
-    if (localShortForm == null) {
-      throw new BuiltValueNullFieldError('CountryName', 'localShortForm');
-    }
-    if (former == null) {
-      throw new BuiltValueNullFieldError('CountryName', 'former');
-    }
-    if (etymology == null) {
-      throw new BuiltValueNullFieldError('CountryName', 'etymology');
-    }
-  }
+      : super._();
 
   @override
   CountryName rebuild(void Function(CountryNameBuilder) updates) =>
@@ -2046,40 +2196,27 @@ class _$Capital extends Capital {
   @override
   final String name;
   @override
-  final GeographicCoordinates geographicCoordinates;
+  final JsonObject geographicCoordinatesValue;
   @override
-  final TimeDifference timeDifference;
+  final JsonObject timeDifferenceValue;
   @override
   final String daylightSavingTime;
   @override
   final String etymology;
+  @override
+  final String note;
 
   factory _$Capital([void Function(CapitalBuilder) updates]) =>
       (new CapitalBuilder()..update(updates)).build();
 
   _$Capital._(
       {this.name,
-      this.geographicCoordinates,
-      this.timeDifference,
+      this.geographicCoordinatesValue,
+      this.timeDifferenceValue,
       this.daylightSavingTime,
-      this.etymology})
-      : super._() {
-    if (name == null) {
-      throw new BuiltValueNullFieldError('Capital', 'name');
-    }
-    if (geographicCoordinates == null) {
-      throw new BuiltValueNullFieldError('Capital', 'geographicCoordinates');
-    }
-    if (timeDifference == null) {
-      throw new BuiltValueNullFieldError('Capital', 'timeDifference');
-    }
-    if (daylightSavingTime == null) {
-      throw new BuiltValueNullFieldError('Capital', 'daylightSavingTime');
-    }
-    if (etymology == null) {
-      throw new BuiltValueNullFieldError('Capital', 'etymology');
-    }
-  }
+      this.etymology,
+      this.note})
+      : super._();
 
   @override
   Capital rebuild(void Function(CapitalBuilder) updates) =>
@@ -2093,30 +2230,36 @@ class _$Capital extends Capital {
     if (identical(other, this)) return true;
     return other is Capital &&
         name == other.name &&
-        geographicCoordinates == other.geographicCoordinates &&
-        timeDifference == other.timeDifference &&
+        geographicCoordinatesValue == other.geographicCoordinatesValue &&
+        timeDifferenceValue == other.timeDifferenceValue &&
         daylightSavingTime == other.daylightSavingTime &&
-        etymology == other.etymology;
+        etymology == other.etymology &&
+        note == other.note;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
         $jc(
-            $jc($jc($jc(0, name.hashCode), geographicCoordinates.hashCode),
-                timeDifference.hashCode),
-            daylightSavingTime.hashCode),
-        etymology.hashCode));
+            $jc(
+                $jc(
+                    $jc($jc(0, name.hashCode),
+                        geographicCoordinatesValue.hashCode),
+                    timeDifferenceValue.hashCode),
+                daylightSavingTime.hashCode),
+            etymology.hashCode),
+        note.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('Capital')
           ..add('name', name)
-          ..add('geographicCoordinates', geographicCoordinates)
-          ..add('timeDifference', timeDifference)
+          ..add('geographicCoordinatesValue', geographicCoordinatesValue)
+          ..add('timeDifferenceValue', timeDifferenceValue)
           ..add('daylightSavingTime', daylightSavingTime)
-          ..add('etymology', etymology))
+          ..add('etymology', etymology)
+          ..add('note', note))
         .toString();
   }
 }
@@ -2128,18 +2271,16 @@ class CapitalBuilder implements Builder<Capital, CapitalBuilder> {
   String get name => _$this._name;
   set name(String name) => _$this._name = name;
 
-  GeographicCoordinatesBuilder _geographicCoordinates;
-  GeographicCoordinatesBuilder get geographicCoordinates =>
-      _$this._geographicCoordinates ??= new GeographicCoordinatesBuilder();
-  set geographicCoordinates(
-          GeographicCoordinatesBuilder geographicCoordinates) =>
-      _$this._geographicCoordinates = geographicCoordinates;
+  JsonObject _geographicCoordinatesValue;
+  JsonObject get geographicCoordinatesValue =>
+      _$this._geographicCoordinatesValue;
+  set geographicCoordinatesValue(JsonObject geographicCoordinatesValue) =>
+      _$this._geographicCoordinatesValue = geographicCoordinatesValue;
 
-  TimeDifferenceBuilder _timeDifference;
-  TimeDifferenceBuilder get timeDifference =>
-      _$this._timeDifference ??= new TimeDifferenceBuilder();
-  set timeDifference(TimeDifferenceBuilder timeDifference) =>
-      _$this._timeDifference = timeDifference;
+  JsonObject _timeDifferenceValue;
+  JsonObject get timeDifferenceValue => _$this._timeDifferenceValue;
+  set timeDifferenceValue(JsonObject timeDifferenceValue) =>
+      _$this._timeDifferenceValue = timeDifferenceValue;
 
   String _daylightSavingTime;
   String get daylightSavingTime => _$this._daylightSavingTime;
@@ -2150,15 +2291,20 @@ class CapitalBuilder implements Builder<Capital, CapitalBuilder> {
   String get etymology => _$this._etymology;
   set etymology(String etymology) => _$this._etymology = etymology;
 
+  String _note;
+  String get note => _$this._note;
+  set note(String note) => _$this._note = note;
+
   CapitalBuilder();
 
   CapitalBuilder get _$this {
     if (_$v != null) {
       _name = _$v.name;
-      _geographicCoordinates = _$v.geographicCoordinates?.toBuilder();
-      _timeDifference = _$v.timeDifference?.toBuilder();
+      _geographicCoordinatesValue = _$v.geographicCoordinatesValue;
+      _timeDifferenceValue = _$v.timeDifferenceValue;
       _daylightSavingTime = _$v.daylightSavingTime;
       _etymology = _$v.etymology;
+      _note = _$v.note;
       _$v = null;
     }
     return this;
@@ -2179,28 +2325,14 @@ class CapitalBuilder implements Builder<Capital, CapitalBuilder> {
 
   @override
   _$Capital build() {
-    _$Capital _$result;
-    try {
-      _$result = _$v ??
-          new _$Capital._(
-              name: name,
-              geographicCoordinates: geographicCoordinates.build(),
-              timeDifference: timeDifference.build(),
-              daylightSavingTime: daylightSavingTime,
-              etymology: etymology);
-    } catch (_) {
-      String _$failedField;
-      try {
-        _$failedField = 'geographicCoordinates';
-        geographicCoordinates.build();
-        _$failedField = 'timeDifference';
-        timeDifference.build();
-      } catch (e) {
-        throw new BuiltValueNestedFieldError(
-            'Capital', _$failedField, e.toString());
-      }
-      rethrow;
-    }
+    final _$result = _$v ??
+        new _$Capital._(
+            name: name,
+            geographicCoordinatesValue: geographicCoordinatesValue,
+            timeDifferenceValue: timeDifferenceValue,
+            daylightSavingTime: daylightSavingTime,
+            etymology: etymology,
+            note: note);
     replace(_$result);
     return _$result;
   }
@@ -2308,14 +2440,7 @@ class _$Independence extends Independence {
   factory _$Independence([void Function(IndependenceBuilder) updates]) =>
       (new IndependenceBuilder()..update(updates)).build();
 
-  _$Independence._({this.date, this.note}) : super._() {
-    if (date == null) {
-      throw new BuiltValueNullFieldError('Independence', 'date');
-    }
-    if (note == null) {
-      throw new BuiltValueNullFieldError('Independence', 'note');
-    }
-  }
+  _$Independence._({this.date, this.note}) : super._();
 
   @override
   Independence rebuild(void Function(IndependenceBuilder) updates) =>
@@ -2395,19 +2520,19 @@ class _$NationalHoliday extends NationalHoliday {
   final String day;
   @override
   final String originalYear;
+  @override
+  final String note;
 
   factory _$NationalHoliday([void Function(NationalHolidayBuilder) updates]) =>
       (new NationalHolidayBuilder()..update(updates)).build();
 
-  _$NationalHoliday._({this.name, this.day, this.originalYear}) : super._() {
+  _$NationalHoliday._({this.name, this.day, this.originalYear, this.note})
+      : super._() {
     if (name == null) {
       throw new BuiltValueNullFieldError('NationalHoliday', 'name');
     }
     if (day == null) {
       throw new BuiltValueNullFieldError('NationalHoliday', 'day');
-    }
-    if (originalYear == null) {
-      throw new BuiltValueNullFieldError('NationalHoliday', 'originalYear');
     }
   }
 
@@ -2425,13 +2550,15 @@ class _$NationalHoliday extends NationalHoliday {
     return other is NationalHoliday &&
         name == other.name &&
         day == other.day &&
-        originalYear == other.originalYear;
+        originalYear == other.originalYear &&
+        note == other.note;
   }
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, name.hashCode), day.hashCode), originalYear.hashCode));
+    return $jf($jc(
+        $jc($jc($jc(0, name.hashCode), day.hashCode), originalYear.hashCode),
+        note.hashCode));
   }
 
   @override
@@ -2439,7 +2566,8 @@ class _$NationalHoliday extends NationalHoliday {
     return (newBuiltValueToStringHelper('NationalHoliday')
           ..add('name', name)
           ..add('day', day)
-          ..add('originalYear', originalYear))
+          ..add('originalYear', originalYear)
+          ..add('note', note))
         .toString();
   }
 }
@@ -2460,6 +2588,10 @@ class NationalHolidayBuilder
   String get originalYear => _$this._originalYear;
   set originalYear(String originalYear) => _$this._originalYear = originalYear;
 
+  String _note;
+  String get note => _$this._note;
+  set note(String note) => _$this._note = note;
+
   NationalHolidayBuilder();
 
   NationalHolidayBuilder get _$this {
@@ -2467,6 +2599,7 @@ class NationalHolidayBuilder
       _name = _$v.name;
       _day = _$v.day;
       _originalYear = _$v.originalYear;
+      _note = _$v.note;
       _$v = null;
     }
     return this;
@@ -2489,7 +2622,7 @@ class NationalHolidayBuilder
   _$NationalHoliday build() {
     final _$result = _$v ??
         new _$NationalHoliday._(
-            name: name, day: day, originalYear: originalYear);
+            name: name, day: day, originalYear: originalYear, note: note);
     replace(_$result);
     return _$result;
   }
@@ -2507,9 +2640,6 @@ class _$Constitution extends Constitution {
   _$Constitution._({this.history, this.amendments}) : super._() {
     if (history == null) {
       throw new BuiltValueNullFieldError('Constitution', 'history');
-    }
-    if (amendments == null) {
-      throw new BuiltValueNullFieldError('Constitution', 'amendments');
     }
   }
 
@@ -2737,21 +2867,14 @@ class _$Suffrage extends Suffrage {
   final bool universal;
   @override
   final bool compulsory;
+  @override
+  final String note;
 
   factory _$Suffrage([void Function(SuffrageBuilder) updates]) =>
       (new SuffrageBuilder()..update(updates)).build();
 
-  _$Suffrage._({this.age, this.universal, this.compulsory}) : super._() {
-    if (age == null) {
-      throw new BuiltValueNullFieldError('Suffrage', 'age');
-    }
-    if (universal == null) {
-      throw new BuiltValueNullFieldError('Suffrage', 'universal');
-    }
-    if (compulsory == null) {
-      throw new BuiltValueNullFieldError('Suffrage', 'compulsory');
-    }
-  }
+  _$Suffrage._({this.age, this.universal, this.compulsory, this.note})
+      : super._();
 
   @override
   Suffrage rebuild(void Function(SuffrageBuilder) updates) =>
@@ -2766,13 +2889,15 @@ class _$Suffrage extends Suffrage {
     return other is Suffrage &&
         age == other.age &&
         universal == other.universal &&
-        compulsory == other.compulsory;
+        compulsory == other.compulsory &&
+        note == other.note;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc(0, age.hashCode), universal.hashCode), compulsory.hashCode));
+        $jc($jc($jc(0, age.hashCode), universal.hashCode), compulsory.hashCode),
+        note.hashCode));
   }
 
   @override
@@ -2780,7 +2905,8 @@ class _$Suffrage extends Suffrage {
     return (newBuiltValueToStringHelper('Suffrage')
           ..add('age', age)
           ..add('universal', universal)
-          ..add('compulsory', compulsory))
+          ..add('compulsory', compulsory)
+          ..add('note', note))
         .toString();
   }
 }
@@ -2800,6 +2926,10 @@ class SuffrageBuilder implements Builder<Suffrage, SuffrageBuilder> {
   bool get compulsory => _$this._compulsory;
   set compulsory(bool compulsory) => _$this._compulsory = compulsory;
 
+  String _note;
+  String get note => _$this._note;
+  set note(String note) => _$this._note = note;
+
   SuffrageBuilder();
 
   SuffrageBuilder get _$this {
@@ -2807,6 +2937,7 @@ class SuffrageBuilder implements Builder<Suffrage, SuffrageBuilder> {
       _age = _$v.age;
       _universal = _$v.universal;
       _compulsory = _$v.compulsory;
+      _note = _$v.note;
       _$v = null;
     }
     return this;
@@ -2829,7 +2960,7 @@ class SuffrageBuilder implements Builder<Suffrage, SuffrageBuilder> {
   _$Suffrage build() {
     final _$result = _$v ??
         new _$Suffrage._(
-            age: age, universal: universal, compulsory: compulsory);
+            age: age, universal: universal, compulsory: compulsory, note: note);
     replace(_$result);
     return _$result;
   }
@@ -2846,6 +2977,8 @@ class _$ExecutiveBranch extends ExecutiveBranch {
   final String electionsAppointments;
   @override
   final String electionResults;
+  @override
+  final String note;
 
   factory _$ExecutiveBranch([void Function(ExecutiveBranchBuilder) updates]) =>
       (new ExecutiveBranchBuilder()..update(updates)).build();
@@ -2855,25 +2988,9 @@ class _$ExecutiveBranch extends ExecutiveBranch {
       this.headOfGovernment,
       this.cabinet,
       this.electionsAppointments,
-      this.electionResults})
-      : super._() {
-    if (chiefOfState == null) {
-      throw new BuiltValueNullFieldError('ExecutiveBranch', 'chiefOfState');
-    }
-    if (headOfGovernment == null) {
-      throw new BuiltValueNullFieldError('ExecutiveBranch', 'headOfGovernment');
-    }
-    if (cabinet == null) {
-      throw new BuiltValueNullFieldError('ExecutiveBranch', 'cabinet');
-    }
-    if (electionsAppointments == null) {
-      throw new BuiltValueNullFieldError(
-          'ExecutiveBranch', 'electionsAppointments');
-    }
-    if (electionResults == null) {
-      throw new BuiltValueNullFieldError('ExecutiveBranch', 'electionResults');
-    }
-  }
+      this.electionResults,
+      this.note})
+      : super._();
 
   @override
   ExecutiveBranch rebuild(void Function(ExecutiveBranchBuilder) updates) =>
@@ -2891,17 +3008,22 @@ class _$ExecutiveBranch extends ExecutiveBranch {
         headOfGovernment == other.headOfGovernment &&
         cabinet == other.cabinet &&
         electionsAppointments == other.electionsAppointments &&
-        electionResults == other.electionResults;
+        electionResults == other.electionResults &&
+        note == other.note;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
         $jc(
-            $jc($jc($jc(0, chiefOfState.hashCode), headOfGovernment.hashCode),
-                cabinet.hashCode),
-            electionsAppointments.hashCode),
-        electionResults.hashCode));
+            $jc(
+                $jc(
+                    $jc($jc(0, chiefOfState.hashCode),
+                        headOfGovernment.hashCode),
+                    cabinet.hashCode),
+                electionsAppointments.hashCode),
+            electionResults.hashCode),
+        note.hashCode));
   }
 
   @override
@@ -2911,7 +3033,8 @@ class _$ExecutiveBranch extends ExecutiveBranch {
           ..add('headOfGovernment', headOfGovernment)
           ..add('cabinet', cabinet)
           ..add('electionsAppointments', electionsAppointments)
-          ..add('electionResults', electionResults))
+          ..add('electionResults', electionResults)
+          ..add('note', note))
         .toString();
   }
 }
@@ -2943,6 +3066,10 @@ class ExecutiveBranchBuilder
   set electionResults(String electionResults) =>
       _$this._electionResults = electionResults;
 
+  String _note;
+  String get note => _$this._note;
+  set note(String note) => _$this._note = note;
+
   ExecutiveBranchBuilder();
 
   ExecutiveBranchBuilder get _$this {
@@ -2952,6 +3079,7 @@ class ExecutiveBranchBuilder
       _cabinet = _$v.cabinet;
       _electionsAppointments = _$v.electionsAppointments;
       _electionResults = _$v.electionResults;
+      _note = _$v.note;
       _$v = null;
     }
     return this;
@@ -2978,7 +3106,8 @@ class ExecutiveBranchBuilder
             headOfGovernment: headOfGovernment,
             cabinet: cabinet,
             electionsAppointments: electionsAppointments,
-            electionResults: electionResults);
+            electionResults: electionResults,
+            note: note);
     replace(_$result);
     return _$result;
   }
@@ -3003,16 +3132,6 @@ class _$LegislativeBranch extends LegislativeBranch {
       : super._() {
     if (description == null) {
       throw new BuiltValueNullFieldError('LegislativeBranch', 'description');
-    }
-    if (elections == null) {
-      throw new BuiltValueNullFieldError('LegislativeBranch', 'elections');
-    }
-    if (electionResults == null) {
-      throw new BuiltValueNullFieldError(
-          'LegislativeBranch', 'electionResults');
-    }
-    if (note == null) {
-      throw new BuiltValueNullFieldError('LegislativeBranch', 'note');
     }
   }
 
@@ -3132,13 +3251,6 @@ class _$JudicialBranch extends JudicialBranch {
     if (highestCourts == null) {
       throw new BuiltValueNullFieldError('JudicialBranch', 'highestCourts');
     }
-    if (judgeSelectionAndTermOfOffice == null) {
-      throw new BuiltValueNullFieldError(
-          'JudicialBranch', 'judgeSelectionAndTermOfOffice');
-    }
-    if (subordinateCourts == null) {
-      throw new BuiltValueNullFieldError('JudicialBranch', 'subordinateCourts');
-    }
   }
 
   @override
@@ -3241,11 +3353,7 @@ class _$PoliticalPartiesAndLeaders extends PoliticalPartiesAndLeaders {
           [void Function(PoliticalPartiesAndLeadersBuilder) updates]) =>
       (new PoliticalPartiesAndLeadersBuilder()..update(updates)).build();
 
-  _$PoliticalPartiesAndLeaders._({this.note}) : super._() {
-    if (note == null) {
-      throw new BuiltValueNullFieldError('PoliticalPartiesAndLeaders', 'note');
-    }
-  }
+  _$PoliticalPartiesAndLeaders._({this.note}) : super._();
 
   @override
   PoliticalPartiesAndLeaders rebuild(
@@ -3429,16 +3537,7 @@ class _$DiplomaticRepresentation extends DiplomaticRepresentation {
       (new DiplomaticRepresentationBuilder()..update(updates)).build();
 
   _$DiplomaticRepresentation._({this.inUnitedStates, this.fromUnitedStates})
-      : super._() {
-    if (inUnitedStates == null) {
-      throw new BuiltValueNullFieldError(
-          'DiplomaticRepresentation', 'inUnitedStates');
-    }
-    if (fromUnitedStates == null) {
-      throw new BuiltValueNullFieldError(
-          'DiplomaticRepresentation', 'fromUnitedStates');
-    }
-  }
+      : super._();
 
   @override
   DiplomaticRepresentation rebuild(
@@ -3522,15 +3621,15 @@ class DiplomaticRepresentationBuilder
     try {
       _$result = _$v ??
           new _$DiplomaticRepresentation._(
-              inUnitedStates: inUnitedStates.build(),
-              fromUnitedStates: fromUnitedStates.build());
+              inUnitedStates: _inUnitedStates?.build(),
+              fromUnitedStates: _fromUnitedStates?.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'inUnitedStates';
-        inUnitedStates.build();
+        _inUnitedStates?.build();
         _$failedField = 'fromUnitedStates';
-        fromUnitedStates.build();
+        _fromUnitedStates?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'DiplomaticRepresentation', _$failedField, e.toString());
@@ -3552,6 +3651,8 @@ class _$DiplomaticRepresentationInUnitedStates
   final String fax;
   @override
   final String consulatesGeneral;
+  @override
+  final String note;
 
   factory _$DiplomaticRepresentationInUnitedStates(
           [void Function(DiplomaticRepresentationInUnitedStatesBuilder)
@@ -3560,25 +3661,12 @@ class _$DiplomaticRepresentationInUnitedStates
           .build();
 
   _$DiplomaticRepresentationInUnitedStates._(
-      {this.chancery, this.telephone, this.fax, this.consulatesGeneral})
-      : super._() {
-    if (chancery == null) {
-      throw new BuiltValueNullFieldError(
-          'DiplomaticRepresentationInUnitedStates', 'chancery');
-    }
-    if (telephone == null) {
-      throw new BuiltValueNullFieldError(
-          'DiplomaticRepresentationInUnitedStates', 'telephone');
-    }
-    if (fax == null) {
-      throw new BuiltValueNullFieldError(
-          'DiplomaticRepresentationInUnitedStates', 'fax');
-    }
-    if (consulatesGeneral == null) {
-      throw new BuiltValueNullFieldError(
-          'DiplomaticRepresentationInUnitedStates', 'consulatesGeneral');
-    }
-  }
+      {this.chancery,
+      this.telephone,
+      this.fax,
+      this.consulatesGeneral,
+      this.note})
+      : super._();
 
   @override
   DiplomaticRepresentationInUnitedStates rebuild(
@@ -3597,14 +3685,18 @@ class _$DiplomaticRepresentationInUnitedStates
         chancery == other.chancery &&
         telephone == other.telephone &&
         fax == other.fax &&
-        consulatesGeneral == other.consulatesGeneral;
+        consulatesGeneral == other.consulatesGeneral &&
+        note == other.note;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, chancery.hashCode), telephone.hashCode), fax.hashCode),
-        consulatesGeneral.hashCode));
+        $jc(
+            $jc($jc($jc(0, chancery.hashCode), telephone.hashCode),
+                fax.hashCode),
+            consulatesGeneral.hashCode),
+        note.hashCode));
   }
 
   @override
@@ -3614,7 +3706,8 @@ class _$DiplomaticRepresentationInUnitedStates
           ..add('chancery', chancery)
           ..add('telephone', telephone)
           ..add('fax', fax)
-          ..add('consulatesGeneral', consulatesGeneral))
+          ..add('consulatesGeneral', consulatesGeneral)
+          ..add('note', note))
         .toString();
   }
 }
@@ -3642,6 +3735,10 @@ class DiplomaticRepresentationInUnitedStatesBuilder
   set consulatesGeneral(String consulatesGeneral) =>
       _$this._consulatesGeneral = consulatesGeneral;
 
+  String _note;
+  String get note => _$this._note;
+  set note(String note) => _$this._note = note;
+
   DiplomaticRepresentationInUnitedStatesBuilder();
 
   DiplomaticRepresentationInUnitedStatesBuilder get _$this {
@@ -3650,6 +3747,7 @@ class DiplomaticRepresentationInUnitedStatesBuilder
       _telephone = _$v.telephone;
       _fax = _$v.fax;
       _consulatesGeneral = _$v.consulatesGeneral;
+      _note = _$v.note;
       _$v = null;
     }
     return this;
@@ -3676,7 +3774,8 @@ class DiplomaticRepresentationInUnitedStatesBuilder
             chancery: chancery,
             telephone: telephone,
             fax: fax,
-            consulatesGeneral: consulatesGeneral);
+            consulatesGeneral: consulatesGeneral,
+            note: note);
     replace(_$result);
     return _$result;
   }
@@ -3694,6 +3793,8 @@ class _$DiplomaticRepresentationFromUnitedStates
   final String mailingAddress;
   @override
   final String fax;
+  @override
+  final String consulatesGeneral;
 
   factory _$DiplomaticRepresentationFromUnitedStates(
           [void Function(DiplomaticRepresentationFromUnitedStatesBuilder)
@@ -3706,29 +3807,9 @@ class _$DiplomaticRepresentationFromUnitedStates
       this.telephone,
       this.embassy,
       this.mailingAddress,
-      this.fax})
-      : super._() {
-    if (chiefOfMission == null) {
-      throw new BuiltValueNullFieldError(
-          'DiplomaticRepresentationFromUnitedStates', 'chiefOfMission');
-    }
-    if (telephone == null) {
-      throw new BuiltValueNullFieldError(
-          'DiplomaticRepresentationFromUnitedStates', 'telephone');
-    }
-    if (embassy == null) {
-      throw new BuiltValueNullFieldError(
-          'DiplomaticRepresentationFromUnitedStates', 'embassy');
-    }
-    if (mailingAddress == null) {
-      throw new BuiltValueNullFieldError(
-          'DiplomaticRepresentationFromUnitedStates', 'mailingAddress');
-    }
-    if (fax == null) {
-      throw new BuiltValueNullFieldError(
-          'DiplomaticRepresentationFromUnitedStates', 'fax');
-    }
-  }
+      this.fax,
+      this.consulatesGeneral})
+      : super._();
 
   @override
   DiplomaticRepresentationFromUnitedStates rebuild(
@@ -3748,17 +3829,20 @@ class _$DiplomaticRepresentationFromUnitedStates
         telephone == other.telephone &&
         embassy == other.embassy &&
         mailingAddress == other.mailingAddress &&
-        fax == other.fax;
+        fax == other.fax &&
+        consulatesGeneral == other.consulatesGeneral;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
         $jc(
-            $jc($jc($jc(0, chiefOfMission.hashCode), telephone.hashCode),
-                embassy.hashCode),
-            mailingAddress.hashCode),
-        fax.hashCode));
+            $jc(
+                $jc($jc($jc(0, chiefOfMission.hashCode), telephone.hashCode),
+                    embassy.hashCode),
+                mailingAddress.hashCode),
+            fax.hashCode),
+        consulatesGeneral.hashCode));
   }
 
   @override
@@ -3769,7 +3853,8 @@ class _$DiplomaticRepresentationFromUnitedStates
           ..add('telephone', telephone)
           ..add('embassy', embassy)
           ..add('mailingAddress', mailingAddress)
-          ..add('fax', fax))
+          ..add('fax', fax)
+          ..add('consulatesGeneral', consulatesGeneral))
         .toString();
   }
 }
@@ -3802,6 +3887,11 @@ class DiplomaticRepresentationFromUnitedStatesBuilder
   String get fax => _$this._fax;
   set fax(String fax) => _$this._fax = fax;
 
+  String _consulatesGeneral;
+  String get consulatesGeneral => _$this._consulatesGeneral;
+  set consulatesGeneral(String consulatesGeneral) =>
+      _$this._consulatesGeneral = consulatesGeneral;
+
   DiplomaticRepresentationFromUnitedStatesBuilder();
 
   DiplomaticRepresentationFromUnitedStatesBuilder get _$this {
@@ -3811,6 +3901,7 @@ class DiplomaticRepresentationFromUnitedStatesBuilder
       _embassy = _$v.embassy;
       _mailingAddress = _$v.mailingAddress;
       _fax = _$v.fax;
+      _consulatesGeneral = _$v.consulatesGeneral;
       _$v = null;
     }
     return this;
@@ -3838,7 +3929,8 @@ class DiplomaticRepresentationFromUnitedStatesBuilder
             telephone: telephone,
             embassy: embassy,
             mailingAddress: mailingAddress,
-            fax: fax);
+            fax: fax,
+            consulatesGeneral: consulatesGeneral);
     replace(_$result);
     return _$result;
   }
@@ -3859,13 +3951,6 @@ class _$FlagDescription extends FlagDescription {
       : super._() {
     if (description == null) {
       throw new BuiltValueNullFieldError('FlagDescription', 'description');
-    }
-    if (note == null) {
-      throw new BuiltValueNullFieldError('FlagDescription', 'note');
-    }
-    if (unitedNationsFlag == null) {
-      throw new BuiltValueNullFieldError(
-          'FlagDescription', 'unitedNationsFlag');
     }
   }
 
