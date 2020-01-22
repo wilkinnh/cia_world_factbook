@@ -7,10 +7,35 @@ part of 'serializers.dart';
 // **************************************************************************
 
 Serializers _$serializers = (new Serializers().toBuilder()
+      ..add(BorderLength.serializer)
+      ..add(Coastline.serializer)
       ..add(Country.serializer)
       ..add(CountryData.serializer)
+      ..add(Environment.serializer)
+      ..add(GeographicCoordinate.serializer)
+      ..add(GeographicCoordinates.serializer)
+      ..add(Geography.serializer)
+      ..add(GeographyArea.serializer)
+      ..add(GeographyAreaValue.serializer)
       ..add(Introduction.serializer)
+      ..add(IrrigatedLand.serializer)
+      ..add(LandBoundaries.serializer)
+      ..add(LandBoundary.serializer)
+      ..add(NaturalHazard.serializer)
+      ..add(NaturalResources.serializer)
       ..add(WorldFactbook.serializer)
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(LandBoundary)]),
+          () => new ListBuilder<LandBoundary>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(NaturalHazard)]),
+          () => new ListBuilder<NaturalHazard>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
+      ..addBuilderFactory(
+          const FullType(BuiltList, const [const FullType(String)]),
+          () => new ListBuilder<String>())
       ..addBuilderFactory(
           const FullType(BuiltMap,
               const [const FullType(String), const FullType(Country)]),

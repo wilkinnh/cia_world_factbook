@@ -1,6 +1,9 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_collection/built_collection.dart';
+import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
+
+import 'serializers.dart';
 
 part 'geography.g.dart';
 
@@ -26,6 +29,7 @@ abstract class Geography implements Built<Geography, GeographyBuilder> {
   @BuiltValueField(wireName: 'land_boundaries')
   LandBoundaries get landBoundaries;
 
+  @nullable
   Coastline get coastline;
 
   String get climate;
@@ -94,8 +98,17 @@ abstract class GeographyArea
   @nullable
   GeographyAreaValue get land;
 
+  @BuiltValueField(wireName: 'water')
   @nullable
-  GeographyAreaValue get water;
+  JsonObject get waterValue;
+
+  GeographyAreaValue get water {
+    if (waterValue.isMap) {
+      return standardSerializers.deserializeWith(
+          GeographyAreaValue.serializer, waterValue.asMap);
+    }
+    return null;
+  }
 
   @nullable
   String get note;

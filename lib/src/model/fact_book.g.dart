@@ -113,6 +113,9 @@ class _$CountryDataSerializer implements StructuredSerializer<CountryData> {
       'introduction',
       serializers.serialize(object.introduction,
           specifiedType: const FullType(Introduction)),
+      'geography',
+      serializers.serialize(object.geography,
+          specifiedType: const FullType(Geography)),
     ];
 
     return result;
@@ -136,6 +139,10 @@ class _$CountryDataSerializer implements StructuredSerializer<CountryData> {
         case 'introduction':
           result.introduction.replace(serializers.deserialize(value,
               specifiedType: const FullType(Introduction)) as Introduction);
+          break;
+        case 'geography':
+          result.geography.replace(serializers.deserialize(value,
+              specifiedType: const FullType(Geography)) as Geography);
           break;
       }
     }
@@ -371,16 +378,21 @@ class _$CountryData extends CountryData {
   final String name;
   @override
   final Introduction introduction;
+  @override
+  final Geography geography;
 
   factory _$CountryData([void Function(CountryDataBuilder) updates]) =>
       (new CountryDataBuilder()..update(updates)).build();
 
-  _$CountryData._({this.name, this.introduction}) : super._() {
+  _$CountryData._({this.name, this.introduction, this.geography}) : super._() {
     if (name == null) {
       throw new BuiltValueNullFieldError('CountryData', 'name');
     }
     if (introduction == null) {
       throw new BuiltValueNullFieldError('CountryData', 'introduction');
+    }
+    if (geography == null) {
+      throw new BuiltValueNullFieldError('CountryData', 'geography');
     }
   }
 
@@ -396,19 +408,22 @@ class _$CountryData extends CountryData {
     if (identical(other, this)) return true;
     return other is CountryData &&
         name == other.name &&
-        introduction == other.introduction;
+        introduction == other.introduction &&
+        geography == other.geography;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, name.hashCode), introduction.hashCode));
+    return $jf($jc(
+        $jc($jc(0, name.hashCode), introduction.hashCode), geography.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('CountryData')
           ..add('name', name)
-          ..add('introduction', introduction))
+          ..add('introduction', introduction)
+          ..add('geography', geography))
         .toString();
   }
 }
@@ -426,12 +441,18 @@ class CountryDataBuilder implements Builder<CountryData, CountryDataBuilder> {
   set introduction(IntroductionBuilder introduction) =>
       _$this._introduction = introduction;
 
+  GeographyBuilder _geography;
+  GeographyBuilder get geography =>
+      _$this._geography ??= new GeographyBuilder();
+  set geography(GeographyBuilder geography) => _$this._geography = geography;
+
   CountryDataBuilder();
 
   CountryDataBuilder get _$this {
     if (_$v != null) {
       _name = _$v.name;
       _introduction = _$v.introduction?.toBuilder();
+      _geography = _$v.geography?.toBuilder();
       _$v = null;
     }
     return this;
@@ -455,12 +476,17 @@ class CountryDataBuilder implements Builder<CountryData, CountryDataBuilder> {
     _$CountryData _$result;
     try {
       _$result = _$v ??
-          new _$CountryData._(name: name, introduction: introduction.build());
+          new _$CountryData._(
+              name: name,
+              introduction: introduction.build(),
+              geography: geography.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'introduction';
         introduction.build();
+        _$failedField = 'geography';
+        geography.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'CountryData', _$failedField, e.toString());

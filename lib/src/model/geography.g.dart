@@ -58,9 +58,6 @@ class _$GeographySerializer implements StructuredSerializer<Geography> {
       'land_boundaries',
       serializers.serialize(object.landBoundaries,
           specifiedType: const FullType(LandBoundaries)),
-      'coastline',
-      serializers.serialize(object.coastline,
-          specifiedType: const FullType(Coastline)),
       'climate',
       serializers.serialize(object.climate,
           specifiedType: const FullType(String)),
@@ -98,6 +95,12 @@ class _$GeographySerializer implements StructuredSerializer<Geography> {
         ..add('map_reference')
         ..add(serializers.serialize(object.mapReferences,
             specifiedType: const FullType(String)));
+    }
+    if (object.coastline != null) {
+      result
+        ..add('coastline')
+        ..add(serializers.serialize(object.coastline,
+            specifiedType: const FullType(Coastline)));
     }
     if (object.terrain != null) {
       result
@@ -336,11 +339,11 @@ class _$GeographyAreaSerializer implements StructuredSerializer<GeographyArea> {
         ..add(serializers.serialize(object.land,
             specifiedType: const FullType(GeographyAreaValue)));
     }
-    if (object.water != null) {
+    if (object.waterValue != null) {
       result
         ..add('water')
-        ..add(serializers.serialize(object.water,
-            specifiedType: const FullType(GeographyAreaValue)));
+        ..add(serializers.serialize(object.waterValue,
+            specifiedType: const FullType(JsonObject)));
     }
     if (object.note != null) {
       result
@@ -380,9 +383,8 @@ class _$GeographyAreaSerializer implements StructuredSerializer<GeographyArea> {
               as GeographyAreaValue);
           break;
         case 'water':
-          result.water.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(GeographyAreaValue))
-              as GeographyAreaValue);
+          result.waterValue = serializers.deserialize(value,
+              specifiedType: const FullType(JsonObject)) as JsonObject;
           break;
         case 'note':
           result.note = serializers.deserialize(value,
@@ -1290,9 +1292,6 @@ class _$Geography extends Geography {
     if (landBoundaries == null) {
       throw new BuiltValueNullFieldError('Geography', 'landBoundaries');
     }
-    if (coastline == null) {
-      throw new BuiltValueNullFieldError('Geography', 'coastline');
-    }
     if (climate == null) {
       throw new BuiltValueNullFieldError('Geography', 'climate');
     }
@@ -1509,7 +1508,7 @@ class GeographyBuilder implements Builder<Geography, GeographyBuilder> {
               mapReferences: mapReferences,
               area: area.build(),
               landBoundaries: landBoundaries.build(),
-              coastline: coastline.build(),
+              coastline: _coastline?.build(),
               climate: climate,
               terrain: terrain,
               naturalResources: naturalResources.build(),
@@ -1528,7 +1527,7 @@ class GeographyBuilder implements Builder<Geography, GeographyBuilder> {
         _$failedField = 'landBoundaries';
         landBoundaries.build();
         _$failedField = 'coastline';
-        coastline.build();
+        _coastline?.build();
 
         _$failedField = 'naturalResources';
         naturalResources.build();
@@ -1781,7 +1780,7 @@ class _$GeographyArea extends GeographyArea {
   @override
   final GeographyAreaValue land;
   @override
-  final GeographyAreaValue water;
+  final JsonObject waterValue;
   @override
   final String note;
   @override
@@ -1795,7 +1794,7 @@ class _$GeographyArea extends GeographyArea {
   _$GeographyArea._(
       {this.total,
       this.land,
-      this.water,
+      this.waterValue,
       this.note,
       this.globalRank,
       this.comparative})
@@ -1821,7 +1820,7 @@ class _$GeographyArea extends GeographyArea {
     return other is GeographyArea &&
         total == other.total &&
         land == other.land &&
-        water == other.water &&
+        waterValue == other.waterValue &&
         note == other.note &&
         globalRank == other.globalRank &&
         comparative == other.comparative;
@@ -1831,7 +1830,9 @@ class _$GeographyArea extends GeographyArea {
   int get hashCode {
     return $jf($jc(
         $jc(
-            $jc($jc($jc($jc(0, total.hashCode), land.hashCode), water.hashCode),
+            $jc(
+                $jc($jc($jc(0, total.hashCode), land.hashCode),
+                    waterValue.hashCode),
                 note.hashCode),
             globalRank.hashCode),
         comparative.hashCode));
@@ -1842,7 +1843,7 @@ class _$GeographyArea extends GeographyArea {
     return (newBuiltValueToStringHelper('GeographyArea')
           ..add('total', total)
           ..add('land', land)
-          ..add('water', water)
+          ..add('waterValue', waterValue)
           ..add('note', note)
           ..add('globalRank', globalRank)
           ..add('comparative', comparative))
@@ -1864,10 +1865,9 @@ class GeographyAreaBuilder
       _$this._land ??= new GeographyAreaValueBuilder();
   set land(GeographyAreaValueBuilder land) => _$this._land = land;
 
-  GeographyAreaValueBuilder _water;
-  GeographyAreaValueBuilder get water =>
-      _$this._water ??= new GeographyAreaValueBuilder();
-  set water(GeographyAreaValueBuilder water) => _$this._water = water;
+  JsonObject _waterValue;
+  JsonObject get waterValue => _$this._waterValue;
+  set waterValue(JsonObject waterValue) => _$this._waterValue = waterValue;
 
   String _note;
   String get note => _$this._note;
@@ -1887,7 +1887,7 @@ class GeographyAreaBuilder
     if (_$v != null) {
       _total = _$v.total?.toBuilder();
       _land = _$v.land?.toBuilder();
-      _water = _$v.water?.toBuilder();
+      _waterValue = _$v.waterValue;
       _note = _$v.note;
       _globalRank = _$v.globalRank;
       _comparative = _$v.comparative;
@@ -1917,7 +1917,7 @@ class GeographyAreaBuilder
           new _$GeographyArea._(
               total: total.build(),
               land: _land?.build(),
-              water: _water?.build(),
+              waterValue: waterValue,
               note: note,
               globalRank: globalRank,
               comparative: comparative);
@@ -1928,8 +1928,6 @@ class GeographyAreaBuilder
         total.build();
         _$failedField = 'land';
         _land?.build();
-        _$failedField = 'water';
-        _water?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'GeographyArea', _$failedField, e.toString());

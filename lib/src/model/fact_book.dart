@@ -33,8 +33,8 @@ abstract class CountryData implements Built<CountryData, CountryDataBuilder> {
 
   Introduction get introduction;
 
-//  Geography get geography;
-//
+  Geography get geography;
+
 //  Communications get communications;
 //
 //  People get people;
