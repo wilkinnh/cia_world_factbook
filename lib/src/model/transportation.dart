@@ -1,7 +1,8 @@
 import 'package:built_value/built_value.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
-import 'package:cia_world_factbook/cia_world_factbook.dart';
+
+import 'common.dart';
 
 part 'transportation.g.dart';
 

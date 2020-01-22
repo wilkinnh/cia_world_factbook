@@ -2,6 +2,8 @@ import 'package:built_value/built_value.dart';
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/serializer.dart';
 
+import 'common.dart';
+
 part 'economy.g.dart';
 
 abstract class Economy implements Built<Economy, EconomyBuilder> {
@@ -221,20 +223,6 @@ abstract class CompositionEndUses
   factory CompositionEndUses(
           [void Function(CompositionEndUsesBuilder) updates]) =
       _$CompositionEndUses;
-}
-
-abstract class ValueUnits implements Built<ValueUnits, ValueUnitsBuilder> {
-  static Serializer<ValueUnits> get serializer => _$valueUnitsSerializer;
-
-  double get value;
-
-  String get units;
-
-  @nullable
-  String get note;
-
-  ValueUnits._();
-  factory ValueUnits([void Function(ValueUnitsBuilder) updates]) = _$ValueUnits;
 }
 
 abstract class CompositionBySectorOfOrigin

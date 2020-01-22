@@ -18,8 +18,8 @@ Serializer<AgeStructureValue> _$ageStructureValueSerializer =
     new _$AgeStructureValueSerializer();
 Serializer<DependencyRatios> _$dependencyRatiosSerializer =
     new _$DependencyRatiosSerializer();
-Serializer<DependencyRatio> _$dependencyRatioSerializer =
-    new _$DependencyRatioSerializer();
+Serializer<DependencyRatiosRatios> _$dependencyRatiosRatiosSerializer =
+    new _$DependencyRatiosRatiosSerializer();
 Serializer<MedianAge> _$medianAgeSerializer = new _$MedianAgeSerializer();
 Serializer<MedianAgeValue> _$medianAgeValueSerializer =
     new _$MedianAgeValueSerializer();
@@ -31,8 +31,6 @@ Serializer<Urbanization> _$urbanizationSerializer =
     new _$UrbanizationSerializer();
 Serializer<UrbanPopulation> _$urbanPopulationSerializer =
     new _$UrbanPopulationSerializer();
-Serializer<RateOfUrbanization> _$rateOfUrbanizationSerializer =
-    new _$RateOfUrbanizationSerializer();
 Serializer<MajorUrbanAreas> _$majorUrbanAreasSerializer =
     new _$MajorUrbanAreasSerializer();
 Serializer<MajorUrbanArea> _$majorUrbanAreaSerializer =
@@ -40,18 +38,12 @@ Serializer<MajorUrbanArea> _$majorUrbanAreaSerializer =
 Serializer<SexRatio> _$sexRatioSerializer = new _$SexRatioSerializer();
 Serializer<SexRatioByAge> _$sexRatioByAgeSerializer =
     new _$SexRatioByAgeSerializer();
-Serializer<SexRatioValue> _$sexRatioValueSerializer =
-    new _$SexRatioValueSerializer();
 Serializer<MaternalMortalityRate> _$maternalMortalityRateSerializer =
     new _$MaternalMortalityRateSerializer();
 Serializer<InfantMortalityRate> _$infantMortalityRateSerializer =
     new _$InfantMortalityRateSerializer();
-Serializer<InfantMortalityRateValue> _$infantMortalityRateValueSerializer =
-    new _$InfantMortalityRateValueSerializer();
 Serializer<LifeExpectancyAtBirth> _$lifeExpectancyAtBirthSerializer =
     new _$LifeExpectancyAtBirthSerializer();
-Serializer<LifeExpectencyValue> _$lifeExpectencyValueSerializer =
-    new _$LifeExpectencyValueSerializer();
 Serializer<TotalFertilityRate> _$totalFertilityRateSerializer =
     new _$TotalFertilityRateSerializer();
 Serializer<DrinkingWaterSource> _$drinkingWaterSourceSerializer =
@@ -59,27 +51,19 @@ Serializer<DrinkingWaterSource> _$drinkingWaterSourceSerializer =
 Serializer<DrinkingWaterClassification>
     _$drinkingWaterClassificationSerializer =
     new _$DrinkingWaterClassificationSerializer();
-Serializer<DrinkingWaterValue> _$drinkingWaterValueSerializer =
-    new _$DrinkingWaterValueSerializer();
 Serializer<SanitationFacilityAccess> _$sanitationFacilityAccessSerializer =
     new _$SanitationFacilityAccessSerializer();
 Serializer<SanitationFacilityClassification>
     _$sanitationFacilityClassificationSerializer =
     new _$SanitationFacilityClassificationSerializer();
-Serializer<SanitationFacilityValue> _$sanitationFacilityValueSerializer =
-    new _$SanitationFacilityValueSerializer();
 Serializer<HIVAIDs> _$hIVAIDsSerializer = new _$HIVAIDsSerializer();
 Serializer<HIVAdultPrevalenceRate> _$hIVAdultPrevalenceRateSerializer =
     new _$HIVAdultPrevalenceRateSerializer();
 Serializer<HIVAIDsValue> _$hIVAIDsValueSerializer =
     new _$HIVAIDsValueSerializer();
 Serializer<Literacy> _$literacySerializer = new _$LiteracySerializer();
-Serializer<LiteracyValue> _$literacyValueSerializer =
-    new _$LiteracyValueSerializer();
 Serializer<SchoolLifeExpectancy> _$schoolLifeExpectancySerializer =
     new _$SchoolLifeExpectancySerializer();
-Serializer<SchoolLifeExpectancyValue> _$schoolLifeExpectancyValueSerializer =
-    new _$SchoolLifeExpectancyValueSerializer();
 
 class _$PeopleSerializer implements StructuredSerializer<People> {
   @override
@@ -97,53 +81,97 @@ class _$PeopleSerializer implements StructuredSerializer<People> {
       'languages',
       serializers.serialize(object.languages,
           specifiedType: const FullType(Languages)),
-      'religions',
-      serializers.serialize(object.religions,
-          specifiedType: const FullType(Religions)),
-      'age_structure',
-      serializers.serialize(object.ageStructure,
-          specifiedType: const FullType(AgeStructure)),
-      'dependencyRatios',
-      serializers.serialize(object.dependencyRatios,
-          specifiedType: const FullType(DependencyRatios)),
-      'median_age',
-      serializers.serialize(object.medianAge,
-          specifiedType: const FullType(MedianAge)),
-      'population_growth_rate',
-      serializers.serialize(object.populationGrowthRate,
-          specifiedType: const FullType(PopulationGrowthRate)),
-      'birth_rate',
-      serializers.serialize(object.birthRate,
-          specifiedType: const FullType(BirthRate)),
-      'death_rate',
-      serializers.serialize(object.deathRate,
-          specifiedType: const FullType(DeathRate)),
-      'population_distribution',
-      serializers.serialize(object.populationDistribution,
-          specifiedType: const FullType(String)),
-      'major_urban_areas',
-      serializers.serialize(object.majorUrbanAreas,
-          specifiedType: const FullType(MajorUrbanAreas)),
-      'sex_ratio',
-      serializers.serialize(object.sexRatio,
-          specifiedType: const FullType(SexRatio)),
-      'maternal_mortality_rate',
-      serializers.serialize(object.maternalMortalityRate,
-          specifiedType: const FullType(MaternalMortalityRate)),
-      'infant_mortality_rate',
-      serializers.serialize(object.infantMortalityRate,
-          specifiedType: const FullType(InfantMortalityRate)),
-      'life_expectancy_at_birth',
-      serializers.serialize(object.lifeExpectancyAtBirth,
-          specifiedType: const FullType(LifeExpectancyAtBirth)),
-      'total_fertility_rate',
-      serializers.serialize(object.totalFertilityRate,
-          specifiedType: const FullType(TotalFertilityRate)),
-      'drinking_water_source',
-      serializers.serialize(object.drinkingWaterSource,
-          specifiedType: const FullType(DrinkingWaterSource)),
     ];
-
+    if (object.religions != null) {
+      result
+        ..add('religions')
+        ..add(serializers.serialize(object.religions,
+            specifiedType: const FullType(Religions)));
+    }
+    if (object.ageStructure != null) {
+      result
+        ..add('age_structure')
+        ..add(serializers.serialize(object.ageStructure,
+            specifiedType: const FullType(AgeStructure)));
+    }
+    if (object.dependencyRatios != null) {
+      result
+        ..add('dependency_ratios')
+        ..add(serializers.serialize(object.dependencyRatios,
+            specifiedType: const FullType(DependencyRatios)));
+    }
+    if (object.medianAge != null) {
+      result
+        ..add('median_age')
+        ..add(serializers.serialize(object.medianAge,
+            specifiedType: const FullType(MedianAge)));
+    }
+    if (object.populationGrowthRate != null) {
+      result
+        ..add('population_growth_rate')
+        ..add(serializers.serialize(object.populationGrowthRate,
+            specifiedType: const FullType(PopulationGrowthRate)));
+    }
+    if (object.birthRate != null) {
+      result
+        ..add('birth_rate')
+        ..add(serializers.serialize(object.birthRate,
+            specifiedType: const FullType(BirthRate)));
+    }
+    if (object.deathRate != null) {
+      result
+        ..add('death_rate')
+        ..add(serializers.serialize(object.deathRate,
+            specifiedType: const FullType(DeathRate)));
+    }
+    if (object.populationDistribution != null) {
+      result
+        ..add('population_distribution')
+        ..add(serializers.serialize(object.populationDistribution,
+            specifiedType: const FullType(String)));
+    }
+    if (object.majorUrbanAreas != null) {
+      result
+        ..add('major_urban_areas')
+        ..add(serializers.serialize(object.majorUrbanAreas,
+            specifiedType: const FullType(MajorUrbanAreas)));
+    }
+    if (object.sexRatio != null) {
+      result
+        ..add('sex_ratio')
+        ..add(serializers.serialize(object.sexRatio,
+            specifiedType: const FullType(SexRatio)));
+    }
+    if (object.maternalMortalityRate != null) {
+      result
+        ..add('maternal_mortality_rate')
+        ..add(serializers.serialize(object.maternalMortalityRate,
+            specifiedType: const FullType(MaternalMortalityRate)));
+    }
+    if (object.infantMortalityRateValue != null) {
+      result
+        ..add('infant_mortality_rate')
+        ..add(serializers.serialize(object.infantMortalityRateValue,
+            specifiedType: const FullType(JsonObject)));
+    }
+    if (object.lifeExpectancyAtBirth != null) {
+      result
+        ..add('life_expectancy_at_birth')
+        ..add(serializers.serialize(object.lifeExpectancyAtBirth,
+            specifiedType: const FullType(LifeExpectancyAtBirth)));
+    }
+    if (object.totalFertilityRate != null) {
+      result
+        ..add('total_fertility_rate')
+        ..add(serializers.serialize(object.totalFertilityRate,
+            specifiedType: const FullType(TotalFertilityRate)));
+    }
+    if (object.drinkingWaterSource != null) {
+      result
+        ..add('drinking_water_source')
+        ..add(serializers.serialize(object.drinkingWaterSource,
+            specifiedType: const FullType(DrinkingWaterSource)));
+    }
     return result;
   }
 
@@ -174,7 +202,7 @@ class _$PeopleSerializer implements StructuredSerializer<People> {
           result.ageStructure.replace(serializers.deserialize(value,
               specifiedType: const FullType(AgeStructure)) as AgeStructure);
           break;
-        case 'dependencyRatios':
+        case 'dependency_ratios':
           result.dependencyRatios.replace(serializers.deserialize(value,
                   specifiedType: const FullType(DependencyRatios))
               as DependencyRatios);
@@ -215,9 +243,8 @@ class _$PeopleSerializer implements StructuredSerializer<People> {
               as MaternalMortalityRate);
           break;
         case 'infant_mortality_rate':
-          result.infantMortalityRate.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(InfantMortalityRate))
-              as InfantMortalityRate);
+          result.infantMortalityRateValue = serializers.deserialize(value,
+              specifiedType: const FullType(JsonObject)) as JsonObject;
           break;
         case 'life_expectancy_at_birth':
           result.lifeExpectancyAtBirth.replace(serializers.deserialize(value,
@@ -253,10 +280,13 @@ class _$PopulationSerializer implements StructuredSerializer<Population> {
     final result = <Object>[
       'total',
       serializers.serialize(object.total, specifiedType: const FullType(int)),
-      'date',
-      serializers.serialize(object.date, specifiedType: const FullType(String)),
     ];
-
+    if (object.date != null) {
+      result
+        ..add('date')
+        ..add(serializers.serialize(object.date,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -300,15 +330,25 @@ class _$LanguagesSerializer implements StructuredSerializer<Languages> {
       serializers.serialize(object.language,
           specifiedType:
               const FullType(BuiltList, const [const FullType(Language)])),
-      'most_spoken_first_language',
-      serializers.serialize(object.mostSpokenFirstLanguage,
-          specifiedType: const FullType(String)),
-      'note',
-      serializers.serialize(object.note, specifiedType: const FullType(String)),
-      'date',
-      serializers.serialize(object.date, specifiedType: const FullType(String)),
     ];
-
+    if (object.mostSpokenFirstLanguage != null) {
+      result
+        ..add('most_spoken_first_language')
+        ..add(serializers.serialize(object.mostSpokenFirstLanguage,
+            specifiedType: const FullType(String)));
+    }
+    if (object.note != null) {
+      result
+        ..add('note')
+        ..add(serializers.serialize(object.note,
+            specifiedType: const FullType(String)));
+    }
+    if (object.date != null) {
+      result
+        ..add('date')
+        ..add(serializers.serialize(object.date,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -360,11 +400,13 @@ class _$LanguageSerializer implements StructuredSerializer<Language> {
     final result = <Object>[
       'name',
       serializers.serialize(object.name, specifiedType: const FullType(String)),
-      'percent',
-      serializers.serialize(object.percent,
-          specifiedType: const FullType(double)),
     ];
-
+    if (object.percent != null) {
+      result
+        ..add('percent')
+        ..add(serializers.serialize(object.percent,
+            specifiedType: const FullType(double)));
+    }
     return result;
   }
 
@@ -446,14 +488,25 @@ class _$ReligionSerializer implements StructuredSerializer<Religion> {
   @override
   Iterable<Object> serialize(Serializers serializers, Religion object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'name',
-      serializers.serialize(object.name, specifiedType: const FullType(String)),
-      'percent',
-      serializers.serialize(object.percent,
-          specifiedType: const FullType(double)),
-    ];
-
+    final result = <Object>[];
+    if (object.name != null) {
+      result
+        ..add('name')
+        ..add(serializers.serialize(object.name,
+            specifiedType: const FullType(String)));
+    }
+    if (object.percent != null) {
+      result
+        ..add('percent')
+        ..add(serializers.serialize(object.percent,
+            specifiedType: const FullType(double)));
+    }
+    if (object.note != null) {
+      result
+        ..add('note')
+        ..add(serializers.serialize(object.note,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -475,6 +528,10 @@ class _$ReligionSerializer implements StructuredSerializer<Religion> {
         case 'percent':
           result.percent = serializers.deserialize(value,
               specifiedType: const FullType(double)) as double;
+          break;
+        case 'note':
+          result.note = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
           break;
       }
     }
@@ -627,18 +684,11 @@ class _$DependencyRatiosSerializer
   Iterable<Object> serialize(Serializers serializers, DependencyRatios object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
-      'total_dependency_ratio',
-      serializers.serialize(object.totalDependencyRatio,
-          specifiedType: const FullType(DependencyRatio)),
-      'youth_dependency_ratio',
-      serializers.serialize(object.youthDependencyRatio,
-          specifiedType: const FullType(DependencyRatio)),
-      'elderly_dependency_ratio',
-      serializers.serialize(object.elderlyDependencyRatio,
-          specifiedType: const FullType(DependencyRatio)),
-      'potential_support_ratio',
-      serializers.serialize(object.potentialSupportRatio,
-          specifiedType: const FullType(DependencyRatio)),
+      'ratios',
+      serializers.serialize(object.ratios,
+          specifiedType: const FullType(DependencyRatiosRatios)),
+      'date',
+      serializers.serialize(object.date, specifiedType: const FullType(String)),
     ];
 
     return result;
@@ -656,25 +706,14 @@ class _$DependencyRatiosSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'total_dependency_ratio':
-          result.totalDependencyRatio.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DependencyRatio))
-              as DependencyRatio);
+        case 'ratios':
+          result.ratios.replace(serializers.deserialize(value,
+                  specifiedType: const FullType(DependencyRatiosRatios))
+              as DependencyRatiosRatios);
           break;
-        case 'youth_dependency_ratio':
-          result.youthDependencyRatio.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DependencyRatio))
-              as DependencyRatio);
-          break;
-        case 'elderly_dependency_ratio':
-          result.elderlyDependencyRatio.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DependencyRatio))
-              as DependencyRatio);
-          break;
-        case 'potential_support_ratio':
-          result.potentialSupportRatio.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DependencyRatio))
-              as DependencyRatio);
+        case 'date':
+          result.date = serializers.deserialize(value,
+              specifiedType: const FullType(String)) as String;
           break;
       }
     }
@@ -683,33 +722,45 @@ class _$DependencyRatiosSerializer
   }
 }
 
-class _$DependencyRatioSerializer
-    implements StructuredSerializer<DependencyRatio> {
+class _$DependencyRatiosRatiosSerializer
+    implements StructuredSerializer<DependencyRatiosRatios> {
   @override
-  final Iterable<Type> types = const [DependencyRatio, _$DependencyRatio];
+  final Iterable<Type> types = const [
+    DependencyRatiosRatios,
+    _$DependencyRatiosRatios
+  ];
   @override
-  final String wireName = 'DependencyRatio';
+  final String wireName = 'DependencyRatiosRatios';
 
   @override
-  Iterable<Object> serialize(Serializers serializers, DependencyRatio object,
+  Iterable<Object> serialize(
+      Serializers serializers, DependencyRatiosRatios object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
-      'value',
-      serializers.serialize(object.value,
-          specifiedType: const FullType(double)),
-      'units',
-      serializers.serialize(object.units,
-          specifiedType: const FullType(String)),
+      'total_dependency_ratio',
+      serializers.serialize(object.totalDependencyRatio,
+          specifiedType: const FullType(ValueUnits)),
+      'youth_dependency_ratio',
+      serializers.serialize(object.youthDependencyRatio,
+          specifiedType: const FullType(ValueUnits)),
+      'elderly_dependency_ratio',
+      serializers.serialize(object.elderlyDependencyRatio,
+          specifiedType: const FullType(ValueUnits)),
     ];
-
+    if (object.potentialSupportRatio != null) {
+      result
+        ..add('potential_support_ratio')
+        ..add(serializers.serialize(object.potentialSupportRatio,
+            specifiedType: const FullType(ValueUnits)));
+    }
     return result;
   }
 
   @override
-  DependencyRatio deserialize(
+  DependencyRatiosRatios deserialize(
       Serializers serializers, Iterable<Object> serialized,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = new DependencyRatioBuilder();
+    final result = new DependencyRatiosRatiosBuilder();
 
     final iterator = serialized.iterator;
     while (iterator.moveNext()) {
@@ -717,13 +768,21 @@ class _$DependencyRatioSerializer
       iterator.moveNext();
       final dynamic value = iterator.current;
       switch (key) {
-        case 'value':
-          result.value = serializers.deserialize(value,
-              specifiedType: const FullType(double)) as double;
+        case 'total_dependency_ratio':
+          result.totalDependencyRatio.replace(serializers.deserialize(value,
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
-        case 'units':
-          result.units = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+        case 'youth_dependency_ratio':
+          result.youthDependencyRatio.replace(serializers.deserialize(value,
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
+          break;
+        case 'elderly_dependency_ratio':
+          result.elderlyDependencyRatio.replace(serializers.deserialize(value,
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
+          break;
+        case 'potential_support_ratio':
+          result.potentialSupportRatio.replace(serializers.deserialize(value,
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
       }
     }
@@ -1000,7 +1059,7 @@ class _$UrbanizationSerializer implements StructuredSerializer<Urbanization> {
           specifiedType: const FullType(UrbanPopulation)),
       'rate_of_distribution',
       serializers.serialize(object.rateOfDistribution,
-          specifiedType: const FullType(RateOfUrbanization)),
+          specifiedType: const FullType(ValueUnits)),
     ];
 
     return result;
@@ -1024,8 +1083,7 @@ class _$UrbanizationSerializer implements StructuredSerializer<Urbanization> {
           break;
         case 'rate_of_distribution':
           result.rateOfDistribution.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(RateOfUrbanization))
-              as RateOfUrbanization);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
       }
     }
@@ -1080,55 +1138,6 @@ class _$UrbanPopulationSerializer
           break;
         case 'date':
           result.date = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$RateOfUrbanizationSerializer
-    implements StructuredSerializer<RateOfUrbanization> {
-  @override
-  final Iterable<Type> types = const [RateOfUrbanization, _$RateOfUrbanization];
-  @override
-  final String wireName = 'RateOfUrbanization';
-
-  @override
-  Iterable<Object> serialize(Serializers serializers, RateOfUrbanization object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'value',
-      serializers.serialize(object.value,
-          specifiedType: const FullType(double)),
-      'units',
-      serializers.serialize(object.units,
-          specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  RateOfUrbanization deserialize(
-      Serializers serializers, Iterable<Object> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = new RateOfUrbanizationBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final dynamic value = iterator.current;
-      switch (key) {
-        case 'value':
-          result.value = serializers.deserialize(value,
-              specifiedType: const FullType(double)) as double;
-          break;
-        case 'units':
-          result.units = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
       }
@@ -1203,13 +1212,25 @@ class _$MajorUrbanAreaSerializer
       'place',
       serializers.serialize(object.place,
           specifiedType: const FullType(String)),
-      'population',
-      serializers.serialize(object.population,
-          specifiedType: const FullType(int)),
-      'note',
-      serializers.serialize(object.note, specifiedType: const FullType(String)),
     ];
-
+    if (object.populationValue != null) {
+      result
+        ..add('population')
+        ..add(serializers.serialize(object.populationValue,
+            specifiedType: const FullType(JsonObject)));
+    }
+    if (object.isCapital != null) {
+      result
+        ..add('is_capital')
+        ..add(serializers.serialize(object.isCapital,
+            specifiedType: const FullType(bool)));
+    }
+    if (object.note != null) {
+      result
+        ..add('note')
+        ..add(serializers.serialize(object.note,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -1230,8 +1251,12 @@ class _$MajorUrbanAreaSerializer
               specifiedType: const FullType(String)) as String;
           break;
         case 'population':
-          result.population = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
+          result.populationValue = serializers.deserialize(value,
+              specifiedType: const FullType(JsonObject)) as JsonObject;
+          break;
+        case 'is_capital':
+          result.isCapital = serializers.deserialize(value,
+              specifiedType: const FullType(bool)) as bool;
           break;
         case 'note':
           result.note = serializers.deserialize(value,
@@ -1259,7 +1284,7 @@ class _$SexRatioSerializer implements StructuredSerializer<SexRatio> {
           specifiedType: const FullType(SexRatioByAge)),
       'total_population',
       serializers.serialize(object.totalPopulation,
-          specifiedType: const FullType(SexRatioValue)),
+          specifiedType: const FullType(ValueUnits)),
       'date',
       serializers.serialize(object.date, specifiedType: const FullType(String)),
     ];
@@ -1284,7 +1309,7 @@ class _$SexRatioSerializer implements StructuredSerializer<SexRatio> {
           break;
         case 'total_population':
           result.totalPopulation.replace(serializers.deserialize(value,
-              specifiedType: const FullType(SexRatioValue)) as SexRatioValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case 'date':
           result.date = serializers.deserialize(value,
@@ -1309,22 +1334,22 @@ class _$SexRatioByAgeSerializer implements StructuredSerializer<SexRatioByAge> {
     final result = <Object>[
       'at_birth',
       serializers.serialize(object.atBirth,
-          specifiedType: const FullType(SexRatioValue)),
+          specifiedType: const FullType(ValueUnits)),
       '0_to_14_years',
       serializers.serialize(object.zeroToFourteen,
-          specifiedType: const FullType(SexRatioValue)),
+          specifiedType: const FullType(ValueUnits)),
       '15_to_24_years',
       serializers.serialize(object.fifteenToTwentyFour,
-          specifiedType: const FullType(SexRatioValue)),
+          specifiedType: const FullType(ValueUnits)),
       '25_to_54_years',
       serializers.serialize(object.twentyFiveToFiftyFour,
-          specifiedType: const FullType(SexRatioValue)),
+          specifiedType: const FullType(ValueUnits)),
       '55_to_64_years',
       serializers.serialize(object.fiftyFiveToSixtyFour,
-          specifiedType: const FullType(SexRatioValue)),
+          specifiedType: const FullType(ValueUnits)),
       '65_years_and_over',
       serializers.serialize(object.sixtyFiveAndOver,
-          specifiedType: const FullType(SexRatioValue)),
+          specifiedType: const FullType(ValueUnits)),
     ];
 
     return result;
@@ -1344,75 +1369,27 @@ class _$SexRatioByAgeSerializer implements StructuredSerializer<SexRatioByAge> {
       switch (key) {
         case 'at_birth':
           result.atBirth.replace(serializers.deserialize(value,
-              specifiedType: const FullType(SexRatioValue)) as SexRatioValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case '0_to_14_years':
           result.zeroToFourteen.replace(serializers.deserialize(value,
-              specifiedType: const FullType(SexRatioValue)) as SexRatioValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case '15_to_24_years':
           result.fifteenToTwentyFour.replace(serializers.deserialize(value,
-              specifiedType: const FullType(SexRatioValue)) as SexRatioValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case '25_to_54_years':
           result.twentyFiveToFiftyFour.replace(serializers.deserialize(value,
-              specifiedType: const FullType(SexRatioValue)) as SexRatioValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case '55_to_64_years':
           result.fiftyFiveToSixtyFour.replace(serializers.deserialize(value,
-              specifiedType: const FullType(SexRatioValue)) as SexRatioValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case '65_years_and_over':
           result.sixtyFiveAndOver.replace(serializers.deserialize(value,
-              specifiedType: const FullType(SexRatioValue)) as SexRatioValue);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$SexRatioValueSerializer implements StructuredSerializer<SexRatioValue> {
-  @override
-  final Iterable<Type> types = const [SexRatioValue, _$SexRatioValue];
-  @override
-  final String wireName = 'SexRatioValue';
-
-  @override
-  Iterable<Object> serialize(Serializers serializers, SexRatioValue object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'value',
-      serializers.serialize(object.value,
-          specifiedType: const FullType(double)),
-      'units',
-      serializers.serialize(object.units,
-          specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  SexRatioValue deserialize(
-      Serializers serializers, Iterable<Object> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = new SexRatioValueBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final dynamic value = iterator.current;
-      switch (key) {
-        case 'value':
-          result.value = serializers.deserialize(value,
-              specifiedType: const FullType(double)) as double;
-          break;
-        case 'units':
-          result.units = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
       }
     }
@@ -1490,13 +1467,13 @@ class _$InfantMortalityRateSerializer
     final result = <Object>[
       'total',
       serializers.serialize(object.total,
-          specifiedType: const FullType(InfantMortalityRateValue)),
+          specifiedType: const FullType(ValueUnits)),
       'male',
       serializers.serialize(object.male,
-          specifiedType: const FullType(InfantMortalityRateValue)),
+          specifiedType: const FullType(ValueUnits)),
       'female',
       serializers.serialize(object.female,
-          specifiedType: const FullType(InfantMortalityRateValue)),
+          specifiedType: const FullType(ValueUnits)),
       'date',
       serializers.serialize(object.date, specifiedType: const FullType(String)),
     ];
@@ -1518,74 +1495,18 @@ class _$InfantMortalityRateSerializer
       switch (key) {
         case 'total':
           result.total.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(InfantMortalityRateValue))
-              as InfantMortalityRateValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case 'male':
           result.male.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(InfantMortalityRateValue))
-              as InfantMortalityRateValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case 'female':
           result.female.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(InfantMortalityRateValue))
-              as InfantMortalityRateValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case 'date':
           result.date = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$InfantMortalityRateValueSerializer
-    implements StructuredSerializer<InfantMortalityRateValue> {
-  @override
-  final Iterable<Type> types = const [
-    InfantMortalityRateValue,
-    _$InfantMortalityRateValue
-  ];
-  @override
-  final String wireName = 'InfantMortalityRateValue';
-
-  @override
-  Iterable<Object> serialize(
-      Serializers serializers, InfantMortalityRateValue object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'value',
-      serializers.serialize(object.value,
-          specifiedType: const FullType(double)),
-      'units',
-      serializers.serialize(object.units,
-          specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  InfantMortalityRateValue deserialize(
-      Serializers serializers, Iterable<Object> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = new InfantMortalityRateValueBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final dynamic value = iterator.current;
-      switch (key) {
-        case 'value':
-          result.value = serializers.deserialize(value,
-              specifiedType: const FullType(double)) as double;
-          break;
-        case 'units':
-          result.units = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
       }
@@ -1610,19 +1531,27 @@ class _$LifeExpectancyAtBirthSerializer
       Serializers serializers, LifeExpectancyAtBirth object,
       {FullType specifiedType = FullType.unspecified}) {
     final result = <Object>[
-      'total_population',
-      serializers.serialize(object.totalPopulation,
-          specifiedType: const FullType(LifeExpectencyValue)),
-      'male',
-      serializers.serialize(object.male,
-          specifiedType: const FullType(LifeExpectencyValue)),
-      'female',
-      serializers.serialize(object.female,
-          specifiedType: const FullType(LifeExpectencyValue)),
       'date',
       serializers.serialize(object.date, specifiedType: const FullType(String)),
     ];
-
+    if (object.totalPopulation != null) {
+      result
+        ..add('total_population')
+        ..add(serializers.serialize(object.totalPopulation,
+            specifiedType: const FullType(ValueUnits)));
+    }
+    if (object.male != null) {
+      result
+        ..add('male')
+        ..add(serializers.serialize(object.male,
+            specifiedType: const FullType(ValueUnits)));
+    }
+    if (object.female != null) {
+      result
+        ..add('female')
+        ..add(serializers.serialize(object.female,
+            specifiedType: const FullType(ValueUnits)));
+    }
     return result;
   }
 
@@ -1640,74 +1569,18 @@ class _$LifeExpectancyAtBirthSerializer
       switch (key) {
         case 'total_population':
           result.totalPopulation.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(LifeExpectencyValue))
-              as LifeExpectencyValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case 'male':
           result.male.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(LifeExpectencyValue))
-              as LifeExpectencyValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case 'female':
           result.female.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(LifeExpectencyValue))
-              as LifeExpectencyValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case 'date':
           result.date = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$LifeExpectencyValueSerializer
-    implements StructuredSerializer<LifeExpectencyValue> {
-  @override
-  final Iterable<Type> types = const [
-    LifeExpectencyValue,
-    _$LifeExpectencyValue
-  ];
-  @override
-  final String wireName = 'LifeExpectencyValue';
-
-  @override
-  Iterable<Object> serialize(
-      Serializers serializers, LifeExpectencyValue object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'value',
-      serializers.serialize(object.value,
-          specifiedType: const FullType(double)),
-      'units',
-      serializers.serialize(object.units,
-          specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  LifeExpectencyValue deserialize(
-      Serializers serializers, Iterable<Object> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = new LifeExpectencyValueBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final dynamic value = iterator.current;
-      switch (key) {
-        case 'value':
-          result.value = serializers.deserialize(value,
-              specifiedType: const FullType(double)) as double;
-          break;
-        case 'units':
-          result.units = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
       }
@@ -1786,10 +1659,13 @@ class _$DrinkingWaterSourceSerializer
       'unimproved',
       serializers.serialize(object.unimproved,
           specifiedType: const FullType(DrinkingWaterClassification)),
-      'date',
-      serializers.serialize(object.date, specifiedType: const FullType(String)),
     ];
-
+    if (object.date != null) {
+      result
+        ..add('date')
+        ..add(serializers.serialize(object.date,
+            specifiedType: const FullType(String)));
+    }
     return result;
   }
 
@@ -1840,18 +1716,25 @@ class _$DrinkingWaterClassificationSerializer
   Iterable<Object> serialize(
       Serializers serializers, DrinkingWaterClassification object,
       {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'urban',
-      serializers.serialize(object.urban,
-          specifiedType: const FullType(DrinkingWaterValue)),
-      'rural',
-      serializers.serialize(object.rural,
-          specifiedType: const FullType(DrinkingWaterValue)),
-      'total',
-      serializers.serialize(object.total,
-          specifiedType: const FullType(DrinkingWaterValue)),
-    ];
-
+    final result = <Object>[];
+    if (object.urban != null) {
+      result
+        ..add('urban')
+        ..add(serializers.serialize(object.urban,
+            specifiedType: const FullType(ValueUnits)));
+    }
+    if (object.rural != null) {
+      result
+        ..add('rural')
+        ..add(serializers.serialize(object.rural,
+            specifiedType: const FullType(ValueUnits)));
+    }
+    if (object.total != null) {
+      result
+        ..add('total')
+        ..add(serializers.serialize(object.total,
+            specifiedType: const FullType(ValueUnits)));
+    }
     return result;
   }
 
@@ -1869,67 +1752,15 @@ class _$DrinkingWaterClassificationSerializer
       switch (key) {
         case 'urban':
           result.urban.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DrinkingWaterValue))
-              as DrinkingWaterValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case 'rural':
           result.rural.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DrinkingWaterValue))
-              as DrinkingWaterValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case 'total':
           result.total.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(DrinkingWaterValue))
-              as DrinkingWaterValue);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$DrinkingWaterValueSerializer
-    implements StructuredSerializer<DrinkingWaterValue> {
-  @override
-  final Iterable<Type> types = const [DrinkingWaterValue, _$DrinkingWaterValue];
-  @override
-  final String wireName = 'DrinkingWaterValue';
-
-  @override
-  Iterable<Object> serialize(Serializers serializers, DrinkingWaterValue object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'value',
-      serializers.serialize(object.value,
-          specifiedType: const FullType(double)),
-      'units',
-      serializers.serialize(object.units,
-          specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  DrinkingWaterValue deserialize(
-      Serializers serializers, Iterable<Object> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = new DrinkingWaterValueBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final dynamic value = iterator.current;
-      switch (key) {
-        case 'value':
-          result.value = serializers.deserialize(value,
-              specifiedType: const FullType(double)) as double;
-          break;
-        case 'units':
-          result.units = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
       }
     }
@@ -2018,13 +1849,13 @@ class _$SanitationFacilityClassificationSerializer
     final result = <Object>[
       'urban',
       serializers.serialize(object.urban,
-          specifiedType: const FullType(SanitationFacilityValue)),
+          specifiedType: const FullType(ValueUnits)),
       'rural',
       serializers.serialize(object.rural,
-          specifiedType: const FullType(SanitationFacilityValue)),
+          specifiedType: const FullType(ValueUnits)),
       'total',
       serializers.serialize(object.total,
-          specifiedType: const FullType(SanitationFacilityValue)),
+          specifiedType: const FullType(ValueUnits)),
     ];
 
     return result;
@@ -2044,71 +1875,15 @@ class _$SanitationFacilityClassificationSerializer
       switch (key) {
         case 'urban':
           result.urban.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SanitationFacilityValue))
-              as SanitationFacilityValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case 'rural':
           result.rural.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SanitationFacilityValue))
-              as SanitationFacilityValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case 'total':
           result.total.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SanitationFacilityValue))
-              as SanitationFacilityValue);
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$SanitationFacilityValueSerializer
-    implements StructuredSerializer<SanitationFacilityValue> {
-  @override
-  final Iterable<Type> types = const [
-    SanitationFacilityValue,
-    _$SanitationFacilityValue
-  ];
-  @override
-  final String wireName = 'SanitationFacilityValue';
-
-  @override
-  Iterable<Object> serialize(
-      Serializers serializers, SanitationFacilityValue object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'value',
-      serializers.serialize(object.value,
-          specifiedType: const FullType(double)),
-      'units',
-      serializers.serialize(object.units,
-          specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  SanitationFacilityValue deserialize(
-      Serializers serializers, Iterable<Object> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = new SanitationFacilityValueBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final dynamic value = iterator.current;
-      switch (key) {
-        case 'value':
-          result.value = serializers.deserialize(value,
-              specifiedType: const FullType(double)) as double;
-          break;
-        case 'units':
-          result.units = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
       }
     }
@@ -2284,13 +2059,13 @@ class _$LiteracySerializer implements StructuredSerializer<Literacy> {
           specifiedType: const FullType(String)),
       'total_population',
       serializers.serialize(object.totalPopulation,
-          specifiedType: const FullType(LiteracyValue)),
+          specifiedType: const FullType(ValueUnits)),
       'male',
       serializers.serialize(object.male,
-          specifiedType: const FullType(LiteracyValue)),
+          specifiedType: const FullType(ValueUnits)),
       'female',
       serializers.serialize(object.female,
-          specifiedType: const FullType(LiteracyValue)),
+          specifiedType: const FullType(ValueUnits)),
       'note',
       serializers.serialize(object.note, specifiedType: const FullType(String)),
       'date',
@@ -2317,15 +2092,15 @@ class _$LiteracySerializer implements StructuredSerializer<Literacy> {
           break;
         case 'total_population':
           result.totalPopulation.replace(serializers.deserialize(value,
-              specifiedType: const FullType(LiteracyValue)) as LiteracyValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case 'male':
           result.male.replace(serializers.deserialize(value,
-              specifiedType: const FullType(LiteracyValue)) as LiteracyValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case 'female':
           result.female.replace(serializers.deserialize(value,
-              specifiedType: const FullType(LiteracyValue)) as LiteracyValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case 'note':
           result.note = serializers.deserialize(value,
@@ -2333,54 +2108,6 @@ class _$LiteracySerializer implements StructuredSerializer<Literacy> {
           break;
         case 'date':
           result.date = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$LiteracyValueSerializer implements StructuredSerializer<LiteracyValue> {
-  @override
-  final Iterable<Type> types = const [LiteracyValue, _$LiteracyValue];
-  @override
-  final String wireName = 'LiteracyValue';
-
-  @override
-  Iterable<Object> serialize(Serializers serializers, LiteracyValue object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'value',
-      serializers.serialize(object.value,
-          specifiedType: const FullType(double)),
-      'units',
-      serializers.serialize(object.units,
-          specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  LiteracyValue deserialize(
-      Serializers serializers, Iterable<Object> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = new LiteracyValueBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final dynamic value = iterator.current;
-      switch (key) {
-        case 'value':
-          result.value = serializers.deserialize(value,
-              specifiedType: const FullType(double)) as double;
-          break;
-        case 'units':
-          result.units = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
       }
@@ -2407,13 +2134,13 @@ class _$SchoolLifeExpectancySerializer
     final result = <Object>[
       'total',
       serializers.serialize(object.total,
-          specifiedType: const FullType(SchoolLifeExpectancyValue)),
+          specifiedType: const FullType(ValueUnits)),
       'male',
       serializers.serialize(object.male,
-          specifiedType: const FullType(SchoolLifeExpectancyValue)),
+          specifiedType: const FullType(ValueUnits)),
       'female',
       serializers.serialize(object.female,
-          specifiedType: const FullType(SchoolLifeExpectancyValue)),
+          specifiedType: const FullType(ValueUnits)),
       'date',
       serializers.serialize(object.date, specifiedType: const FullType(String)),
     ];
@@ -2435,73 +2162,18 @@ class _$SchoolLifeExpectancySerializer
       switch (key) {
         case 'total':
           result.total.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SchoolLifeExpectancyValue))
-              as SchoolLifeExpectancyValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case 'male':
           result.male.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SchoolLifeExpectancyValue))
-              as SchoolLifeExpectancyValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case 'female':
           result.female.replace(serializers.deserialize(value,
-                  specifiedType: const FullType(SchoolLifeExpectancyValue))
-              as SchoolLifeExpectancyValue);
+              specifiedType: const FullType(ValueUnits)) as ValueUnits);
           break;
         case 'date':
           result.date = serializers.deserialize(value,
-              specifiedType: const FullType(String)) as String;
-          break;
-      }
-    }
-
-    return result.build();
-  }
-}
-
-class _$SchoolLifeExpectancyValueSerializer
-    implements StructuredSerializer<SchoolLifeExpectancyValue> {
-  @override
-  final Iterable<Type> types = const [
-    SchoolLifeExpectancyValue,
-    _$SchoolLifeExpectancyValue
-  ];
-  @override
-  final String wireName = 'SchoolLifeExpectancyValue';
-
-  @override
-  Iterable<Object> serialize(
-      Serializers serializers, SchoolLifeExpectancyValue object,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = <Object>[
-      'value',
-      serializers.serialize(object.value, specifiedType: const FullType(int)),
-      'units',
-      serializers.serialize(object.units,
-          specifiedType: const FullType(String)),
-    ];
-
-    return result;
-  }
-
-  @override
-  SchoolLifeExpectancyValue deserialize(
-      Serializers serializers, Iterable<Object> serialized,
-      {FullType specifiedType = FullType.unspecified}) {
-    final result = new SchoolLifeExpectancyValueBuilder();
-
-    final iterator = serialized.iterator;
-    while (iterator.moveNext()) {
-      final key = iterator.current as String;
-      iterator.moveNext();
-      final dynamic value = iterator.current;
-      switch (key) {
-        case 'value':
-          result.value = serializers.deserialize(value,
-              specifiedType: const FullType(int)) as int;
-          break;
-        case 'units':
-          result.units = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
       }
@@ -2539,7 +2211,7 @@ class _$People extends People {
   @override
   final MaternalMortalityRate maternalMortalityRate;
   @override
-  final InfantMortalityRate infantMortalityRate;
+  final JsonObject infantMortalityRateValue;
   @override
   final LifeExpectancyAtBirth lifeExpectancyAtBirth;
   @override
@@ -2564,7 +2236,7 @@ class _$People extends People {
       this.majorUrbanAreas,
       this.sexRatio,
       this.maternalMortalityRate,
-      this.infantMortalityRate,
+      this.infantMortalityRateValue,
       this.lifeExpectancyAtBirth,
       this.totalFertilityRate,
       this.drinkingWaterSource})
@@ -2574,51 +2246,6 @@ class _$People extends People {
     }
     if (languages == null) {
       throw new BuiltValueNullFieldError('People', 'languages');
-    }
-    if (religions == null) {
-      throw new BuiltValueNullFieldError('People', 'religions');
-    }
-    if (ageStructure == null) {
-      throw new BuiltValueNullFieldError('People', 'ageStructure');
-    }
-    if (dependencyRatios == null) {
-      throw new BuiltValueNullFieldError('People', 'dependencyRatios');
-    }
-    if (medianAge == null) {
-      throw new BuiltValueNullFieldError('People', 'medianAge');
-    }
-    if (populationGrowthRate == null) {
-      throw new BuiltValueNullFieldError('People', 'populationGrowthRate');
-    }
-    if (birthRate == null) {
-      throw new BuiltValueNullFieldError('People', 'birthRate');
-    }
-    if (deathRate == null) {
-      throw new BuiltValueNullFieldError('People', 'deathRate');
-    }
-    if (populationDistribution == null) {
-      throw new BuiltValueNullFieldError('People', 'populationDistribution');
-    }
-    if (majorUrbanAreas == null) {
-      throw new BuiltValueNullFieldError('People', 'majorUrbanAreas');
-    }
-    if (sexRatio == null) {
-      throw new BuiltValueNullFieldError('People', 'sexRatio');
-    }
-    if (maternalMortalityRate == null) {
-      throw new BuiltValueNullFieldError('People', 'maternalMortalityRate');
-    }
-    if (infantMortalityRate == null) {
-      throw new BuiltValueNullFieldError('People', 'infantMortalityRate');
-    }
-    if (lifeExpectancyAtBirth == null) {
-      throw new BuiltValueNullFieldError('People', 'lifeExpectancyAtBirth');
-    }
-    if (totalFertilityRate == null) {
-      throw new BuiltValueNullFieldError('People', 'totalFertilityRate');
-    }
-    if (drinkingWaterSource == null) {
-      throw new BuiltValueNullFieldError('People', 'drinkingWaterSource');
     }
   }
 
@@ -2646,7 +2273,7 @@ class _$People extends People {
         majorUrbanAreas == other.majorUrbanAreas &&
         sexRatio == other.sexRatio &&
         maternalMortalityRate == other.maternalMortalityRate &&
-        infantMortalityRate == other.infantMortalityRate &&
+        infantMortalityRateValue == other.infantMortalityRateValue &&
         lifeExpectancyAtBirth == other.lifeExpectancyAtBirth &&
         totalFertilityRate == other.totalFertilityRate &&
         drinkingWaterSource == other.drinkingWaterSource;
@@ -2690,7 +2317,7 @@ class _$People extends People {
                                 majorUrbanAreas.hashCode),
                             sexRatio.hashCode),
                         maternalMortalityRate.hashCode),
-                    infantMortalityRate.hashCode),
+                    infantMortalityRateValue.hashCode),
                 lifeExpectancyAtBirth.hashCode),
             totalFertilityRate.hashCode),
         drinkingWaterSource.hashCode));
@@ -2712,7 +2339,7 @@ class _$People extends People {
           ..add('majorUrbanAreas', majorUrbanAreas)
           ..add('sexRatio', sexRatio)
           ..add('maternalMortalityRate', maternalMortalityRate)
-          ..add('infantMortalityRate', infantMortalityRate)
+          ..add('infantMortalityRateValue', infantMortalityRateValue)
           ..add('lifeExpectancyAtBirth', lifeExpectancyAtBirth)
           ..add('totalFertilityRate', totalFertilityRate)
           ..add('drinkingWaterSource', drinkingWaterSource))
@@ -2794,11 +2421,10 @@ class PeopleBuilder implements Builder<People, PeopleBuilder> {
           MaternalMortalityRateBuilder maternalMortalityRate) =>
       _$this._maternalMortalityRate = maternalMortalityRate;
 
-  InfantMortalityRateBuilder _infantMortalityRate;
-  InfantMortalityRateBuilder get infantMortalityRate =>
-      _$this._infantMortalityRate ??= new InfantMortalityRateBuilder();
-  set infantMortalityRate(InfantMortalityRateBuilder infantMortalityRate) =>
-      _$this._infantMortalityRate = infantMortalityRate;
+  JsonObject _infantMortalityRateValue;
+  JsonObject get infantMortalityRateValue => _$this._infantMortalityRateValue;
+  set infantMortalityRateValue(JsonObject infantMortalityRateValue) =>
+      _$this._infantMortalityRateValue = infantMortalityRateValue;
 
   LifeExpectancyAtBirthBuilder _lifeExpectancyAtBirth;
   LifeExpectancyAtBirthBuilder get lifeExpectancyAtBirth =>
@@ -2836,7 +2462,7 @@ class PeopleBuilder implements Builder<People, PeopleBuilder> {
       _majorUrbanAreas = _$v.majorUrbanAreas?.toBuilder();
       _sexRatio = _$v.sexRatio?.toBuilder();
       _maternalMortalityRate = _$v.maternalMortalityRate?.toBuilder();
-      _infantMortalityRate = _$v.infantMortalityRate?.toBuilder();
+      _infantMortalityRateValue = _$v.infantMortalityRateValue;
       _lifeExpectancyAtBirth = _$v.lifeExpectancyAtBirth?.toBuilder();
       _totalFertilityRate = _$v.totalFertilityRate?.toBuilder();
       _drinkingWaterSource = _$v.drinkingWaterSource?.toBuilder();
@@ -2866,21 +2492,21 @@ class PeopleBuilder implements Builder<People, PeopleBuilder> {
           new _$People._(
               population: population.build(),
               languages: languages.build(),
-              religions: religions.build(),
-              ageStructure: ageStructure.build(),
-              dependencyRatios: dependencyRatios.build(),
-              medianAge: medianAge.build(),
-              populationGrowthRate: populationGrowthRate.build(),
-              birthRate: birthRate.build(),
-              deathRate: deathRate.build(),
+              religions: _religions?.build(),
+              ageStructure: _ageStructure?.build(),
+              dependencyRatios: _dependencyRatios?.build(),
+              medianAge: _medianAge?.build(),
+              populationGrowthRate: _populationGrowthRate?.build(),
+              birthRate: _birthRate?.build(),
+              deathRate: _deathRate?.build(),
               populationDistribution: populationDistribution,
-              majorUrbanAreas: majorUrbanAreas.build(),
-              sexRatio: sexRatio.build(),
-              maternalMortalityRate: maternalMortalityRate.build(),
-              infantMortalityRate: infantMortalityRate.build(),
-              lifeExpectancyAtBirth: lifeExpectancyAtBirth.build(),
-              totalFertilityRate: totalFertilityRate.build(),
-              drinkingWaterSource: drinkingWaterSource.build());
+              majorUrbanAreas: _majorUrbanAreas?.build(),
+              sexRatio: _sexRatio?.build(),
+              maternalMortalityRate: _maternalMortalityRate?.build(),
+              infantMortalityRateValue: infantMortalityRateValue,
+              lifeExpectancyAtBirth: _lifeExpectancyAtBirth?.build(),
+              totalFertilityRate: _totalFertilityRate?.build(),
+              drinkingWaterSource: _drinkingWaterSource?.build());
     } catch (_) {
       String _$failedField;
       try {
@@ -2889,34 +2515,33 @@ class PeopleBuilder implements Builder<People, PeopleBuilder> {
         _$failedField = 'languages';
         languages.build();
         _$failedField = 'religions';
-        religions.build();
+        _religions?.build();
         _$failedField = 'ageStructure';
-        ageStructure.build();
+        _ageStructure?.build();
         _$failedField = 'dependencyRatios';
-        dependencyRatios.build();
+        _dependencyRatios?.build();
         _$failedField = 'medianAge';
-        medianAge.build();
+        _medianAge?.build();
         _$failedField = 'populationGrowthRate';
-        populationGrowthRate.build();
+        _populationGrowthRate?.build();
         _$failedField = 'birthRate';
-        birthRate.build();
+        _birthRate?.build();
         _$failedField = 'deathRate';
-        deathRate.build();
+        _deathRate?.build();
 
         _$failedField = 'majorUrbanAreas';
-        majorUrbanAreas.build();
+        _majorUrbanAreas?.build();
         _$failedField = 'sexRatio';
-        sexRatio.build();
+        _sexRatio?.build();
         _$failedField = 'maternalMortalityRate';
-        maternalMortalityRate.build();
-        _$failedField = 'infantMortalityRate';
-        infantMortalityRate.build();
+        _maternalMortalityRate?.build();
+
         _$failedField = 'lifeExpectancyAtBirth';
-        lifeExpectancyAtBirth.build();
+        _lifeExpectancyAtBirth?.build();
         _$failedField = 'totalFertilityRate';
-        totalFertilityRate.build();
+        _totalFertilityRate?.build();
         _$failedField = 'drinkingWaterSource';
-        drinkingWaterSource.build();
+        _drinkingWaterSource?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'People', _$failedField, e.toString());
@@ -2940,9 +2565,6 @@ class _$Population extends Population {
   _$Population._({this.total, this.date}) : super._() {
     if (total == null) {
       throw new BuiltValueNullFieldError('Population', 'total');
-    }
-    if (date == null) {
-      throw new BuiltValueNullFieldError('Population', 'date');
     }
   }
 
@@ -3034,16 +2656,6 @@ class _$Languages extends Languages {
       : super._() {
     if (language == null) {
       throw new BuiltValueNullFieldError('Languages', 'language');
-    }
-    if (mostSpokenFirstLanguage == null) {
-      throw new BuiltValueNullFieldError(
-          'Languages', 'mostSpokenFirstLanguage');
-    }
-    if (note == null) {
-      throw new BuiltValueNullFieldError('Languages', 'note');
-    }
-    if (date == null) {
-      throw new BuiltValueNullFieldError('Languages', 'date');
     }
   }
 
@@ -3168,9 +2780,6 @@ class _$Language extends Language {
   _$Language._({this.name, this.percent}) : super._() {
     if (name == null) {
       throw new BuiltValueNullFieldError('Language', 'name');
-    }
-    if (percent == null) {
-      throw new BuiltValueNullFieldError('Language', 'percent');
     }
   }
 
@@ -3339,18 +2948,13 @@ class _$Religion extends Religion {
   final String name;
   @override
   final double percent;
+  @override
+  final String note;
 
   factory _$Religion([void Function(ReligionBuilder) updates]) =>
       (new ReligionBuilder()..update(updates)).build();
 
-  _$Religion._({this.name, this.percent}) : super._() {
-    if (name == null) {
-      throw new BuiltValueNullFieldError('Religion', 'name');
-    }
-    if (percent == null) {
-      throw new BuiltValueNullFieldError('Religion', 'percent');
-    }
-  }
+  _$Religion._({this.name, this.percent, this.note}) : super._();
 
   @override
   Religion rebuild(void Function(ReligionBuilder) updates) =>
@@ -3362,19 +2966,24 @@ class _$Religion extends Religion {
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is Religion && name == other.name && percent == other.percent;
+    return other is Religion &&
+        name == other.name &&
+        percent == other.percent &&
+        note == other.note;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, name.hashCode), percent.hashCode));
+    return $jf(
+        $jc($jc($jc(0, name.hashCode), percent.hashCode), note.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('Religion')
           ..add('name', name)
-          ..add('percent', percent))
+          ..add('percent', percent)
+          ..add('note', note))
         .toString();
   }
 }
@@ -3390,12 +2999,17 @@ class ReligionBuilder implements Builder<Religion, ReligionBuilder> {
   double get percent => _$this._percent;
   set percent(double percent) => _$this._percent = percent;
 
+  String _note;
+  String get note => _$this._note;
+  set note(String note) => _$this._note = note;
+
   ReligionBuilder();
 
   ReligionBuilder get _$this {
     if (_$v != null) {
       _name = _$v.name;
       _percent = _$v.percent;
+      _note = _$v.note;
       _$v = null;
     }
     return this;
@@ -3416,7 +3030,8 @@ class ReligionBuilder implements Builder<Religion, ReligionBuilder> {
 
   @override
   _$Religion build() {
-    final _$result = _$v ?? new _$Religion._(name: name, percent: percent);
+    final _$result =
+        _$v ?? new _$Religion._(name: name, percent: percent, note: note);
     replace(_$result);
     return _$result;
   }
@@ -3727,39 +3342,20 @@ class AgeStructureValueBuilder
 
 class _$DependencyRatios extends DependencyRatios {
   @override
-  final DependencyRatio totalDependencyRatio;
+  final DependencyRatiosRatios ratios;
   @override
-  final DependencyRatio youthDependencyRatio;
-  @override
-  final DependencyRatio elderlyDependencyRatio;
-  @override
-  final DependencyRatio potentialSupportRatio;
+  final String date;
 
   factory _$DependencyRatios(
           [void Function(DependencyRatiosBuilder) updates]) =>
       (new DependencyRatiosBuilder()..update(updates)).build();
 
-  _$DependencyRatios._(
-      {this.totalDependencyRatio,
-      this.youthDependencyRatio,
-      this.elderlyDependencyRatio,
-      this.potentialSupportRatio})
-      : super._() {
-    if (totalDependencyRatio == null) {
-      throw new BuiltValueNullFieldError(
-          'DependencyRatios', 'totalDependencyRatio');
+  _$DependencyRatios._({this.ratios, this.date}) : super._() {
+    if (ratios == null) {
+      throw new BuiltValueNullFieldError('DependencyRatios', 'ratios');
     }
-    if (youthDependencyRatio == null) {
-      throw new BuiltValueNullFieldError(
-          'DependencyRatios', 'youthDependencyRatio');
-    }
-    if (elderlyDependencyRatio == null) {
-      throw new BuiltValueNullFieldError(
-          'DependencyRatios', 'elderlyDependencyRatio');
-    }
-    if (potentialSupportRatio == null) {
-      throw new BuiltValueNullFieldError(
-          'DependencyRatios', 'potentialSupportRatio');
+    if (date == null) {
+      throw new BuiltValueNullFieldError('DependencyRatios', 'date');
     }
   }
 
@@ -3775,29 +3371,20 @@ class _$DependencyRatios extends DependencyRatios {
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
     return other is DependencyRatios &&
-        totalDependencyRatio == other.totalDependencyRatio &&
-        youthDependencyRatio == other.youthDependencyRatio &&
-        elderlyDependencyRatio == other.elderlyDependencyRatio &&
-        potentialSupportRatio == other.potentialSupportRatio;
+        ratios == other.ratios &&
+        date == other.date;
   }
 
   @override
   int get hashCode {
-    return $jf($jc(
-        $jc(
-            $jc($jc(0, totalDependencyRatio.hashCode),
-                youthDependencyRatio.hashCode),
-            elderlyDependencyRatio.hashCode),
-        potentialSupportRatio.hashCode));
+    return $jf($jc($jc(0, ratios.hashCode), date.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('DependencyRatios')
-          ..add('totalDependencyRatio', totalDependencyRatio)
-          ..add('youthDependencyRatio', youthDependencyRatio)
-          ..add('elderlyDependencyRatio', elderlyDependencyRatio)
-          ..add('potentialSupportRatio', potentialSupportRatio))
+          ..add('ratios', ratios)
+          ..add('date', date))
         .toString();
   }
 }
@@ -3806,38 +3393,21 @@ class DependencyRatiosBuilder
     implements Builder<DependencyRatios, DependencyRatiosBuilder> {
   _$DependencyRatios _$v;
 
-  DependencyRatioBuilder _totalDependencyRatio;
-  DependencyRatioBuilder get totalDependencyRatio =>
-      _$this._totalDependencyRatio ??= new DependencyRatioBuilder();
-  set totalDependencyRatio(DependencyRatioBuilder totalDependencyRatio) =>
-      _$this._totalDependencyRatio = totalDependencyRatio;
+  DependencyRatiosRatiosBuilder _ratios;
+  DependencyRatiosRatiosBuilder get ratios =>
+      _$this._ratios ??= new DependencyRatiosRatiosBuilder();
+  set ratios(DependencyRatiosRatiosBuilder ratios) => _$this._ratios = ratios;
 
-  DependencyRatioBuilder _youthDependencyRatio;
-  DependencyRatioBuilder get youthDependencyRatio =>
-      _$this._youthDependencyRatio ??= new DependencyRatioBuilder();
-  set youthDependencyRatio(DependencyRatioBuilder youthDependencyRatio) =>
-      _$this._youthDependencyRatio = youthDependencyRatio;
-
-  DependencyRatioBuilder _elderlyDependencyRatio;
-  DependencyRatioBuilder get elderlyDependencyRatio =>
-      _$this._elderlyDependencyRatio ??= new DependencyRatioBuilder();
-  set elderlyDependencyRatio(DependencyRatioBuilder elderlyDependencyRatio) =>
-      _$this._elderlyDependencyRatio = elderlyDependencyRatio;
-
-  DependencyRatioBuilder _potentialSupportRatio;
-  DependencyRatioBuilder get potentialSupportRatio =>
-      _$this._potentialSupportRatio ??= new DependencyRatioBuilder();
-  set potentialSupportRatio(DependencyRatioBuilder potentialSupportRatio) =>
-      _$this._potentialSupportRatio = potentialSupportRatio;
+  String _date;
+  String get date => _$this._date;
+  set date(String date) => _$this._date = date;
 
   DependencyRatiosBuilder();
 
   DependencyRatiosBuilder get _$this {
     if (_$v != null) {
-      _totalDependencyRatio = _$v.totalDependencyRatio?.toBuilder();
-      _youthDependencyRatio = _$v.youthDependencyRatio?.toBuilder();
-      _elderlyDependencyRatio = _$v.elderlyDependencyRatio?.toBuilder();
-      _potentialSupportRatio = _$v.potentialSupportRatio?.toBuilder();
+      _ratios = _$v.ratios?.toBuilder();
+      _date = _$v.date;
       _$v = null;
     }
     return this;
@@ -3860,23 +3430,13 @@ class DependencyRatiosBuilder
   _$DependencyRatios build() {
     _$DependencyRatios _$result;
     try {
-      _$result = _$v ??
-          new _$DependencyRatios._(
-              totalDependencyRatio: totalDependencyRatio.build(),
-              youthDependencyRatio: youthDependencyRatio.build(),
-              elderlyDependencyRatio: elderlyDependencyRatio.build(),
-              potentialSupportRatio: potentialSupportRatio.build());
+      _$result =
+          _$v ?? new _$DependencyRatios._(ratios: ratios.build(), date: date);
     } catch (_) {
       String _$failedField;
       try {
-        _$failedField = 'totalDependencyRatio';
-        totalDependencyRatio.build();
-        _$failedField = 'youthDependencyRatio';
-        youthDependencyRatio.build();
-        _$failedField = 'elderlyDependencyRatio';
-        elderlyDependencyRatio.build();
-        _$failedField = 'potentialSupportRatio';
-        potentialSupportRatio.build();
+        _$failedField = 'ratios';
+        ratios.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'DependencyRatios', _$failedField, e.toString());
@@ -3888,93 +3448,161 @@ class DependencyRatiosBuilder
   }
 }
 
-class _$DependencyRatio extends DependencyRatio {
+class _$DependencyRatiosRatios extends DependencyRatiosRatios {
   @override
-  final double value;
+  final ValueUnits totalDependencyRatio;
   @override
-  final String units;
+  final ValueUnits youthDependencyRatio;
+  @override
+  final ValueUnits elderlyDependencyRatio;
+  @override
+  final ValueUnits potentialSupportRatio;
 
-  factory _$DependencyRatio([void Function(DependencyRatioBuilder) updates]) =>
-      (new DependencyRatioBuilder()..update(updates)).build();
+  factory _$DependencyRatiosRatios(
+          [void Function(DependencyRatiosRatiosBuilder) updates]) =>
+      (new DependencyRatiosRatiosBuilder()..update(updates)).build();
 
-  _$DependencyRatio._({this.value, this.units}) : super._() {
-    if (value == null) {
-      throw new BuiltValueNullFieldError('DependencyRatio', 'value');
+  _$DependencyRatiosRatios._(
+      {this.totalDependencyRatio,
+      this.youthDependencyRatio,
+      this.elderlyDependencyRatio,
+      this.potentialSupportRatio})
+      : super._() {
+    if (totalDependencyRatio == null) {
+      throw new BuiltValueNullFieldError(
+          'DependencyRatiosRatios', 'totalDependencyRatio');
     }
-    if (units == null) {
-      throw new BuiltValueNullFieldError('DependencyRatio', 'units');
+    if (youthDependencyRatio == null) {
+      throw new BuiltValueNullFieldError(
+          'DependencyRatiosRatios', 'youthDependencyRatio');
+    }
+    if (elderlyDependencyRatio == null) {
+      throw new BuiltValueNullFieldError(
+          'DependencyRatiosRatios', 'elderlyDependencyRatio');
     }
   }
 
   @override
-  DependencyRatio rebuild(void Function(DependencyRatioBuilder) updates) =>
+  DependencyRatiosRatios rebuild(
+          void Function(DependencyRatiosRatiosBuilder) updates) =>
       (toBuilder()..update(updates)).build();
 
   @override
-  DependencyRatioBuilder toBuilder() =>
-      new DependencyRatioBuilder()..replace(this);
+  DependencyRatiosRatiosBuilder toBuilder() =>
+      new DependencyRatiosRatiosBuilder()..replace(this);
 
   @override
   bool operator ==(Object other) {
     if (identical(other, this)) return true;
-    return other is DependencyRatio &&
-        value == other.value &&
-        units == other.units;
+    return other is DependencyRatiosRatios &&
+        totalDependencyRatio == other.totalDependencyRatio &&
+        youthDependencyRatio == other.youthDependencyRatio &&
+        elderlyDependencyRatio == other.elderlyDependencyRatio &&
+        potentialSupportRatio == other.potentialSupportRatio;
   }
 
   @override
   int get hashCode {
-    return $jf($jc($jc(0, value.hashCode), units.hashCode));
+    return $jf($jc(
+        $jc(
+            $jc($jc(0, totalDependencyRatio.hashCode),
+                youthDependencyRatio.hashCode),
+            elderlyDependencyRatio.hashCode),
+        potentialSupportRatio.hashCode));
   }
 
   @override
   String toString() {
-    return (newBuiltValueToStringHelper('DependencyRatio')
-          ..add('value', value)
-          ..add('units', units))
+    return (newBuiltValueToStringHelper('DependencyRatiosRatios')
+          ..add('totalDependencyRatio', totalDependencyRatio)
+          ..add('youthDependencyRatio', youthDependencyRatio)
+          ..add('elderlyDependencyRatio', elderlyDependencyRatio)
+          ..add('potentialSupportRatio', potentialSupportRatio))
         .toString();
   }
 }
 
-class DependencyRatioBuilder
-    implements Builder<DependencyRatio, DependencyRatioBuilder> {
-  _$DependencyRatio _$v;
+class DependencyRatiosRatiosBuilder
+    implements Builder<DependencyRatiosRatios, DependencyRatiosRatiosBuilder> {
+  _$DependencyRatiosRatios _$v;
 
-  double _value;
-  double get value => _$this._value;
-  set value(double value) => _$this._value = value;
+  ValueUnitsBuilder _totalDependencyRatio;
+  ValueUnitsBuilder get totalDependencyRatio =>
+      _$this._totalDependencyRatio ??= new ValueUnitsBuilder();
+  set totalDependencyRatio(ValueUnitsBuilder totalDependencyRatio) =>
+      _$this._totalDependencyRatio = totalDependencyRatio;
 
-  String _units;
-  String get units => _$this._units;
-  set units(String units) => _$this._units = units;
+  ValueUnitsBuilder _youthDependencyRatio;
+  ValueUnitsBuilder get youthDependencyRatio =>
+      _$this._youthDependencyRatio ??= new ValueUnitsBuilder();
+  set youthDependencyRatio(ValueUnitsBuilder youthDependencyRatio) =>
+      _$this._youthDependencyRatio = youthDependencyRatio;
 
-  DependencyRatioBuilder();
+  ValueUnitsBuilder _elderlyDependencyRatio;
+  ValueUnitsBuilder get elderlyDependencyRatio =>
+      _$this._elderlyDependencyRatio ??= new ValueUnitsBuilder();
+  set elderlyDependencyRatio(ValueUnitsBuilder elderlyDependencyRatio) =>
+      _$this._elderlyDependencyRatio = elderlyDependencyRatio;
 
-  DependencyRatioBuilder get _$this {
+  ValueUnitsBuilder _potentialSupportRatio;
+  ValueUnitsBuilder get potentialSupportRatio =>
+      _$this._potentialSupportRatio ??= new ValueUnitsBuilder();
+  set potentialSupportRatio(ValueUnitsBuilder potentialSupportRatio) =>
+      _$this._potentialSupportRatio = potentialSupportRatio;
+
+  DependencyRatiosRatiosBuilder();
+
+  DependencyRatiosRatiosBuilder get _$this {
     if (_$v != null) {
-      _value = _$v.value;
-      _units = _$v.units;
+      _totalDependencyRatio = _$v.totalDependencyRatio?.toBuilder();
+      _youthDependencyRatio = _$v.youthDependencyRatio?.toBuilder();
+      _elderlyDependencyRatio = _$v.elderlyDependencyRatio?.toBuilder();
+      _potentialSupportRatio = _$v.potentialSupportRatio?.toBuilder();
       _$v = null;
     }
     return this;
   }
 
   @override
-  void replace(DependencyRatio other) {
+  void replace(DependencyRatiosRatios other) {
     if (other == null) {
       throw new ArgumentError.notNull('other');
     }
-    _$v = other as _$DependencyRatio;
+    _$v = other as _$DependencyRatiosRatios;
   }
 
   @override
-  void update(void Function(DependencyRatioBuilder) updates) {
+  void update(void Function(DependencyRatiosRatiosBuilder) updates) {
     if (updates != null) updates(this);
   }
 
   @override
-  _$DependencyRatio build() {
-    final _$result = _$v ?? new _$DependencyRatio._(value: value, units: units);
+  _$DependencyRatiosRatios build() {
+    _$DependencyRatiosRatios _$result;
+    try {
+      _$result = _$v ??
+          new _$DependencyRatiosRatios._(
+              totalDependencyRatio: totalDependencyRatio.build(),
+              youthDependencyRatio: youthDependencyRatio.build(),
+              elderlyDependencyRatio: elderlyDependencyRatio.build(),
+              potentialSupportRatio: _potentialSupportRatio?.build());
+    } catch (_) {
+      String _$failedField;
+      try {
+        _$failedField = 'totalDependencyRatio';
+        totalDependencyRatio.build();
+        _$failedField = 'youthDependencyRatio';
+        youthDependencyRatio.build();
+        _$failedField = 'elderlyDependencyRatio';
+        elderlyDependencyRatio.build();
+        _$failedField = 'potentialSupportRatio';
+        _potentialSupportRatio?.build();
+      } catch (e) {
+        throw new BuiltValueNestedFieldError(
+            'DependencyRatiosRatios', _$failedField, e.toString());
+      }
+      rethrow;
+    }
     replace(_$result);
     return _$result;
   }
@@ -4500,7 +4128,7 @@ class _$Urbanization extends Urbanization {
   @override
   final UrbanPopulation urbanPopulation;
   @override
-  final RateOfUrbanization rateOfDistribution;
+  final ValueUnits rateOfDistribution;
 
   factory _$Urbanization([void Function(UrbanizationBuilder) updates]) =>
       (new UrbanizationBuilder()..update(updates)).build();
@@ -4555,10 +4183,10 @@ class UrbanizationBuilder
   set urbanPopulation(UrbanPopulationBuilder urbanPopulation) =>
       _$this._urbanPopulation = urbanPopulation;
 
-  RateOfUrbanizationBuilder _rateOfDistribution;
-  RateOfUrbanizationBuilder get rateOfDistribution =>
-      _$this._rateOfDistribution ??= new RateOfUrbanizationBuilder();
-  set rateOfDistribution(RateOfUrbanizationBuilder rateOfDistribution) =>
+  ValueUnitsBuilder _rateOfDistribution;
+  ValueUnitsBuilder get rateOfDistribution =>
+      _$this._rateOfDistribution ??= new ValueUnitsBuilder();
+  set rateOfDistribution(ValueUnitsBuilder rateOfDistribution) =>
       _$this._rateOfDistribution = rateOfDistribution;
 
   UrbanizationBuilder();
@@ -4716,101 +4344,6 @@ class UrbanPopulationBuilder
   }
 }
 
-class _$RateOfUrbanization extends RateOfUrbanization {
-  @override
-  final double value;
-  @override
-  final String units;
-
-  factory _$RateOfUrbanization(
-          [void Function(RateOfUrbanizationBuilder) updates]) =>
-      (new RateOfUrbanizationBuilder()..update(updates)).build();
-
-  _$RateOfUrbanization._({this.value, this.units}) : super._() {
-    if (value == null) {
-      throw new BuiltValueNullFieldError('RateOfUrbanization', 'value');
-    }
-    if (units == null) {
-      throw new BuiltValueNullFieldError('RateOfUrbanization', 'units');
-    }
-  }
-
-  @override
-  RateOfUrbanization rebuild(
-          void Function(RateOfUrbanizationBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  RateOfUrbanizationBuilder toBuilder() =>
-      new RateOfUrbanizationBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is RateOfUrbanization &&
-        value == other.value &&
-        units == other.units;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc($jc(0, value.hashCode), units.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper('RateOfUrbanization')
-          ..add('value', value)
-          ..add('units', units))
-        .toString();
-  }
-}
-
-class RateOfUrbanizationBuilder
-    implements Builder<RateOfUrbanization, RateOfUrbanizationBuilder> {
-  _$RateOfUrbanization _$v;
-
-  double _value;
-  double get value => _$this._value;
-  set value(double value) => _$this._value = value;
-
-  String _units;
-  String get units => _$this._units;
-  set units(String units) => _$this._units = units;
-
-  RateOfUrbanizationBuilder();
-
-  RateOfUrbanizationBuilder get _$this {
-    if (_$v != null) {
-      _value = _$v.value;
-      _units = _$v.units;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(RateOfUrbanization other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
-    _$v = other as _$RateOfUrbanization;
-  }
-
-  @override
-  void update(void Function(RateOfUrbanizationBuilder) updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$RateOfUrbanization build() {
-    final _$result =
-        _$v ?? new _$RateOfUrbanization._(value: value, units: units);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 class _$MajorUrbanAreas extends MajorUrbanAreas {
   @override
   final BuiltList<MajorUrbanArea> places;
@@ -4922,22 +4455,20 @@ class _$MajorUrbanArea extends MajorUrbanArea {
   @override
   final String place;
   @override
-  final int population;
+  final JsonObject populationValue;
+  @override
+  final bool isCapital;
   @override
   final String note;
 
   factory _$MajorUrbanArea([void Function(MajorUrbanAreaBuilder) updates]) =>
       (new MajorUrbanAreaBuilder()..update(updates)).build();
 
-  _$MajorUrbanArea._({this.place, this.population, this.note}) : super._() {
+  _$MajorUrbanArea._(
+      {this.place, this.populationValue, this.isCapital, this.note})
+      : super._() {
     if (place == null) {
       throw new BuiltValueNullFieldError('MajorUrbanArea', 'place');
-    }
-    if (population == null) {
-      throw new BuiltValueNullFieldError('MajorUrbanArea', 'population');
-    }
-    if (note == null) {
-      throw new BuiltValueNullFieldError('MajorUrbanArea', 'note');
     }
   }
 
@@ -4954,21 +4485,25 @@ class _$MajorUrbanArea extends MajorUrbanArea {
     if (identical(other, this)) return true;
     return other is MajorUrbanArea &&
         place == other.place &&
-        population == other.population &&
+        populationValue == other.populationValue &&
+        isCapital == other.isCapital &&
         note == other.note;
   }
 
   @override
   int get hashCode {
-    return $jf(
-        $jc($jc($jc(0, place.hashCode), population.hashCode), note.hashCode));
+    return $jf($jc(
+        $jc($jc($jc(0, place.hashCode), populationValue.hashCode),
+            isCapital.hashCode),
+        note.hashCode));
   }
 
   @override
   String toString() {
     return (newBuiltValueToStringHelper('MajorUrbanArea')
           ..add('place', place)
-          ..add('population', population)
+          ..add('populationValue', populationValue)
+          ..add('isCapital', isCapital)
           ..add('note', note))
         .toString();
   }
@@ -4982,9 +4517,14 @@ class MajorUrbanAreaBuilder
   String get place => _$this._place;
   set place(String place) => _$this._place = place;
 
-  int _population;
-  int get population => _$this._population;
-  set population(int population) => _$this._population = population;
+  JsonObject _populationValue;
+  JsonObject get populationValue => _$this._populationValue;
+  set populationValue(JsonObject populationValue) =>
+      _$this._populationValue = populationValue;
+
+  bool _isCapital;
+  bool get isCapital => _$this._isCapital;
+  set isCapital(bool isCapital) => _$this._isCapital = isCapital;
 
   String _note;
   String get note => _$this._note;
@@ -4995,7 +4535,8 @@ class MajorUrbanAreaBuilder
   MajorUrbanAreaBuilder get _$this {
     if (_$v != null) {
       _place = _$v.place;
-      _population = _$v.population;
+      _populationValue = _$v.populationValue;
+      _isCapital = _$v.isCapital;
       _note = _$v.note;
       _$v = null;
     }
@@ -5019,7 +4560,10 @@ class MajorUrbanAreaBuilder
   _$MajorUrbanArea build() {
     final _$result = _$v ??
         new _$MajorUrbanArea._(
-            place: place, population: population, note: note);
+            place: place,
+            populationValue: populationValue,
+            isCapital: isCapital,
+            note: note);
     replace(_$result);
     return _$result;
   }
@@ -5029,7 +4573,7 @@ class _$SexRatio extends SexRatio {
   @override
   final SexRatioByAge byAge;
   @override
-  final SexRatioValue totalPopulation;
+  final ValueUnits totalPopulation;
   @override
   final String date;
 
@@ -5088,10 +4632,10 @@ class SexRatioBuilder implements Builder<SexRatio, SexRatioBuilder> {
       _$this._byAge ??= new SexRatioByAgeBuilder();
   set byAge(SexRatioByAgeBuilder byAge) => _$this._byAge = byAge;
 
-  SexRatioValueBuilder _totalPopulation;
-  SexRatioValueBuilder get totalPopulation =>
-      _$this._totalPopulation ??= new SexRatioValueBuilder();
-  set totalPopulation(SexRatioValueBuilder totalPopulation) =>
+  ValueUnitsBuilder _totalPopulation;
+  ValueUnitsBuilder get totalPopulation =>
+      _$this._totalPopulation ??= new ValueUnitsBuilder();
+  set totalPopulation(ValueUnitsBuilder totalPopulation) =>
       _$this._totalPopulation = totalPopulation;
 
   String _date;
@@ -5152,17 +4696,17 @@ class SexRatioBuilder implements Builder<SexRatio, SexRatioBuilder> {
 
 class _$SexRatioByAge extends SexRatioByAge {
   @override
-  final SexRatioValue atBirth;
+  final ValueUnits atBirth;
   @override
-  final SexRatioValue zeroToFourteen;
+  final ValueUnits zeroToFourteen;
   @override
-  final SexRatioValue fifteenToTwentyFour;
+  final ValueUnits fifteenToTwentyFour;
   @override
-  final SexRatioValue twentyFiveToFiftyFour;
+  final ValueUnits twentyFiveToFiftyFour;
   @override
-  final SexRatioValue fiftyFiveToSixtyFour;
+  final ValueUnits fiftyFiveToSixtyFour;
   @override
-  final SexRatioValue sixtyFiveAndOver;
+  final ValueUnits sixtyFiveAndOver;
 
   factory _$SexRatioByAge([void Function(SexRatioByAgeBuilder) updates]) =>
       (new SexRatioByAgeBuilder()..update(updates)).build();
@@ -5246,39 +4790,38 @@ class SexRatioByAgeBuilder
     implements Builder<SexRatioByAge, SexRatioByAgeBuilder> {
   _$SexRatioByAge _$v;
 
-  SexRatioValueBuilder _atBirth;
-  SexRatioValueBuilder get atBirth =>
-      _$this._atBirth ??= new SexRatioValueBuilder();
-  set atBirth(SexRatioValueBuilder atBirth) => _$this._atBirth = atBirth;
+  ValueUnitsBuilder _atBirth;
+  ValueUnitsBuilder get atBirth => _$this._atBirth ??= new ValueUnitsBuilder();
+  set atBirth(ValueUnitsBuilder atBirth) => _$this._atBirth = atBirth;
 
-  SexRatioValueBuilder _zeroToFourteen;
-  SexRatioValueBuilder get zeroToFourteen =>
-      _$this._zeroToFourteen ??= new SexRatioValueBuilder();
-  set zeroToFourteen(SexRatioValueBuilder zeroToFourteen) =>
+  ValueUnitsBuilder _zeroToFourteen;
+  ValueUnitsBuilder get zeroToFourteen =>
+      _$this._zeroToFourteen ??= new ValueUnitsBuilder();
+  set zeroToFourteen(ValueUnitsBuilder zeroToFourteen) =>
       _$this._zeroToFourteen = zeroToFourteen;
 
-  SexRatioValueBuilder _fifteenToTwentyFour;
-  SexRatioValueBuilder get fifteenToTwentyFour =>
-      _$this._fifteenToTwentyFour ??= new SexRatioValueBuilder();
-  set fifteenToTwentyFour(SexRatioValueBuilder fifteenToTwentyFour) =>
+  ValueUnitsBuilder _fifteenToTwentyFour;
+  ValueUnitsBuilder get fifteenToTwentyFour =>
+      _$this._fifteenToTwentyFour ??= new ValueUnitsBuilder();
+  set fifteenToTwentyFour(ValueUnitsBuilder fifteenToTwentyFour) =>
       _$this._fifteenToTwentyFour = fifteenToTwentyFour;
 
-  SexRatioValueBuilder _twentyFiveToFiftyFour;
-  SexRatioValueBuilder get twentyFiveToFiftyFour =>
-      _$this._twentyFiveToFiftyFour ??= new SexRatioValueBuilder();
-  set twentyFiveToFiftyFour(SexRatioValueBuilder twentyFiveToFiftyFour) =>
+  ValueUnitsBuilder _twentyFiveToFiftyFour;
+  ValueUnitsBuilder get twentyFiveToFiftyFour =>
+      _$this._twentyFiveToFiftyFour ??= new ValueUnitsBuilder();
+  set twentyFiveToFiftyFour(ValueUnitsBuilder twentyFiveToFiftyFour) =>
       _$this._twentyFiveToFiftyFour = twentyFiveToFiftyFour;
 
-  SexRatioValueBuilder _fiftyFiveToSixtyFour;
-  SexRatioValueBuilder get fiftyFiveToSixtyFour =>
-      _$this._fiftyFiveToSixtyFour ??= new SexRatioValueBuilder();
-  set fiftyFiveToSixtyFour(SexRatioValueBuilder fiftyFiveToSixtyFour) =>
+  ValueUnitsBuilder _fiftyFiveToSixtyFour;
+  ValueUnitsBuilder get fiftyFiveToSixtyFour =>
+      _$this._fiftyFiveToSixtyFour ??= new ValueUnitsBuilder();
+  set fiftyFiveToSixtyFour(ValueUnitsBuilder fiftyFiveToSixtyFour) =>
       _$this._fiftyFiveToSixtyFour = fiftyFiveToSixtyFour;
 
-  SexRatioValueBuilder _sixtyFiveAndOver;
-  SexRatioValueBuilder get sixtyFiveAndOver =>
-      _$this._sixtyFiveAndOver ??= new SexRatioValueBuilder();
-  set sixtyFiveAndOver(SexRatioValueBuilder sixtyFiveAndOver) =>
+  ValueUnitsBuilder _sixtyFiveAndOver;
+  ValueUnitsBuilder get sixtyFiveAndOver =>
+      _$this._sixtyFiveAndOver ??= new ValueUnitsBuilder();
+  set sixtyFiveAndOver(ValueUnitsBuilder sixtyFiveAndOver) =>
       _$this._sixtyFiveAndOver = sixtyFiveAndOver;
 
   SexRatioByAgeBuilder();
@@ -5342,97 +4885,6 @@ class SexRatioByAgeBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$SexRatioValue extends SexRatioValue {
-  @override
-  final double value;
-  @override
-  final String units;
-
-  factory _$SexRatioValue([void Function(SexRatioValueBuilder) updates]) =>
-      (new SexRatioValueBuilder()..update(updates)).build();
-
-  _$SexRatioValue._({this.value, this.units}) : super._() {
-    if (value == null) {
-      throw new BuiltValueNullFieldError('SexRatioValue', 'value');
-    }
-    if (units == null) {
-      throw new BuiltValueNullFieldError('SexRatioValue', 'units');
-    }
-  }
-
-  @override
-  SexRatioValue rebuild(void Function(SexRatioValueBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  SexRatioValueBuilder toBuilder() => new SexRatioValueBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is SexRatioValue &&
-        value == other.value &&
-        units == other.units;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc($jc(0, value.hashCode), units.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper('SexRatioValue')
-          ..add('value', value)
-          ..add('units', units))
-        .toString();
-  }
-}
-
-class SexRatioValueBuilder
-    implements Builder<SexRatioValue, SexRatioValueBuilder> {
-  _$SexRatioValue _$v;
-
-  double _value;
-  double get value => _$this._value;
-  set value(double value) => _$this._value = value;
-
-  String _units;
-  String get units => _$this._units;
-  set units(String units) => _$this._units = units;
-
-  SexRatioValueBuilder();
-
-  SexRatioValueBuilder get _$this {
-    if (_$v != null) {
-      _value = _$v.value;
-      _units = _$v.units;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(SexRatioValue other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
-    _$v = other as _$SexRatioValue;
-  }
-
-  @override
-  void update(void Function(SexRatioValueBuilder) updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$SexRatioValue build() {
-    final _$result = _$v ?? new _$SexRatioValue._(value: value, units: units);
     replace(_$result);
     return _$result;
   }
@@ -5539,11 +4991,11 @@ class MaternalMortalityRateBuilder
 
 class _$InfantMortalityRate extends InfantMortalityRate {
   @override
-  final InfantMortalityRateValue total;
+  final ValueUnits total;
   @override
-  final InfantMortalityRateValue male;
+  final ValueUnits male;
   @override
-  final InfantMortalityRateValue female;
+  final ValueUnits female;
   @override
   final String date;
 
@@ -5608,20 +5060,17 @@ class InfantMortalityRateBuilder
     implements Builder<InfantMortalityRate, InfantMortalityRateBuilder> {
   _$InfantMortalityRate _$v;
 
-  InfantMortalityRateValueBuilder _total;
-  InfantMortalityRateValueBuilder get total =>
-      _$this._total ??= new InfantMortalityRateValueBuilder();
-  set total(InfantMortalityRateValueBuilder total) => _$this._total = total;
+  ValueUnitsBuilder _total;
+  ValueUnitsBuilder get total => _$this._total ??= new ValueUnitsBuilder();
+  set total(ValueUnitsBuilder total) => _$this._total = total;
 
-  InfantMortalityRateValueBuilder _male;
-  InfantMortalityRateValueBuilder get male =>
-      _$this._male ??= new InfantMortalityRateValueBuilder();
-  set male(InfantMortalityRateValueBuilder male) => _$this._male = male;
+  ValueUnitsBuilder _male;
+  ValueUnitsBuilder get male => _$this._male ??= new ValueUnitsBuilder();
+  set male(ValueUnitsBuilder male) => _$this._male = male;
 
-  InfantMortalityRateValueBuilder _female;
-  InfantMortalityRateValueBuilder get female =>
-      _$this._female ??= new InfantMortalityRateValueBuilder();
-  set female(InfantMortalityRateValueBuilder female) => _$this._female = female;
+  ValueUnitsBuilder _female;
+  ValueUnitsBuilder get female => _$this._female ??= new ValueUnitsBuilder();
+  set female(ValueUnitsBuilder female) => _$this._female = female;
 
   String _date;
   String get date => _$this._date;
@@ -5683,109 +5132,13 @@ class InfantMortalityRateBuilder
   }
 }
 
-class _$InfantMortalityRateValue extends InfantMortalityRateValue {
-  @override
-  final double value;
-  @override
-  final String units;
-
-  factory _$InfantMortalityRateValue(
-          [void Function(InfantMortalityRateValueBuilder) updates]) =>
-      (new InfantMortalityRateValueBuilder()..update(updates)).build();
-
-  _$InfantMortalityRateValue._({this.value, this.units}) : super._() {
-    if (value == null) {
-      throw new BuiltValueNullFieldError('InfantMortalityRateValue', 'value');
-    }
-    if (units == null) {
-      throw new BuiltValueNullFieldError('InfantMortalityRateValue', 'units');
-    }
-  }
-
-  @override
-  InfantMortalityRateValue rebuild(
-          void Function(InfantMortalityRateValueBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  InfantMortalityRateValueBuilder toBuilder() =>
-      new InfantMortalityRateValueBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is InfantMortalityRateValue &&
-        value == other.value &&
-        units == other.units;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc($jc(0, value.hashCode), units.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper('InfantMortalityRateValue')
-          ..add('value', value)
-          ..add('units', units))
-        .toString();
-  }
-}
-
-class InfantMortalityRateValueBuilder
-    implements
-        Builder<InfantMortalityRateValue, InfantMortalityRateValueBuilder> {
-  _$InfantMortalityRateValue _$v;
-
-  double _value;
-  double get value => _$this._value;
-  set value(double value) => _$this._value = value;
-
-  String _units;
-  String get units => _$this._units;
-  set units(String units) => _$this._units = units;
-
-  InfantMortalityRateValueBuilder();
-
-  InfantMortalityRateValueBuilder get _$this {
-    if (_$v != null) {
-      _value = _$v.value;
-      _units = _$v.units;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(InfantMortalityRateValue other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
-    _$v = other as _$InfantMortalityRateValue;
-  }
-
-  @override
-  void update(void Function(InfantMortalityRateValueBuilder) updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$InfantMortalityRateValue build() {
-    final _$result =
-        _$v ?? new _$InfantMortalityRateValue._(value: value, units: units);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 class _$LifeExpectancyAtBirth extends LifeExpectancyAtBirth {
   @override
-  final LifeExpectencyValue totalPopulation;
+  final ValueUnits totalPopulation;
   @override
-  final LifeExpectencyValue male;
+  final ValueUnits male;
   @override
-  final LifeExpectencyValue female;
+  final ValueUnits female;
   @override
   final String date;
 
@@ -5796,16 +5149,6 @@ class _$LifeExpectancyAtBirth extends LifeExpectancyAtBirth {
   _$LifeExpectancyAtBirth._(
       {this.totalPopulation, this.male, this.female, this.date})
       : super._() {
-    if (totalPopulation == null) {
-      throw new BuiltValueNullFieldError(
-          'LifeExpectancyAtBirth', 'totalPopulation');
-    }
-    if (male == null) {
-      throw new BuiltValueNullFieldError('LifeExpectancyAtBirth', 'male');
-    }
-    if (female == null) {
-      throw new BuiltValueNullFieldError('LifeExpectancyAtBirth', 'female');
-    }
     if (date == null) {
       throw new BuiltValueNullFieldError('LifeExpectancyAtBirth', 'date');
     }
@@ -5853,21 +5196,19 @@ class LifeExpectancyAtBirthBuilder
     implements Builder<LifeExpectancyAtBirth, LifeExpectancyAtBirthBuilder> {
   _$LifeExpectancyAtBirth _$v;
 
-  LifeExpectencyValueBuilder _totalPopulation;
-  LifeExpectencyValueBuilder get totalPopulation =>
-      _$this._totalPopulation ??= new LifeExpectencyValueBuilder();
-  set totalPopulation(LifeExpectencyValueBuilder totalPopulation) =>
+  ValueUnitsBuilder _totalPopulation;
+  ValueUnitsBuilder get totalPopulation =>
+      _$this._totalPopulation ??= new ValueUnitsBuilder();
+  set totalPopulation(ValueUnitsBuilder totalPopulation) =>
       _$this._totalPopulation = totalPopulation;
 
-  LifeExpectencyValueBuilder _male;
-  LifeExpectencyValueBuilder get male =>
-      _$this._male ??= new LifeExpectencyValueBuilder();
-  set male(LifeExpectencyValueBuilder male) => _$this._male = male;
+  ValueUnitsBuilder _male;
+  ValueUnitsBuilder get male => _$this._male ??= new ValueUnitsBuilder();
+  set male(ValueUnitsBuilder male) => _$this._male = male;
 
-  LifeExpectencyValueBuilder _female;
-  LifeExpectencyValueBuilder get female =>
-      _$this._female ??= new LifeExpectencyValueBuilder();
-  set female(LifeExpectencyValueBuilder female) => _$this._female = female;
+  ValueUnitsBuilder _female;
+  ValueUnitsBuilder get female => _$this._female ??= new ValueUnitsBuilder();
+  set female(ValueUnitsBuilder female) => _$this._female = female;
 
   String _date;
   String get date => _$this._date;
@@ -5905,120 +5246,25 @@ class LifeExpectancyAtBirthBuilder
     try {
       _$result = _$v ??
           new _$LifeExpectancyAtBirth._(
-              totalPopulation: totalPopulation.build(),
-              male: male.build(),
-              female: female.build(),
+              totalPopulation: _totalPopulation?.build(),
+              male: _male?.build(),
+              female: _female?.build(),
               date: date);
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'totalPopulation';
-        totalPopulation.build();
+        _totalPopulation?.build();
         _$failedField = 'male';
-        male.build();
+        _male?.build();
         _$failedField = 'female';
-        female.build();
+        _female?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'LifeExpectancyAtBirth', _$failedField, e.toString());
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$LifeExpectencyValue extends LifeExpectencyValue {
-  @override
-  final double value;
-  @override
-  final String units;
-
-  factory _$LifeExpectencyValue(
-          [void Function(LifeExpectencyValueBuilder) updates]) =>
-      (new LifeExpectencyValueBuilder()..update(updates)).build();
-
-  _$LifeExpectencyValue._({this.value, this.units}) : super._() {
-    if (value == null) {
-      throw new BuiltValueNullFieldError('LifeExpectencyValue', 'value');
-    }
-    if (units == null) {
-      throw new BuiltValueNullFieldError('LifeExpectencyValue', 'units');
-    }
-  }
-
-  @override
-  LifeExpectencyValue rebuild(
-          void Function(LifeExpectencyValueBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  LifeExpectencyValueBuilder toBuilder() =>
-      new LifeExpectencyValueBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is LifeExpectencyValue &&
-        value == other.value &&
-        units == other.units;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc($jc(0, value.hashCode), units.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper('LifeExpectencyValue')
-          ..add('value', value)
-          ..add('units', units))
-        .toString();
-  }
-}
-
-class LifeExpectencyValueBuilder
-    implements Builder<LifeExpectencyValue, LifeExpectencyValueBuilder> {
-  _$LifeExpectencyValue _$v;
-
-  double _value;
-  double get value => _$this._value;
-  set value(double value) => _$this._value = value;
-
-  String _units;
-  String get units => _$this._units;
-  set units(String units) => _$this._units = units;
-
-  LifeExpectencyValueBuilder();
-
-  LifeExpectencyValueBuilder get _$this {
-    if (_$v != null) {
-      _value = _$v.value;
-      _units = _$v.units;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(LifeExpectencyValue other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
-    _$v = other as _$LifeExpectencyValue;
-  }
-
-  @override
-  void update(void Function(LifeExpectencyValueBuilder) updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$LifeExpectencyValue build() {
-    final _$result =
-        _$v ?? new _$LifeExpectencyValue._(value: value, units: units);
     replace(_$result);
     return _$result;
   }
@@ -6142,9 +5388,6 @@ class _$DrinkingWaterSource extends DrinkingWaterSource {
     if (unimproved == null) {
       throw new BuiltValueNullFieldError('DrinkingWaterSource', 'unimproved');
     }
-    if (date == null) {
-      throw new BuiltValueNullFieldError('DrinkingWaterSource', 'date');
-    }
   }
 
   @override
@@ -6255,31 +5498,18 @@ class DrinkingWaterSourceBuilder
 
 class _$DrinkingWaterClassification extends DrinkingWaterClassification {
   @override
-  final DrinkingWaterValue urban;
+  final ValueUnits urban;
   @override
-  final DrinkingWaterValue rural;
+  final ValueUnits rural;
   @override
-  final DrinkingWaterValue total;
+  final ValueUnits total;
 
   factory _$DrinkingWaterClassification(
           [void Function(DrinkingWaterClassificationBuilder) updates]) =>
       (new DrinkingWaterClassificationBuilder()..update(updates)).build();
 
   _$DrinkingWaterClassification._({this.urban, this.rural, this.total})
-      : super._() {
-    if (urban == null) {
-      throw new BuiltValueNullFieldError(
-          'DrinkingWaterClassification', 'urban');
-    }
-    if (rural == null) {
-      throw new BuiltValueNullFieldError(
-          'DrinkingWaterClassification', 'rural');
-    }
-    if (total == null) {
-      throw new BuiltValueNullFieldError(
-          'DrinkingWaterClassification', 'total');
-    }
-  }
+      : super._();
 
   @override
   DrinkingWaterClassification rebuild(
@@ -6321,20 +5551,17 @@ class DrinkingWaterClassificationBuilder
             DrinkingWaterClassificationBuilder> {
   _$DrinkingWaterClassification _$v;
 
-  DrinkingWaterValueBuilder _urban;
-  DrinkingWaterValueBuilder get urban =>
-      _$this._urban ??= new DrinkingWaterValueBuilder();
-  set urban(DrinkingWaterValueBuilder urban) => _$this._urban = urban;
+  ValueUnitsBuilder _urban;
+  ValueUnitsBuilder get urban => _$this._urban ??= new ValueUnitsBuilder();
+  set urban(ValueUnitsBuilder urban) => _$this._urban = urban;
 
-  DrinkingWaterValueBuilder _rural;
-  DrinkingWaterValueBuilder get rural =>
-      _$this._rural ??= new DrinkingWaterValueBuilder();
-  set rural(DrinkingWaterValueBuilder rural) => _$this._rural = rural;
+  ValueUnitsBuilder _rural;
+  ValueUnitsBuilder get rural => _$this._rural ??= new ValueUnitsBuilder();
+  set rural(ValueUnitsBuilder rural) => _$this._rural = rural;
 
-  DrinkingWaterValueBuilder _total;
-  DrinkingWaterValueBuilder get total =>
-      _$this._total ??= new DrinkingWaterValueBuilder();
-  set total(DrinkingWaterValueBuilder total) => _$this._total = total;
+  ValueUnitsBuilder _total;
+  ValueUnitsBuilder get total => _$this._total ??= new ValueUnitsBuilder();
+  set total(ValueUnitsBuilder total) => _$this._total = total;
 
   DrinkingWaterClassificationBuilder();
 
@@ -6367,117 +5594,24 @@ class DrinkingWaterClassificationBuilder
     try {
       _$result = _$v ??
           new _$DrinkingWaterClassification._(
-              urban: urban.build(), rural: rural.build(), total: total.build());
+              urban: _urban?.build(),
+              rural: _rural?.build(),
+              total: _total?.build());
     } catch (_) {
       String _$failedField;
       try {
         _$failedField = 'urban';
-        urban.build();
+        _urban?.build();
         _$failedField = 'rural';
-        rural.build();
+        _rural?.build();
         _$failedField = 'total';
-        total.build();
+        _total?.build();
       } catch (e) {
         throw new BuiltValueNestedFieldError(
             'DrinkingWaterClassification', _$failedField, e.toString());
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$DrinkingWaterValue extends DrinkingWaterValue {
-  @override
-  final double value;
-  @override
-  final String units;
-
-  factory _$DrinkingWaterValue(
-          [void Function(DrinkingWaterValueBuilder) updates]) =>
-      (new DrinkingWaterValueBuilder()..update(updates)).build();
-
-  _$DrinkingWaterValue._({this.value, this.units}) : super._() {
-    if (value == null) {
-      throw new BuiltValueNullFieldError('DrinkingWaterValue', 'value');
-    }
-    if (units == null) {
-      throw new BuiltValueNullFieldError('DrinkingWaterValue', 'units');
-    }
-  }
-
-  @override
-  DrinkingWaterValue rebuild(
-          void Function(DrinkingWaterValueBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  DrinkingWaterValueBuilder toBuilder() =>
-      new DrinkingWaterValueBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is DrinkingWaterValue &&
-        value == other.value &&
-        units == other.units;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc($jc(0, value.hashCode), units.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper('DrinkingWaterValue')
-          ..add('value', value)
-          ..add('units', units))
-        .toString();
-  }
-}
-
-class DrinkingWaterValueBuilder
-    implements Builder<DrinkingWaterValue, DrinkingWaterValueBuilder> {
-  _$DrinkingWaterValue _$v;
-
-  double _value;
-  double get value => _$this._value;
-  set value(double value) => _$this._value = value;
-
-  String _units;
-  String get units => _$this._units;
-  set units(String units) => _$this._units = units;
-
-  DrinkingWaterValueBuilder();
-
-  DrinkingWaterValueBuilder get _$this {
-    if (_$v != null) {
-      _value = _$v.value;
-      _units = _$v.units;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(DrinkingWaterValue other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
-    _$v = other as _$DrinkingWaterValue;
-  }
-
-  @override
-  void update(void Function(DrinkingWaterValueBuilder) updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$DrinkingWaterValue build() {
-    final _$result =
-        _$v ?? new _$DrinkingWaterValue._(value: value, units: units);
     replace(_$result);
     return _$result;
   }
@@ -6620,11 +5754,11 @@ class SanitationFacilityAccessBuilder
 class _$SanitationFacilityClassification
     extends SanitationFacilityClassification {
   @override
-  final SanitationFacilityValue urban;
+  final ValueUnits urban;
   @override
-  final SanitationFacilityValue rural;
+  final ValueUnits rural;
   @override
-  final SanitationFacilityValue total;
+  final ValueUnits total;
 
   factory _$SanitationFacilityClassification(
           [void Function(SanitationFacilityClassificationBuilder) updates]) =>
@@ -6686,20 +5820,17 @@ class SanitationFacilityClassificationBuilder
             SanitationFacilityClassificationBuilder> {
   _$SanitationFacilityClassification _$v;
 
-  SanitationFacilityValueBuilder _urban;
-  SanitationFacilityValueBuilder get urban =>
-      _$this._urban ??= new SanitationFacilityValueBuilder();
-  set urban(SanitationFacilityValueBuilder urban) => _$this._urban = urban;
+  ValueUnitsBuilder _urban;
+  ValueUnitsBuilder get urban => _$this._urban ??= new ValueUnitsBuilder();
+  set urban(ValueUnitsBuilder urban) => _$this._urban = urban;
 
-  SanitationFacilityValueBuilder _rural;
-  SanitationFacilityValueBuilder get rural =>
-      _$this._rural ??= new SanitationFacilityValueBuilder();
-  set rural(SanitationFacilityValueBuilder rural) => _$this._rural = rural;
+  ValueUnitsBuilder _rural;
+  ValueUnitsBuilder get rural => _$this._rural ??= new ValueUnitsBuilder();
+  set rural(ValueUnitsBuilder rural) => _$this._rural = rural;
 
-  SanitationFacilityValueBuilder _total;
-  SanitationFacilityValueBuilder get total =>
-      _$this._total ??= new SanitationFacilityValueBuilder();
-  set total(SanitationFacilityValueBuilder total) => _$this._total = total;
+  ValueUnitsBuilder _total;
+  ValueUnitsBuilder get total => _$this._total ??= new ValueUnitsBuilder();
+  set total(ValueUnitsBuilder total) => _$this._total = total;
 
   SanitationFacilityClassificationBuilder();
 
@@ -6748,102 +5879,6 @@ class SanitationFacilityClassificationBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$SanitationFacilityValue extends SanitationFacilityValue {
-  @override
-  final double value;
-  @override
-  final String units;
-
-  factory _$SanitationFacilityValue(
-          [void Function(SanitationFacilityValueBuilder) updates]) =>
-      (new SanitationFacilityValueBuilder()..update(updates)).build();
-
-  _$SanitationFacilityValue._({this.value, this.units}) : super._() {
-    if (value == null) {
-      throw new BuiltValueNullFieldError('SanitationFacilityValue', 'value');
-    }
-    if (units == null) {
-      throw new BuiltValueNullFieldError('SanitationFacilityValue', 'units');
-    }
-  }
-
-  @override
-  SanitationFacilityValue rebuild(
-          void Function(SanitationFacilityValueBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  SanitationFacilityValueBuilder toBuilder() =>
-      new SanitationFacilityValueBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is SanitationFacilityValue &&
-        value == other.value &&
-        units == other.units;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc($jc(0, value.hashCode), units.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper('SanitationFacilityValue')
-          ..add('value', value)
-          ..add('units', units))
-        .toString();
-  }
-}
-
-class SanitationFacilityValueBuilder
-    implements
-        Builder<SanitationFacilityValue, SanitationFacilityValueBuilder> {
-  _$SanitationFacilityValue _$v;
-
-  double _value;
-  double get value => _$this._value;
-  set value(double value) => _$this._value = value;
-
-  String _units;
-  String get units => _$this._units;
-  set units(String units) => _$this._units = units;
-
-  SanitationFacilityValueBuilder();
-
-  SanitationFacilityValueBuilder get _$this {
-    if (_$v != null) {
-      _value = _$v.value;
-      _units = _$v.units;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(SanitationFacilityValue other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
-    _$v = other as _$SanitationFacilityValue;
-  }
-
-  @override
-  void update(void Function(SanitationFacilityValueBuilder) updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$SanitationFacilityValue build() {
-    final _$result =
-        _$v ?? new _$SanitationFacilityValue._(value: value, units: units);
     replace(_$result);
     return _$result;
   }
@@ -7173,11 +6208,11 @@ class _$Literacy extends Literacy {
   @override
   final String definition;
   @override
-  final LiteracyValue totalPopulation;
+  final ValueUnits totalPopulation;
   @override
-  final LiteracyValue male;
+  final ValueUnits male;
   @override
-  final LiteracyValue female;
+  final ValueUnits female;
   @override
   final String note;
   @override
@@ -7265,20 +6300,19 @@ class LiteracyBuilder implements Builder<Literacy, LiteracyBuilder> {
   String get definition => _$this._definition;
   set definition(String definition) => _$this._definition = definition;
 
-  LiteracyValueBuilder _totalPopulation;
-  LiteracyValueBuilder get totalPopulation =>
-      _$this._totalPopulation ??= new LiteracyValueBuilder();
-  set totalPopulation(LiteracyValueBuilder totalPopulation) =>
+  ValueUnitsBuilder _totalPopulation;
+  ValueUnitsBuilder get totalPopulation =>
+      _$this._totalPopulation ??= new ValueUnitsBuilder();
+  set totalPopulation(ValueUnitsBuilder totalPopulation) =>
       _$this._totalPopulation = totalPopulation;
 
-  LiteracyValueBuilder _male;
-  LiteracyValueBuilder get male => _$this._male ??= new LiteracyValueBuilder();
-  set male(LiteracyValueBuilder male) => _$this._male = male;
+  ValueUnitsBuilder _male;
+  ValueUnitsBuilder get male => _$this._male ??= new ValueUnitsBuilder();
+  set male(ValueUnitsBuilder male) => _$this._male = male;
 
-  LiteracyValueBuilder _female;
-  LiteracyValueBuilder get female =>
-      _$this._female ??= new LiteracyValueBuilder();
-  set female(LiteracyValueBuilder female) => _$this._female = female;
+  ValueUnitsBuilder _female;
+  ValueUnitsBuilder get female => _$this._female ??= new ValueUnitsBuilder();
+  set female(ValueUnitsBuilder female) => _$this._female = female;
 
   String _note;
   String get note => _$this._note;
@@ -7348,104 +6382,13 @@ class LiteracyBuilder implements Builder<Literacy, LiteracyBuilder> {
   }
 }
 
-class _$LiteracyValue extends LiteracyValue {
-  @override
-  final double value;
-  @override
-  final String units;
-
-  factory _$LiteracyValue([void Function(LiteracyValueBuilder) updates]) =>
-      (new LiteracyValueBuilder()..update(updates)).build();
-
-  _$LiteracyValue._({this.value, this.units}) : super._() {
-    if (value == null) {
-      throw new BuiltValueNullFieldError('LiteracyValue', 'value');
-    }
-    if (units == null) {
-      throw new BuiltValueNullFieldError('LiteracyValue', 'units');
-    }
-  }
-
-  @override
-  LiteracyValue rebuild(void Function(LiteracyValueBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  LiteracyValueBuilder toBuilder() => new LiteracyValueBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is LiteracyValue &&
-        value == other.value &&
-        units == other.units;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc($jc(0, value.hashCode), units.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper('LiteracyValue')
-          ..add('value', value)
-          ..add('units', units))
-        .toString();
-  }
-}
-
-class LiteracyValueBuilder
-    implements Builder<LiteracyValue, LiteracyValueBuilder> {
-  _$LiteracyValue _$v;
-
-  double _value;
-  double get value => _$this._value;
-  set value(double value) => _$this._value = value;
-
-  String _units;
-  String get units => _$this._units;
-  set units(String units) => _$this._units = units;
-
-  LiteracyValueBuilder();
-
-  LiteracyValueBuilder get _$this {
-    if (_$v != null) {
-      _value = _$v.value;
-      _units = _$v.units;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(LiteracyValue other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
-    _$v = other as _$LiteracyValue;
-  }
-
-  @override
-  void update(void Function(LiteracyValueBuilder) updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$LiteracyValue build() {
-    final _$result = _$v ?? new _$LiteracyValue._(value: value, units: units);
-    replace(_$result);
-    return _$result;
-  }
-}
-
 class _$SchoolLifeExpectancy extends SchoolLifeExpectancy {
   @override
-  final SchoolLifeExpectancyValue total;
+  final ValueUnits total;
   @override
-  final SchoolLifeExpectancyValue male;
+  final ValueUnits male;
   @override
-  final SchoolLifeExpectancyValue female;
+  final ValueUnits female;
   @override
   final String date;
 
@@ -7510,21 +6453,17 @@ class SchoolLifeExpectancyBuilder
     implements Builder<SchoolLifeExpectancy, SchoolLifeExpectancyBuilder> {
   _$SchoolLifeExpectancy _$v;
 
-  SchoolLifeExpectancyValueBuilder _total;
-  SchoolLifeExpectancyValueBuilder get total =>
-      _$this._total ??= new SchoolLifeExpectancyValueBuilder();
-  set total(SchoolLifeExpectancyValueBuilder total) => _$this._total = total;
+  ValueUnitsBuilder _total;
+  ValueUnitsBuilder get total => _$this._total ??= new ValueUnitsBuilder();
+  set total(ValueUnitsBuilder total) => _$this._total = total;
 
-  SchoolLifeExpectancyValueBuilder _male;
-  SchoolLifeExpectancyValueBuilder get male =>
-      _$this._male ??= new SchoolLifeExpectancyValueBuilder();
-  set male(SchoolLifeExpectancyValueBuilder male) => _$this._male = male;
+  ValueUnitsBuilder _male;
+  ValueUnitsBuilder get male => _$this._male ??= new ValueUnitsBuilder();
+  set male(ValueUnitsBuilder male) => _$this._male = male;
 
-  SchoolLifeExpectancyValueBuilder _female;
-  SchoolLifeExpectancyValueBuilder get female =>
-      _$this._female ??= new SchoolLifeExpectancyValueBuilder();
-  set female(SchoolLifeExpectancyValueBuilder female) =>
-      _$this._female = female;
+  ValueUnitsBuilder _female;
+  ValueUnitsBuilder get female => _$this._female ??= new ValueUnitsBuilder();
+  set female(ValueUnitsBuilder female) => _$this._female = female;
 
   String _date;
   String get date => _$this._date;
@@ -7581,102 +6520,6 @@ class SchoolLifeExpectancyBuilder
       }
       rethrow;
     }
-    replace(_$result);
-    return _$result;
-  }
-}
-
-class _$SchoolLifeExpectancyValue extends SchoolLifeExpectancyValue {
-  @override
-  final int value;
-  @override
-  final String units;
-
-  factory _$SchoolLifeExpectancyValue(
-          [void Function(SchoolLifeExpectancyValueBuilder) updates]) =>
-      (new SchoolLifeExpectancyValueBuilder()..update(updates)).build();
-
-  _$SchoolLifeExpectancyValue._({this.value, this.units}) : super._() {
-    if (value == null) {
-      throw new BuiltValueNullFieldError('SchoolLifeExpectancyValue', 'value');
-    }
-    if (units == null) {
-      throw new BuiltValueNullFieldError('SchoolLifeExpectancyValue', 'units');
-    }
-  }
-
-  @override
-  SchoolLifeExpectancyValue rebuild(
-          void Function(SchoolLifeExpectancyValueBuilder) updates) =>
-      (toBuilder()..update(updates)).build();
-
-  @override
-  SchoolLifeExpectancyValueBuilder toBuilder() =>
-      new SchoolLifeExpectancyValueBuilder()..replace(this);
-
-  @override
-  bool operator ==(Object other) {
-    if (identical(other, this)) return true;
-    return other is SchoolLifeExpectancyValue &&
-        value == other.value &&
-        units == other.units;
-  }
-
-  @override
-  int get hashCode {
-    return $jf($jc($jc(0, value.hashCode), units.hashCode));
-  }
-
-  @override
-  String toString() {
-    return (newBuiltValueToStringHelper('SchoolLifeExpectancyValue')
-          ..add('value', value)
-          ..add('units', units))
-        .toString();
-  }
-}
-
-class SchoolLifeExpectancyValueBuilder
-    implements
-        Builder<SchoolLifeExpectancyValue, SchoolLifeExpectancyValueBuilder> {
-  _$SchoolLifeExpectancyValue _$v;
-
-  int _value;
-  int get value => _$this._value;
-  set value(int value) => _$this._value = value;
-
-  String _units;
-  String get units => _$this._units;
-  set units(String units) => _$this._units = units;
-
-  SchoolLifeExpectancyValueBuilder();
-
-  SchoolLifeExpectancyValueBuilder get _$this {
-    if (_$v != null) {
-      _value = _$v.value;
-      _units = _$v.units;
-      _$v = null;
-    }
-    return this;
-  }
-
-  @override
-  void replace(SchoolLifeExpectancyValue other) {
-    if (other == null) {
-      throw new ArgumentError.notNull('other');
-    }
-    _$v = other as _$SchoolLifeExpectancyValue;
-  }
-
-  @override
-  void update(void Function(SchoolLifeExpectancyValueBuilder) updates) {
-    if (updates != null) updates(this);
-  }
-
-  @override
-  _$SchoolLifeExpectancyValue build() {
-    final _$result =
-        _$v ?? new _$SchoolLifeExpectancyValue._(value: value, units: units);
     replace(_$result);
     return _$result;
   }

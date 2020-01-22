@@ -1,6 +1,10 @@
 import 'package:built_collection/built_collection.dart';
 import 'package:built_value/built_value.dart';
+import 'package:built_value/json_object.dart';
 import 'package:built_value/serializer.dart';
+import 'package:cia_world_factbook/src/model/serializers.dart';
+
+import 'common.dart';
 
 part 'people.g.dart';
 
@@ -11,47 +15,73 @@ abstract class People implements Built<People, PeopleBuilder> {
 
   Languages get languages;
 
+  @nullable
   Religions get religions;
 
   @BuiltValueField(wireName: 'age_structure')
+  @nullable
   AgeStructure get ageStructure;
 
+  @BuiltValueField(wireName: 'dependency_ratios')
+  @nullable
   DependencyRatios get dependencyRatios;
 
   @BuiltValueField(wireName: 'median_age')
+  @nullable
   MedianAge get medianAge;
 
   @BuiltValueField(wireName: 'population_growth_rate')
+  @nullable
   PopulationGrowthRate get populationGrowthRate;
 
   @BuiltValueField(wireName: 'birth_rate')
+  @nullable
   BirthRate get birthRate;
 
   @BuiltValueField(wireName: 'death_rate')
+  @nullable
   DeathRate get deathRate;
 
   @BuiltValueField(wireName: 'population_distribution')
+  @nullable
   String get populationDistribution;
 
   @BuiltValueField(wireName: 'major_urban_areas')
+  @nullable
   MajorUrbanAreas get majorUrbanAreas;
 
   @BuiltValueField(wireName: 'sex_ratio')
+  @nullable
   SexRatio get sexRatio;
 
   @BuiltValueField(wireName: 'maternal_mortality_rate')
+  @nullable
   MaternalMortalityRate get maternalMortalityRate;
 
   @BuiltValueField(wireName: 'infant_mortality_rate')
-  InfantMortalityRate get infantMortalityRate;
+  @nullable
+  JsonObject get infantMortalityRateValue;
+
+  InfantMortalityRate get infantMortalityRate {
+    if (infantMortalityRateValue != null &&
+        infantMortalityRateValue.isMap &&
+        infantMortalityRateValue.asMap.keys.isNotEmpty) {
+      return standardSerializers.deserializeWith(
+          InfantMortalityRate.serializer, infantMortalityRateValue.asMap);
+    }
+    return null;
+  }
 
   @BuiltValueField(wireName: 'life_expectancy_at_birth')
+  @nullable
   LifeExpectancyAtBirth get lifeExpectancyAtBirth;
 
   @BuiltValueField(wireName: 'total_fertility_rate')
+  @nullable
   TotalFertilityRate get totalFertilityRate;
 
   @BuiltValueField(wireName: 'drinking_water_source')
+  @nullable
   DrinkingWaterSource get drinkingWaterSource;
 
   People._();
@@ -63,6 +93,7 @@ abstract class Population implements Built<Population, PopulationBuilder> {
 
   int get total;
 
+  @nullable
   String get date;
 
   Population._();
@@ -75,10 +106,13 @@ abstract class Languages implements Built<Languages, LanguagesBuilder> {
   BuiltList<Language> get language;
 
   @BuiltValueField(wireName: 'most_spoken_first_language')
+  @nullable
   String get mostSpokenFirstLanguage;
 
+  @nullable
   String get note;
 
+  @nullable
   String get date;
 
   Languages._();
@@ -90,6 +124,7 @@ abstract class Language implements Built<Language, LanguageBuilder> {
 
   String get name;
 
+  @nullable
   double get percent;
 
   Language._();
@@ -108,9 +143,14 @@ abstract class Religions implements Built<Religions, ReligionsBuilder> {
 abstract class Religion implements Built<Religion, ReligionBuilder> {
   static Serializer<Religion> get serializer => _$religionSerializer;
 
+  @nullable
   String get name;
 
+  @nullable
   double get percent;
+
+  @nullable
+  String get note;
 
   Religion._();
   factory Religion([void Function(ReligionBuilder) updates]) = _$Religion;
@@ -163,35 +203,37 @@ abstract class DependencyRatios
   static Serializer<DependencyRatios> get serializer =>
       _$dependencyRatiosSerializer;
 
-  @BuiltValueField(wireName: 'total_dependency_ratio')
-  DependencyRatio get totalDependencyRatio;
+  DependencyRatiosRatios get ratios;
 
-  @BuiltValueField(wireName: 'youth_dependency_ratio')
-  DependencyRatio get youthDependencyRatio;
-
-  @BuiltValueField(wireName: 'elderly_dependency_ratio')
-  DependencyRatio get elderlyDependencyRatio;
-
-  @BuiltValueField(wireName: 'potential_support_ratio')
-  DependencyRatio get potentialSupportRatio;
+  String get date;
 
   DependencyRatios._();
   factory DependencyRatios([void Function(DependencyRatiosBuilder) updates]) =
       _$DependencyRatios;
 }
 
-abstract class DependencyRatio
-    implements Built<DependencyRatio, DependencyRatioBuilder> {
-  static Serializer<DependencyRatio> get serializer =>
-      _$dependencyRatioSerializer;
+abstract class DependencyRatiosRatios
+    implements Built<DependencyRatiosRatios, DependencyRatiosRatiosBuilder> {
+  static Serializer<DependencyRatiosRatios> get serializer =>
+      _$dependencyRatiosRatiosSerializer;
 
-  double get value;
+  @BuiltValueField(wireName: 'total_dependency_ratio')
+  ValueUnits get totalDependencyRatio;
 
-  String get units;
+  @BuiltValueField(wireName: 'youth_dependency_ratio')
+  ValueUnits get youthDependencyRatio;
 
-  DependencyRatio._();
-  factory DependencyRatio([void Function(DependencyRatioBuilder) updates]) =
-      _$DependencyRatio;
+  @BuiltValueField(wireName: 'elderly_dependency_ratio')
+  ValueUnits get elderlyDependencyRatio;
+
+  @BuiltValueField(wireName: 'potential_support_ratio')
+  @nullable
+  ValueUnits get potentialSupportRatio;
+
+  DependencyRatiosRatios._();
+  factory DependencyRatiosRatios(
+          [void Function(DependencyRatiosRatiosBuilder) updates]) =
+      _$DependencyRatiosRatios;
 }
 
 abstract class MedianAge implements Built<MedianAge, MedianAgeBuilder> {
@@ -271,7 +313,7 @@ abstract class Urbanization
   UrbanPopulation get urbanPopulation;
 
   @BuiltValueField(wireName: 'rate_of_distribution')
-  RateOfUrbanization get rateOfDistribution;
+  ValueUnits get rateOfDistribution;
 
   Urbanization._();
   factory Urbanization([void Function(UrbanizationBuilder) updates]) =
@@ -292,21 +334,6 @@ abstract class UrbanPopulation
   UrbanPopulation._();
   factory UrbanPopulation([void Function(UrbanPopulationBuilder) updates]) =
       _$UrbanPopulation;
-}
-
-abstract class RateOfUrbanization
-    implements Built<RateOfUrbanization, RateOfUrbanizationBuilder> {
-  static Serializer<RateOfUrbanization> get serializer =>
-      _$rateOfUrbanizationSerializer;
-
-  double get value;
-
-  String get units;
-
-  RateOfUrbanization._();
-  factory RateOfUrbanization(
-          [void Function(RateOfUrbanizationBuilder) updates]) =
-      _$RateOfUrbanization;
 }
 
 abstract class MajorUrbanAreas
@@ -330,8 +357,22 @@ abstract class MajorUrbanArea
 
   String get place;
 
-  int get population;
+  @BuiltValueField(wireName: 'population')
+  @nullable
+  JsonObject get populationValue;
 
+  int get population {
+    if (populationValue.isNum) {
+      return populationValue.asNum.round();
+    }
+    return 0;
+  }
+
+  @BuiltValueField(wireName: 'is_capital')
+  @nullable
+  bool get isCapital;
+
+  @nullable
   String get note;
 
   MajorUrbanArea._();
@@ -346,7 +387,7 @@ abstract class SexRatio implements Built<SexRatio, SexRatioBuilder> {
   SexRatioByAge get byAge;
 
   @BuiltValueField(wireName: 'total_population')
-  SexRatioValue get totalPopulation;
+  ValueUnits get totalPopulation;
 
   String get date;
 
@@ -359,39 +400,26 @@ abstract class SexRatioByAge
   static Serializer<SexRatioByAge> get serializer => _$sexRatioByAgeSerializer;
 
   @BuiltValueField(wireName: 'at_birth')
-  SexRatioValue get atBirth;
+  ValueUnits get atBirth;
 
   @BuiltValueField(wireName: '0_to_14_years')
-  SexRatioValue get zeroToFourteen;
+  ValueUnits get zeroToFourteen;
 
   @BuiltValueField(wireName: '15_to_24_years')
-  SexRatioValue get fifteenToTwentyFour;
+  ValueUnits get fifteenToTwentyFour;
 
   @BuiltValueField(wireName: '25_to_54_years')
-  SexRatioValue get twentyFiveToFiftyFour;
+  ValueUnits get twentyFiveToFiftyFour;
 
   @BuiltValueField(wireName: '55_to_64_years')
-  SexRatioValue get fiftyFiveToSixtyFour;
+  ValueUnits get fiftyFiveToSixtyFour;
 
   @BuiltValueField(wireName: '65_years_and_over')
-  SexRatioValue get sixtyFiveAndOver;
+  ValueUnits get sixtyFiveAndOver;
 
   SexRatioByAge._();
   factory SexRatioByAge([void Function(SexRatioByAgeBuilder) updates]) =
       _$SexRatioByAge;
-}
-
-abstract class SexRatioValue
-    implements Built<SexRatioValue, SexRatioValueBuilder> {
-  static Serializer<SexRatioValue> get serializer => _$sexRatioValueSerializer;
-
-  double get value;
-
-  String get units;
-
-  SexRatioValue._();
-  factory SexRatioValue([void Function(SexRatioValueBuilder) updates]) =
-      _$SexRatioValue;
 }
 
 abstract class MaternalMortalityRate
@@ -415,11 +443,11 @@ abstract class InfantMortalityRate
   static Serializer<InfantMortalityRate> get serializer =>
       _$infantMortalityRateSerializer;
 
-  InfantMortalityRateValue get total;
+  ValueUnits get total;
 
-  InfantMortalityRateValue get male;
+  ValueUnits get male;
 
-  InfantMortalityRateValue get female;
+  ValueUnits get female;
 
   String get date;
 
@@ -429,33 +457,20 @@ abstract class InfantMortalityRate
       _$InfantMortalityRate;
 }
 
-abstract class InfantMortalityRateValue
-    implements
-        Built<InfantMortalityRateValue, InfantMortalityRateValueBuilder> {
-  static Serializer<InfantMortalityRateValue> get serializer =>
-      _$infantMortalityRateValueSerializer;
-
-  double get value;
-
-  String get units;
-
-  InfantMortalityRateValue._();
-  factory InfantMortalityRateValue(
-          [void Function(InfantMortalityRateValueBuilder) updates]) =
-      _$InfantMortalityRateValue;
-}
-
 abstract class LifeExpectancyAtBirth
     implements Built<LifeExpectancyAtBirth, LifeExpectancyAtBirthBuilder> {
   static Serializer<LifeExpectancyAtBirth> get serializer =>
       _$lifeExpectancyAtBirthSerializer;
 
   @BuiltValueField(wireName: 'total_population')
-  LifeExpectencyValue get totalPopulation;
+  @nullable
+  ValueUnits get totalPopulation;
 
-  LifeExpectencyValue get male;
+  @nullable
+  ValueUnits get male;
 
-  LifeExpectencyValue get female;
+  @nullable
+  ValueUnits get female;
 
   String get date;
 
@@ -463,21 +478,6 @@ abstract class LifeExpectancyAtBirth
   factory LifeExpectancyAtBirth(
           [void Function(LifeExpectancyAtBirthBuilder) updates]) =
       _$LifeExpectancyAtBirth;
-}
-
-abstract class LifeExpectencyValue
-    implements Built<LifeExpectencyValue, LifeExpectencyValueBuilder> {
-  static Serializer<LifeExpectencyValue> get serializer =>
-      _$lifeExpectencyValueSerializer;
-
-  double get value;
-
-  String get units;
-
-  LifeExpectencyValue._();
-  factory LifeExpectencyValue(
-          [void Function(LifeExpectencyValueBuilder) updates]) =
-      _$LifeExpectencyValue;
 }
 
 abstract class TotalFertilityRate
@@ -505,6 +505,7 @@ abstract class DrinkingWaterSource
 
   DrinkingWaterClassification get unimproved;
 
+  @nullable
   String get date;
 
   DrinkingWaterSource._();
@@ -519,31 +520,19 @@ abstract class DrinkingWaterClassification
   static Serializer<DrinkingWaterClassification> get serializer =>
       _$drinkingWaterClassificationSerializer;
 
-  DrinkingWaterValue get urban;
+  @nullable
+  ValueUnits get urban;
 
-  DrinkingWaterValue get rural;
+  @nullable
+  ValueUnits get rural;
 
-  DrinkingWaterValue get total;
+  @nullable
+  ValueUnits get total;
 
   DrinkingWaterClassification._();
   factory DrinkingWaterClassification(
           [void Function(DrinkingWaterClassificationBuilder) updates]) =
       _$DrinkingWaterClassification;
-}
-
-abstract class DrinkingWaterValue
-    implements Built<DrinkingWaterValue, DrinkingWaterValueBuilder> {
-  static Serializer<DrinkingWaterValue> get serializer =>
-      _$drinkingWaterValueSerializer;
-
-  double get value;
-
-  String get units;
-
-  DrinkingWaterValue._();
-  factory DrinkingWaterValue(
-          [void Function(DrinkingWaterValueBuilder) updates]) =
-      _$DrinkingWaterValue;
 }
 
 abstract class SanitationFacilityAccess
@@ -571,31 +560,16 @@ abstract class SanitationFacilityClassification
   static Serializer<SanitationFacilityClassification> get serializer =>
       _$sanitationFacilityClassificationSerializer;
 
-  SanitationFacilityValue get urban;
+  ValueUnits get urban;
 
-  SanitationFacilityValue get rural;
+  ValueUnits get rural;
 
-  SanitationFacilityValue get total;
+  ValueUnits get total;
 
   SanitationFacilityClassification._();
   factory SanitationFacilityClassification(
           [void Function(SanitationFacilityClassificationBuilder) updates]) =
       _$SanitationFacilityClassification;
-}
-
-abstract class SanitationFacilityValue
-    implements Built<SanitationFacilityValue, SanitationFacilityValueBuilder> {
-  static Serializer<SanitationFacilityValue> get serializer =>
-      _$sanitationFacilityValueSerializer;
-
-  double get value;
-
-  String get units;
-
-  SanitationFacilityValue._();
-  factory SanitationFacilityValue(
-          [void Function(SanitationFacilityValueBuilder) updates]) =
-      _$SanitationFacilityValue;
 }
 
 abstract class HIVAIDs implements Built<HIVAIDs, HIVAIDsBuilder> {
@@ -648,11 +622,11 @@ abstract class Literacy implements Built<Literacy, LiteracyBuilder> {
   String get definition;
 
   @BuiltValueField(wireName: 'total_population')
-  LiteracyValue get totalPopulation;
+  ValueUnits get totalPopulation;
 
-  LiteracyValue get male;
+  ValueUnits get male;
 
-  LiteracyValue get female;
+  ValueUnits get female;
 
   String get note;
 
@@ -662,29 +636,16 @@ abstract class Literacy implements Built<Literacy, LiteracyBuilder> {
   factory Literacy([void Function(LiteracyBuilder) updates]) = _$Literacy;
 }
 
-abstract class LiteracyValue
-    implements Built<LiteracyValue, LiteracyValueBuilder> {
-  static Serializer<LiteracyValue> get serializer => _$literacyValueSerializer;
-
-  double get value;
-
-  String get units;
-
-  LiteracyValue._();
-  factory LiteracyValue([void Function(LiteracyValueBuilder) updates]) =
-      _$LiteracyValue;
-}
-
 abstract class SchoolLifeExpectancy
     implements Built<SchoolLifeExpectancy, SchoolLifeExpectancyBuilder> {
   static Serializer<SchoolLifeExpectancy> get serializer =>
       _$schoolLifeExpectancySerializer;
 
-  SchoolLifeExpectancyValue get total;
+  ValueUnits get total;
 
-  SchoolLifeExpectancyValue get male;
+  ValueUnits get male;
 
-  SchoolLifeExpectancyValue get female;
+  ValueUnits get female;
 
   String get date;
 
@@ -692,20 +653,4 @@ abstract class SchoolLifeExpectancy
   factory SchoolLifeExpectancy(
           [void Function(SchoolLifeExpectancyBuilder) updates]) =
       _$SchoolLifeExpectancy;
-}
-
-abstract class SchoolLifeExpectancyValue
-    implements
-        Built<SchoolLifeExpectancyValue, SchoolLifeExpectancyValueBuilder> {
-  static Serializer<SchoolLifeExpectancyValue> get serializer =>
-      _$schoolLifeExpectancyValueSerializer;
-
-  int get value;
-
-  String get units;
-
-  SchoolLifeExpectancyValue._();
-  factory SchoolLifeExpectancyValue(
-          [void Function(SchoolLifeExpectancyValueBuilder) updates]) =
-      _$SchoolLifeExpectancyValue;
 }

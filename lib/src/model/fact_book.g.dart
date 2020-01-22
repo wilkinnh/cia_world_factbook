@@ -120,7 +120,12 @@ class _$CountryDataSerializer implements StructuredSerializer<CountryData> {
       serializers.serialize(object.government,
           specifiedType: const FullType(Government)),
     ];
-
+    if (object.people != null) {
+      result
+        ..add('people')
+        ..add(serializers.serialize(object.people,
+            specifiedType: const FullType(People)));
+    }
     return result;
   }
 
@@ -146,6 +151,10 @@ class _$CountryDataSerializer implements StructuredSerializer<CountryData> {
         case 'geography':
           result.geography.replace(serializers.deserialize(value,
               specifiedType: const FullType(Geography)) as Geography);
+          break;
+        case 'people':
+          result.people.replace(serializers.deserialize(value,
+              specifiedType: const FullType(People)) as People);
           break;
         case 'government':
           result.government.replace(serializers.deserialize(value,
@@ -388,13 +397,19 @@ class _$CountryData extends CountryData {
   @override
   final Geography geography;
   @override
+  final People people;
+  @override
   final Government government;
 
   factory _$CountryData([void Function(CountryDataBuilder) updates]) =>
       (new CountryDataBuilder()..update(updates)).build();
 
   _$CountryData._(
-      {this.name, this.introduction, this.geography, this.government})
+      {this.name,
+      this.introduction,
+      this.geography,
+      this.people,
+      this.government})
       : super._() {
     if (name == null) {
       throw new BuiltValueNullFieldError('CountryData', 'name');
@@ -424,14 +439,17 @@ class _$CountryData extends CountryData {
         name == other.name &&
         introduction == other.introduction &&
         geography == other.geography &&
+        people == other.people &&
         government == other.government;
   }
 
   @override
   int get hashCode {
     return $jf($jc(
-        $jc($jc($jc(0, name.hashCode), introduction.hashCode),
-            geography.hashCode),
+        $jc(
+            $jc($jc($jc(0, name.hashCode), introduction.hashCode),
+                geography.hashCode),
+            people.hashCode),
         government.hashCode));
   }
 
@@ -441,6 +459,7 @@ class _$CountryData extends CountryData {
           ..add('name', name)
           ..add('introduction', introduction)
           ..add('geography', geography)
+          ..add('people', people)
           ..add('government', government))
         .toString();
   }
@@ -464,6 +483,10 @@ class CountryDataBuilder implements Builder<CountryData, CountryDataBuilder> {
       _$this._geography ??= new GeographyBuilder();
   set geography(GeographyBuilder geography) => _$this._geography = geography;
 
+  PeopleBuilder _people;
+  PeopleBuilder get people => _$this._people ??= new PeopleBuilder();
+  set people(PeopleBuilder people) => _$this._people = people;
+
   GovernmentBuilder _government;
   GovernmentBuilder get government =>
       _$this._government ??= new GovernmentBuilder();
@@ -477,6 +500,7 @@ class CountryDataBuilder implements Builder<CountryData, CountryDataBuilder> {
       _name = _$v.name;
       _introduction = _$v.introduction?.toBuilder();
       _geography = _$v.geography?.toBuilder();
+      _people = _$v.people?.toBuilder();
       _government = _$v.government?.toBuilder();
       _$v = null;
     }
@@ -505,6 +529,7 @@ class CountryDataBuilder implements Builder<CountryData, CountryDataBuilder> {
               name: name,
               introduction: introduction.build(),
               geography: geography.build(),
+              people: _people?.build(),
               government: government.build());
     } catch (_) {
       String _$failedField;
@@ -513,6 +538,8 @@ class CountryDataBuilder implements Builder<CountryData, CountryDataBuilder> {
         introduction.build();
         _$failedField = 'geography';
         geography.build();
+        _$failedField = 'people';
+        _people?.build();
         _$failedField = 'government';
         government.build();
       } catch (e) {
