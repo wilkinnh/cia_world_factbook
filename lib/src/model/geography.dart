@@ -20,7 +20,7 @@ abstract class Geography implements Built<Geography, GeographyBuilder> {
   @nullable
   GeographicCoordinates get coordinates;
 
-  @BuiltValueField(wireName: 'map_reference')
+  @BuiltValueField(wireName: 'map_references')
   @nullable
   String get mapReferences;
 
