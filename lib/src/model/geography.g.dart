@@ -92,7 +92,7 @@ class _$GeographySerializer implements StructuredSerializer<Geography> {
     }
     if (object.mapReferences != null) {
       result
-        ..add('map_reference')
+        ..add('map_references')
         ..add(serializers.serialize(object.mapReferences,
             specifiedType: const FullType(String)));
     }
@@ -147,7 +147,7 @@ class _$GeographySerializer implements StructuredSerializer<Geography> {
                   specifiedType: const FullType(GeographicCoordinates))
               as GeographicCoordinates);
           break;
-        case 'map_reference':
+        case 'map_references':
           result.mapReferences = serializers.deserialize(value,
               specifiedType: const FullType(String)) as String;
           break;
